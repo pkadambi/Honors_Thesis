@@ -68,7 +68,7 @@ end
 
       
 % sampleSizesI = [8:30 31:2:70 70:3:109 95:4:144 145:4:205 205:4:267];
-sampleSizesI = [10:50:600];
+sampleSizesI = [10:5:90 100:25:300 300:50:600];
 
 fullSampleSizesI=sampleSizesI;
 
@@ -124,14 +124,13 @@ a1=data1coef1(1);
 % b2=data1coef2(2);
 % a2=data1coef2(1);
 
-title('Convergence for Banknote Dataset, N=50 trials')
+% title('Convergence for Banknote Dataset, N=50 trials')
 xlabel('SampleSize')
-ylabel('D_p div')
-axis([0 600 0 1])
+ylabel('D_p Divergence')
+axis([0 600 0.5 1])
 
 
-lowerBound=0.5-0.5*sqrt([dpdivMeansI' ]);
-upperBound=0.5-0.5*([dpdivMeansI' ]);
+
 
 
 % figure(2)
@@ -144,20 +143,22 @@ upperBound=0.5-0.5*([dpdivMeansI' ]);
 % axis([0 600 0 .1])
 % grid on
 
-figure (3)
-hold on
-title('Ebayes bound')
-xlabel('Sample Size')
-ylabel('Ebayes')
-[uboundfit, points2]=fit(sampleSizesI',upperBound','power2')
-[lboundfit, points2]=fit(sampleSizesI',lowerBound','power2')
-plot(uboundfit,sampleSizesI,upperBound')
-plot(lboundfit,sampleSizesI,lowerBound')
-grid on
-axis([0 600 0 .1])
+% figure (3)
+% hold on
+% title('Ebayes bound')
+% xlabel('Sample Size')
+% ylabel('Ebayes')
+% [uboundfit, points2]=fit(sampleSizesI',upperBound','power2')
+% [lboundfit, points2]=fit(sampleSizesI',lowerBound','power2')
+% plot(uboundfit,sampleSizesI,upperBound')
+% plot(lboundfit,sampleSizesI,lowerBound')
+% grid on
+% axis([0 600 0 .1])
 % lowerBound2=0.5-0.5*sqrt(dp_div_d2)
 % upperBound2=0.5-0.5*dp_div_d2
 
+lb=0.5-0.5*sqrt(dp_div_d1)
+ub=0.5-0.5*dp_div_d1
 
 
 

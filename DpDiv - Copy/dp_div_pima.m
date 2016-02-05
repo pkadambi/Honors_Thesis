@@ -30,7 +30,7 @@ dataSetSizeC=length(pimacomplete);
 dataSetSizeI=length(pimaincomplete);
 
 
-numTrials=5000;
+numTrials=50;
 maxSampleSizeC=1;
 maxSampleSizeI=1;
 
@@ -77,14 +77,14 @@ if(stepSizeC==0)
 end
 
 
-      
+% sampleSizesI = [8:50 50:3:109 95:4:144 145:4:205 205:5:267];
 % sampleSizesI = [8:50];%70 70:3:109 95:4:144 145:4:205 205:4:267];
 % sampleSizesI = [8:30 31:100];
-sampleSizesI = [8:30 31:1:60 60:2:118 120:2:150];
+% sampleSizesI = [8:30 31:1:60 60:2:118 120:2:150];
 % ; 145:4:200];
 
-% sampleSizesI = [50:12:200];
-sampleSizesC = minSampleSizeC:stepSizeC:maxSampleSizeC;
+sampleSizesI = minSampleSizeC:stepSizeC:267;
+% sampleSizesC = minSampleSizeC:stepSizeC:maxSampleSizeC;
 
 fullSampleSizesI=sampleSizesI;
 
@@ -139,7 +139,7 @@ a1=data1coef1(1);
 % b2=data1coef2(2);
 % a2=data1coef2(1);
 
-title('Convergence for Pima Indian Dataset, B=5000 Monte Carlo trials')
+% title('Convergence for Pima Indian Dataset, B=5000 Monte Carlo trials')
 xlabel('SampleSize')
 ylabel('D_p Divergence')
 axis([0 600 0 0.4])
