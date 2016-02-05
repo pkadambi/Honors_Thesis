@@ -1,0 +1,225 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.1.19)  4 FEB 2016 22:04
+entering extended mode
+**./Dp_div.tex
+(Dp_div.tex
+LaTeX2e <2015/10/01> patch level 2
+Babel <3.9n> and hyphenation patterns for 69 languages loaded.
+("F:\MiKTeX 2.9\tex\latex\base\article.cls"
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+("F:\MiKTeX 2.9\tex\latex\base\size10.clo"
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("F:\MiKTeX 2.9\tex\latex\hyphenat\hyphenat.sty"
+Package: hyphenat 2009/09/02 v2.3c hyphenation utilities
+\langwohyphens=\language70
+LaTeX Info: Redefining \_ on input line 43.
+)
+("F:\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+("F:\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+("F:\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
+
+("F:\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("F:\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 94.
+
+("F:\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+("F:\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+("F:\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count87
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+) (Dp_div.aux)
+\openout1 = `Dp_div.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+
+("F:\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count88
+\scratchdimen=\dimen105
+\scratchbox=\box26
+\nofMPsegments=\count89
+\nofMParguments=\count90
+\everyMPshowfont=\toks15
+\MPscratchCnt=\count91
+\MPscratchDim=\dimen106
+\MPnumerator=\count92
+\makeMPintoPDFobject=\count93
+\everyMPtoPDFconversion=\toks16
+)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 11.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 11.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 11.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 16.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 16.
+
+Overfull \hbox (2.34944pt too wide) in paragraph at lines 15--17
+[]\OT1/cmr/m/n/9 This work de-tails the boot-strap es-ti-ma-tion of a non-param
+etric in-for-ma-tion
+ []
+
+
+Overfull \hbox (10.50188pt too wide) in paragraph at lines 15--17
+\OT1/cmr/m/n/9 boot-strap ap-proach is used to cal-cu-late the di-ver-gence mea
+-sure. Monte-Carlo
+ []
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 22.
+[1
+
+{C:/Users/Prad/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+Overfull \hbox (9.36185pt too wide) in paragraph at lines 34--36
+\OT1/cmr/m/n/10 mea-sure still re-quire in-for-ma-tion about the con-di-tional 
+dis-tri-bu-tions cor-re-spond-ing
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 103--103
+[]\OT1/cmr/m/n/10 Monte-Carlo
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 103--103
+[]$\OML/cmm/m/it/10 D[]$ \OT1/cmr/m/n/10 Asymp-totic
+ []
+
+
+Underfull \hbox (badness 2126) in paragraph at lines 103--103
+[]\OT1/cmr/m/n/10 Bayes Er-ror Rate
+ []
+
+
+Overfull \hbox (46.43304pt too wide) in paragraph at lines 100--132
+ [] 
+ []
+
+[2] <dp_n5000.jpg, id=23, 422.32782pt x 319.1925pt>
+File: dp_n5000.jpg Graphic file (type jpg)
+ <use dp_n5000.jpg>
+Package pdftex.def Info: dp_n5000.jpg used on input line 139.
+(pdftex.def)             Requested size: 316.74509pt x 239.39378pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: dp_n5000.jpg Graphic file (type jpg)
+<use dp_n5000.jpg>
+Package pdftex.def Info: dp_n5000.jpg used on input line 147.
+(pdftex.def)             Requested size: 316.74509pt x 239.39378pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: dp_n5000.jpg Graphic file (type jpg)
+<use dp_n5000.jpg>
+Package pdftex.def Info: dp_n5000.jpg used on input line 155.
+(pdftex.def)             Requested size: 316.74509pt x 239.39378pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ù in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ì in font cmr10!
+
+Overfull \hbox (16.459pt too wide) in paragraph at lines 160--167
+\OT1/cmr/m/n/10 [3] A. O. Hero, B. Ma, O. Michel, and J. Gor-man, Alpha-diverge
+nce for clas-si-fi-ca-tion,
+ []
+
+
+Overfull \hbox (14.91742pt too wide) in paragraph at lines 160--167
+\OT1/cmr/m/n/10 in-dex-ing and re-trieval, Com-mu-ni-ca-tion and Sig-nal Pro-ce
+ss-ing Lab-o-ra-tory, Tech-ni-cal
+ []
+
+
+Overfull \hbox (2.6951pt too wide) in paragraph at lines 168--172
+\OT1/cmr/m/n/10 Clas-si-fier En-sem-bles." In-ter-na-tional Jour-nal of Smart E
+n-gi-neer-ing Sys-tem De-sign
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 168--172
+
+ []
+
+[3] [4 <./dp_n5000.jpg>] [5] (Dp_div.aux) ) 
+Here is how much of TeX's memory you used:
+ 1186 strings out of 493634
+ 14868 string characters out of 3149417
+ 80153 words of memory out of 3000000
+ 4599 multiletter control sequences out of 15000+200000
+ 10046 words of font info for 35 fonts, out of 3000000 for 9000
+ 1025 hyphenation exceptions out of 8191
+ 27i,10n,20p,885b,264s stack positions out of 5000i,500n,10000p,200000b,50000s
+<F:/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmbx10.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
+F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx7.pfb><F:/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmbx9.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mex10.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><F:/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><F:/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmmi7.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi9.pfb><F
+:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><F:/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmr17.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+r5.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><F:/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmr9.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmsy10.pfb>
+Output written on Dp_div.pdf (5 pages, 200922 bytes).
+PDF statistics:
+ 79 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+

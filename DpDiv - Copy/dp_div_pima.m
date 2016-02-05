@@ -78,7 +78,11 @@ end
 
 
       
-sampleSizesI = [8:30 31:2:70 70:3:109 95:4:144 145:4:205 205:4:267];
+% sampleSizesI = [8:50];%70 70:3:109 95:4:144 145:4:205 205:4:267];
+% sampleSizesI = [8:30 31:100];
+sampleSizesI = [8:30 31:1:60 60:2:118 120:2:150];
+% ; 145:4:200];
+
 % sampleSizesI = [50:12:200];
 sampleSizesC = minSampleSizeC:stepSizeC:maxSampleSizeC;
 
@@ -138,12 +142,13 @@ a1=data1coef1(1);
 %title('Convergence for Pima Indian Dataset, N=5000 trials')
 xlabel('SampleSize')
 ylabel('D_p Divergence')
-axis([0 600 0 0.4])
+axis([0 2*max(sampleSizesI) 0 0.4])
 
 
 lowerBound=0.5-0.5*sqrt([dpdivMeansI' ]);
 upperBound=0.5-0.5*([dpdivMeansI' ]);
-
+lb=0.5-0.5*sqrt(dp_div_d1)
+ub=0.5-0.5*dp_div_d1
 
 figure(2)
 hold on
@@ -152,7 +157,7 @@ xlabel('Sample Size')
 ylabel('Ebayes')
 plot([(2*fullSampleSizesI) ],lowerBound)
 plot([(2*fullSampleSizesI) ],upperBound)
-axis([0 600 0 1])
+axis([0 2*max(sampleSizesI) 0 1])
 grid on
 
 figure (3)
@@ -165,9 +170,10 @@ ylabel('Ebayes')
 plot(uboundfit,(2*fullSampleSizesI)',upperBound')
 plot(lboundfit,(2*fullSampleSizesI)',lowerBound')
 grid on
-% lowerBound2=0.5-0.5*sqrt(dp_div_d2)
-% upperBound2=0.5-0.5*dp_div_d2
 
 
 
+[dpdivFitI, points1]=fit((2*fullSampleSizesI)',dpdivMeansI,'power2')
+lb=0.5-0.5*sqrt(dp_div_d1)
+ub=0.5-0.5*dp_div_d1
 

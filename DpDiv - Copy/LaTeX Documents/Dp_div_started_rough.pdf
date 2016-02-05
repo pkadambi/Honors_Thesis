@@ -1,0 +1,99 @@
+\documentclass{article}
+\usepackage[none]{hyphenat}
+
+\begin{document}
+
+	\title{Bootstrap Estimation of a Non-Parametric Information Divergence Measure}
+	\author { \\
+		\small Arizona State University}
+	\date{}
+	\maketitle
+
+%----------------------------------------------------------------------------
+	\begin{abstract}
+		\noindent This work details the bootstrap estimation of a non-parametric information divergence measure - the $D_p$ divergence measure in the context of a binary classification problem. The $D_p$ divergence value is calculated as a function of sample sizes $n_j$ taken from training data, and for each $n_j$, repeated random trials of size $B$ are performed. A power law curve fit is used to characterize quality of the estimator, as the value of the $D_p$ divergence asymptotically converges for increasing $n_j$. This method is applied to several datasets, and the Bayes error rate is calculated from the $D_p$ divergence.
+	\end{abstract}
+
+%----------------------------------------------------------------------------
+		\section{Introduction}
+		A common problem in machine learning is the binary classification problem, in which data $x_i\in$ $\mathbf{R^n}$ is assigned a class label $c_i \in \{0,1\}$ according to a classification rule, where class labels $c_0$ and $c_1$ correspond to respective probability distributions $f_0(\textbf{x})$ and $f_1(\textbf{x})$. The Baysian classifier assigns class labels to $x_i$ such that the posterior probability is maximized, and the error rate of this classifier, the Bayes error rate, provides an absolute lower bound on the classification error rate.  Estimating the best achievable classification error rate makes it possible to quantify the usefulness of a feature set or the performance of a classifier [1]. 
+		
+		Given the two conditional distributions, $f_0(\textbf{x})$ and $f_1(\textbf{x})$, it is possible to write the Bayes error rate in terms of the prior probabilities $p_0$ and $p_1$ as given in [2]:
+		%insert bayes error rate equation here
+		\begin{equation} E_{Bayes}=\int p_1f_0(\textbf{x}) \,dx + \int p_0f_1(\textbf{x}) \,dx	\end{equation}
+		%ADD PROPER LIMITS TO INTEGRAL
+		%
+		Direct evaluation of this integral is impractical, as it is difficult to have a complete description for $f_0(\textbf{x})$ and $f_1(\textbf{x})$. Therefore, it becomes necessary to estimate the Bayes error.
+		In order to estimate the Bayes error rate it is possible to use expressions that give bounds on the classification error in terms of information divergence measures. However, common methods of estimating the Bayes error rate via divergence measure still require information about the conditional distributions corresponding to both class labels. Therefore the non-parametric divergence measure proposed in [3], and the Bayes error estimates derived in [2] will be used in this study.     
+		
+		Due to the asymptotic nature of the divergence estimator as a function of the data size $n$, and the 
+		
+		
+		
+		
+		%%%Revise%%%
+		\emph{Revise below to reflect the structure once the write up is complete}
+		
+		The work is organized as follows. Section 2 provides the background for this study - Section 2.1 provides a description of the divergence measure used, and its relation to the Bayes error rate, and Section 2.2 describes the bootstrap interval sampling method used. In Section 3 two example cases are considered. In 3.1, two datasets comprised of uniformly distributed features with differing means are considered, and in 3.2 the in the second case, the Pima Indian dataset is considered.
+		
+		\emph{Revise above to reflect the structure once the write up is complete}
+		%%%Revise%%%
+		
+		
+		%dp div eequation
+%		When $f_0(\textbf{x})$ and $f_1(\textbf{x})$ have a common region of support, the classification error rate is greater than zero.
+
+%----------------------------------------------------------------------------
+	\section{Background}
+	
+	\subsection{\small The $D_p$ Divergence Measure}
+	
+	%
+	\subsection{\small Bootstrap Sampling}
+
+	
+	\section{Examples}
+	
+	\subsection{\small Uniform Dataset}
+	
+	\begin{table}[ht]
+	\caption{Uniform Dataset for Which $D_p$ Value is Found via Bootstrap Method and Analytically Verified}
+	\centering % used for centering table
+	\begin{tabular}{c c c c c c c c c c} % centered columns (4 columns)
+	 %inserts double horizontal lines
+	$D_0$ &  &  &  \\ [0.5ex] % inserts table
+	%heading
+	\hline % inserts single horizontal line
+	$\mu_0$ & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\[0.5ex] % inserting body of the table
+	$\sigma_0$ & \( \frac{1}{12} \) & \( \frac{1}{12} \) & \( \frac{1}{12} \) & \( \frac{1}{12} \) & \( \frac{1}{12} \) & \( \frac{1}{12} \) & \( \frac{1}{12} \) & \( \frac{1}{12} \) &  \\[2ex]
+
+	$D_1$ & \\ [0.5ex]
+	
+	\hline
+	$\mu_0$ & \( \frac{1}{2} \) & 0 & 0 & 0 & 0 & 0 & 0 & 0\\[0.5ex] % inserting body of the table
+	$\sigma_0$ & \( \frac{1}{12} \) & \( \frac{1}{12} \) & \( \frac{1}{12} \) & \( \frac{1}{12} \) & \( \frac{1}{12} \) & \( \frac{1}{12} \) & \( \frac{1}{12} \) & \( \frac{1}{12} \) &  \\ [1ex] % [1ex] adds vertical space
+	\hline %inserts single line
+	\end{tabular}
+	\label{table:nonlin} % is used to refer this table in the text
+	\end{table}
+
+				
+		
+		
+		
+		\subsection{\small Pima Indians Dataset}
+	
+		
+		
+		\section{References}
+		[1] Hawes, Chad M., and Carey E. Priebe. "A Bootstrap Interval Estimator for Bayes' Classification Error." 2012 IEEE Statistical Signal Processing Workshop, 2012
+		\\ [0.5ex]
+		\noindent[2] V. Berisha, A. Wisler, A.O. Hero, and A. Spanias, "Empirically Estimable Classification Bounds Based on a Nonparametric Divergence Measure" IEEE Transactions on Signal Processing, vol. 64, no. 3, pp.580-591, Feb. 2016.
+		\\ [0.5ex]
+		\noindent[3] A. O. Hero, B. Ma, O. Michel, and J. Gorman, “Alpha-divergence for classification, indexing and retrieval,” Communication and Signal Processing Laboratory, Technical Report CSPL-328, U. Mich, 2001
+		\\ [0.5ex]
+		\noindent [4] K. Tumer, K. (1996) "Estimating the Bayes error rate through classifier combining" in Proceedings of the 13th International Conference on Pattern Recognition, Volume 2, 695–699
+		\\ [0.5ex]
+		\noindent[5] 
+		\\ [0.5ex]
+\end{document}
