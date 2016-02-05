@@ -9,12 +9,12 @@ offset=[zeros(1,8) ; 0.5 (zeros(1,7))];
 % sigmad2=[ones(1,8);8.41 12.06 0.12 0.22 1.49 1.77 0.35 2.73];
 
 %--------------------------------------------------------------------------
-numTrials=500;
+numTrials=200;
 
 dp_data1=zeros(3,numTrials);
 dp_data2=zeros(3,numTrials);
 
-dataSize=5000;
+dataSize=10000;
 
 data1=zeros(dataSize,dimension,2);
 a=repmat(offset(1,:),[dataSize,1])+rand(dataSize,dimension);
@@ -30,15 +30,18 @@ data1(:,:,2)=b;
 % maxSampleSize=[500  ];
 % sampleStepSize=[5  ];
 
-minSampleSize=[10 50    100];
-maxSampleSize=[100 500  10000];
-sampleStepSize=[5 25    50];
+% minSampleSize=[10 50  ];%  100];
+% maxSampleSize=[50 500 ];% 10000];
+% sampleStepSize=[5 25  ];%  50];
 
-% minSampleSize=[10 ];
-% maxSampleSize=[100 ];
-% sampleStepSize=[5 ];
+% minSampleSize=[10 50    100];
+% maxSampleSize=[100 500  10000];
+% sampleStepSize=[5 25    50];
 
-numTrials=50;
+minSampleSize=[10 100 500    1000];
+maxSampleSize=[100 500 1000  2000];
+sampleStepSize=[5 25 50     100];
+
 fullDpmeans1=[];
 % fullDpmeans2=[];
 fullSampleSizes=[];
@@ -91,7 +94,7 @@ grid on
 % [dpdivFit2, points2]=fit(fullSampleSizes',fullDpmeans2','power2')
 plot(dpdivFit1,fullSampleSizes,fullDpmeans1')
 % plot(dpdivFit2,fullSampleSizes,fullDpmeans2','x')
-boxplot(dpdivResults1, 'Labels',sampleSizes)
+% boxplot(dpdivResults1, 'Labels',sampleSizes)
 
 
 data1coef1=coeffvalues(dpdivFit1);
@@ -105,10 +108,10 @@ a1=data1coef1(1);
 % b2=data1coef2(2);
 % a2=data1coef2(1);
 
-title('D_p Divergence Convergence for D1 and D2, 100 Points')
+% title('D_p Divergence Convergence for Uniform Dataset, B=200 Monte Carlo Trials')
 xlabel('SampleSize')
-ylabel('D_p div means')
-axis([0 maxSampleSize(length(maxSampleSize)) 0.2 0.7])
+ylabel('D_p Divergence')
+axis([0 maxSampleSize(length(maxSampleSize)) 0.2 0.6])
 
 
 lowerBound1=0.5-0.5*sqrt(dp_div_d1)

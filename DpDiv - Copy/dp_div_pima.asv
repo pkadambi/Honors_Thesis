@@ -139,10 +139,10 @@ a1=data1coef1(1);
 % b2=data1coef2(2);
 % a2=data1coef2(1);
 
-title('Convergence for Pima Indian Dataset, B=5000 Monte Carlo trials')
+%title('Convergence for Pima Indian Dataset, N=5000 trials')
 xlabel('SampleSize')
 ylabel('D_p Divergence')
-axis([0 600 0 0.4])
+axis([0 2*max(sampleSizesI)+ 0 0.4])
 
 
 lowerBound=0.5-0.5*sqrt([dpdivMeansI' ]);
