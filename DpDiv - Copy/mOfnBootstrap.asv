@@ -1,0 +1,16 @@
+load('New_n_equals_5000_run_pima.mat')
+dp_m=dp_data1(99,:)
+SEM = std(dp_m)/sqrt(length(dp_m));
+[f xi]=ksdensity(dp_m);
+
+dp_sdev = std(dp_m);%/sqrt(length(dp_m));
+test_distr=mean(dp_m)+dp_sdev*randn(1,5000);
+[f1 xi1]=ksdensity(test_distr);
+%take the m=250 (actually m=500, 250 from each class)
+SEM = std(dp_m)/sqrt(length(dp_m));               % Standard Error
+ts = tinv([0.025  0.975],length(dp_m)-1);      % T-Score
+CI = mean(dp_m) + ts*SEM                      % Confidence Intervals
+[h,p,ksstat,cv]=kstest(dp_m/dp_sdev-mean());
+hold on
+plot(xi,f)
+plot(xi1,f1)

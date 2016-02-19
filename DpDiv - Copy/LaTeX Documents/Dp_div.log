@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.1.19)  5 FEB 2016 07:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.1.19)  19 FEB 2016 04:28
 entering extended mode
 **./Dp_div.tex
 (Dp_div.tex
@@ -57,145 +57,288 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 ))
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
-) (Dp_div.aux
+)
+("F:\MiKTeX 2.9\tex\latex\algorithm2e\algorithm2e.sty"
+Package: algorithm2e 2013/01/06 v5.00 algorithms environments
+\c@AlgoLine=\count88
+
+("F:\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\algocf@hangindent=\skip43
+
+("F:\MiKTeX 2.9\tex\latex\tools\xspace.sty"
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+)
+("F:\MiKTeX 2.9\tex\latex\ltxmisc\relsize.sty"
+Package: relsize 2003/07/04 ver 3.1
+)
+********************************************************
+Package `algorithm2e' Release 5.1 -- october 19 2015 --
+- algorithm2e-announce@lirmm.fr mailing list for announcement about releases
+- algorithm2e-discussion@lirmm.fr mailing list for discussion about package
+subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
+- Author: Christophe Fiorio (christophe.fiorio@umontpellier.fr)
+********************************************************
+\skiptotal=\skip44
+\skiplinenumber=\skip45
+\skiprule=\skip46
+\skiphlne=\skip47
+\skiptext=\skip48
+\skiplength=\skip49
+\algomargin=\skip50
+\skipalgocfslide=\skip51
+\algowidth=\dimen105
+\inoutsize=\dimen106
+\inoutindent=\dimen107
+\interspacetitleruled=\dimen108
+\interspacealgoruled=\dimen109
+\interspacetitleboxruled=\dimen110
+\algocf@ruledwidth=\skip52
+\algocf@inoutbox=\box26
+\algocf@inputbox=\box27
+\AlCapSkip=\skip53
+\AlCapHSkip=\skip54
+\algoskipindent=\skip55
+\algocf@nlbox=\box28
+\algocf@hangingbox=\box29
+\algocf@untilbox=\box30
+\algocf@skipuntil=\skip56
+\algocf@capbox=\box31
+\algoheightruledefault=\skip57
+\algoheightrule=\skip58
+\algotitleheightruledefault=\skip59
+\algotitleheightrule=\skip60
+\c@algocfline=\count89
+\c@algocfproc=\count90
+\c@algocf=\count91
+\algocf@algoframe=\box32
+\algocf@algobox=\box33
+) ("F:\MiKTeX 2.9\tex\latex\program\program.sty"
+\@gtempa=\dimen111
+\@gtempa=\dimen112
+\@gtempa=\dimen113
+\@gtempa=\dimen114
+\@gtempa=\dimen115
+\@gtempa=\dimen116
+\@gtempa=\dimen117
+\@gtempa=\dimen118
+\@gtempa=\dimen119
+\@gtempa=\dimen120
+\@gtempa=\dimen121
+\@gtempa=\dimen122
+\@gtempa=\dimen123
+\@gtempa=\dimen124
+\@gtempa=\dimen125
+\@gtempa=\dimen126
+\@gtempa=\dimen127
+\@gtempa=\dimen128
+\@gtempa=\dimen129
+\@gtempa=\dimen130
+\@gtempa=\dimen131
+\@gtempa=\dimen132
+\@gtempa=\dimen133
+\@gtempa=\dimen134
+\@gtempa=\dimen135
+\@gtempa=\dimen136
+\@gtempa=\dimen137
+\@gtempa=\dimen138
+\@gtempa=\dimen139
+\@gtempa=\dimen140
+\@gtempa=\dimen141
+\@gtempa=\dimen142
+\@gtempa=\dimen143
+\@gtempa=\dimen144
+\@gtempa=\dimen145
+\@gtempa=\dimen146
+\@gtempa=\dimen147
+\@gtempa=\dimen148
+\@gtempa=\dimen149
+\@gtempa=\dimen150
+\@gtempa=\dimen151
+\@gtempa=\dimen152
+\@gtempa=\dimen153
+\@gtempa=\dimen154
+\@gtempa=\dimen155
+\@gtempa=\dimen156
+\@gtempa=\dimen157
+\@gtempa=\dimen158
+\@gtempa=\dimen159
+\@gtempa=\dimen160
+\c@programline=\count92
+\old@nxttabmar=\count93
+\symeulerletters=\mathgroup4
+\powersetbox=\box34
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 839.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 839.
+LaTeX Font Info:    Try loading font information for U+eur on input line 839.
+
+("F:\MiKTeX 2.9\tex\latex\amsfonts\ueur.fd"
+File: ueur.fd 2013/01/14 v3.01 Euler Roman
+)) (Dp_div.aux
 
 LaTeX Warning: Label `table:nonlin' multiply defined.
 
 )
 \openout1 = `Dp_div.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
  ("F:\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count88
-\scratchdimen=\dimen105
-\scratchbox=\box26
-\nofMPsegments=\count89
-\nofMParguments=\count90
+\scratchcounter=\count94
+\scratchdimen=\dimen161
+\scratchbox=\box35
+\nofMPsegments=\count95
+\nofMParguments=\count96
 \everyMPshowfont=\toks15
-\MPscratchCnt=\count91
-\MPscratchDim=\dimen106
-\MPnumerator=\count92
-\makeMPintoPDFobject=\count93
+\MPscratchCnt=\count97
+\MPscratchDim=\dimen162
+\MPnumerator=\count98
+\makeMPintoPDFobject=\count99
 \everyMPtoPDFconversion=\toks16
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 12.
+(Font)              <12> on input line 14.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 12.
+(Font)              <8> on input line 14.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 12.
+(Font)              <6> on input line 14.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 17.
+(Font)              <9> on input line 19.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 17.
+(Font)              <5> on input line 19.
 
-Overfull \hbox (16.22435pt too wide) in paragraph at lines 17--18
+Overfull \hbox (16.22435pt too wide) in paragraph at lines 19--20
 []\OT1/cmr/m/n/9 This work de-tails the boot-strap es-ti-ma-tion of a non-param
 etric in-for-ma-tion
  []
 
 
-Overfull \hbox (10.50188pt too wide) in paragraph at lines 17--18
-\OT1/cmr/m/n/9 boot-strap ap-proach is used to cal-cu-late the di-ver-gence mea
--sure. Monte-Carlo
+Overfull \hbox (5.24864pt too wide) in paragraph at lines 19--20
+\OT1/cmr/m/n/9 di-ver-gence mea-sure are then com-pared to sev-eral other re-sa
+m-pling meth-ods.
  []
 
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 22.
+
+Overfull \hbox (10.32014pt too wide) in paragraph at lines 19--20
+\OT1/cmr/m/n/9 Uti-liz-ing the in-her-ent re-la-tion be-tween di-ver-gence mea-
+sures and clas-si-fi-ca-tion
+ []
+
+
+Overfull \hbox (5.90569pt too wide) in paragraph at lines 29--30
+\OT1/cmr/m/n/10 clas-si-fi-ca-tion rule, where class la-bels $\OML/cmm/m/it/10 
+c[]$ \OT1/cmr/m/n/10 and $\OML/cmm/m/it/10 c[]$ \OT1/cmr/m/n/10 cor-re-spond to
+ re-spec-tive prob-a-bil-ity
+ []
+
 [1
 
 {C:/Users/Prad/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Overfull \hbox (9.36185pt too wide) in paragraph at lines 35--36
+Overfull \hbox (9.36185pt too wide) in paragraph at lines 42--43
 \OT1/cmr/m/n/10 mea-sure still re-quire in-for-ma-tion about the con-di-tional 
 dis-tri-bu-tions cor-re-spond-ing
  []
 
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 57.
-<dp_n50_uniform.jpg, id=20, 422.32782pt x 319.1925pt>
-File: dp_n50_uniform.jpg Graphic file (type jpg)
- <use dp_n50_uniform.jpg>
-Package pdftex.def Info: dp_n50_uniform.jpg used on input line 93.
+[2] <dp_n200_uniform.jpg, id=24, 422.32782pt x 319.1925pt>
+File: dp_n200_uniform.jpg Graphic file (type jpg)
+
+<use dp_n200_uniform.jpg>
+Package pdftex.def Info: dp_n200_uniform.jpg used on input line 140.
 (pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[2] <dp_n50_gaussian.jpg, id=25, 422.32782pt x 319.1925pt>
+File: dp_n200_uniform.jpg Graphic file (type jpg)
+<use dp_n200_uniform.jpg>
+Package pdftex.def Info: dp_n200_uniform.jpg used on input line 148.
+(pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<dp_n50_gaussian.jpg, id=25, 422.32782pt x 319.1925pt>
 File: dp_n50_gaussian.jpg Graphic file (type jpg)
 
 <use dp_n50_gaussian.jpg>
-Package pdftex.def Info: dp_n50_gaussian.jpg used on input line 124.
+Package pdftex.def Info: dp_n50_gaussian.jpg used on input line 179.
 (pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[3 <./dp_n50_uniform.jpg>]
-<dp_n50_banknote.jpg, id=29, 422.32782pt x 319.1925pt>
-File: dp_n50_banknote.jpg Graphic file (type jpg)
-
-<use dp_n50_banknote.jpg>
-Package pdftex.def Info: dp_n50_banknote.jpg used on input line 134.
-(pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
-
-Overfull \hbox (2.46365pt too wide) in paragraph at lines 129--137
+[3]
+Overfull \hbox (2.46365pt too wide) in paragraph at lines 185--186
 \OT1/cmr/m/n/10 [7]. The 4-dimensional dataset con-tains data ex-tracted from i
 m-ages of ban-knotes.
  []
 
+[4 <./dp_n200_uniform.jpg>] [5 <./dp_n50_gaussian.jpg>]
+<dp_n50_banknote.jpg, id=36, 422.32782pt x 319.1925pt>
+File: dp_n50_banknote.jpg Graphic file (type jpg)
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+<use dp_n50_banknote.jpg>
+Package pdftex.def Info: dp_n50_banknote.jpg used on input line 192.
+(pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
+ [6 <./dp_n50_banknote.jpg>]
+<dp_n50_pima.jpg, id=40, 422.32782pt x 319.1925pt>
+File: dp_n50_pima.jpg Graphic file (type jpg)
+ <use dp_n50_pima.jpg>
+Package pdftex.def Info: dp_n50_pima.jpg used on input line 203.
+(pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
 
-[4 <./dp_n50_gaussian.jpg>]
-<dp_n200_pima.jpg, id=33, 422.32782pt x 319.1925pt>
+<dp_n200_pima.jpg, id=41, 422.32782pt x 319.1925pt>
 File: dp_n200_pima.jpg Graphic file (type jpg)
  <use dp_n200_pima.jpg>
-Package pdftex.def Info: dp_n200_pima.jpg used on input line 145.
+Package pdftex.def Info: dp_n200_pima.jpg used on input line 211.
 (pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
 
-<dp_n5000.jpg, id=34, 422.32782pt x 319.1925pt>
-File: dp_n5000.jpg Graphic file (type jpg)
- <use dp_n5000.jpg>
-Package pdftex.def Info: dp_n5000.jpg used on input line 153.
+<images/dp_n5000.jpg, id=42, 422.32782pt x 319.1925pt>
+File: images/dp_n5000.jpg Graphic file (type jpg)
+
+<use images/dp_n5000.jpg>
+Package pdftex.def Info: images/dp_n5000.jpg used on input line 219.
 (pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[5 <./dp_n50_banknote.jpg> <./dp_n200_pima.jpg>]
+[7 <./dp_n50_pima.jpg> <./dp_n200_pima.jpg>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 212--212
-[]\OT1/cmr/m/n/10 Monte-Carlo
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 302--302
+[]$\OML/cmm/m/it/10 D[]$ \OT1/cmr/m/n/10 Asymp-totic Value (95%
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 212--212
-[]$\OML/cmm/m/it/10 D[]$ \OT1/cmr/m/n/10 Asymp-totic Value
+Underfull \hbox (badness 2961) in paragraph at lines 302--302
+[]\OT1/cmr/m/n/10 Bayes Er-ror Rate (%),
  []
 
 
-Underfull \hbox (badness 2126) in paragraph at lines 212--212
-[]\OT1/cmr/m/n/10 Bayes Er-ror Rate
- []
-
-
-Overfull \hbox (17.98029pt too wide) in paragraph at lines 209--241
+Overfull \hbox (74.8858pt too wide) in paragraph at lines 299--331
  [] 
  []
 
@@ -212,42 +355,48 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
 
-Overfull \hbox (16.459pt too wide) in paragraph at lines 248--255
+Overfull \hbox (11.38849pt too wide) in paragraph at lines 337--345
+\OT1/cmr/m/n/10 for Bayes' Clas-si-fi-ca-tion Er-ror." 2012 IEEE Sta-tis-ti-cal
+ Sig-nal Pro-cess-ing Work-shop,
+ []
+
+
+Overfull \hbox (16.459pt too wide) in paragraph at lines 337--345
 \OT1/cmr/m/n/10 [3] A. O. Hero, B. Ma, O. Michel, and J. Gor-man, Alpha-diverge
 nce for clas-si-fi-ca-tion,
  []
 
 
-Overfull \hbox (14.91742pt too wide) in paragraph at lines 248--255
+Overfull \hbox (14.91742pt too wide) in paragraph at lines 337--345
 \OT1/cmr/m/n/10 in-dex-ing and re-trieval, Com-mu-ni-ca-tion and Sig-nal Pro-ce
 ss-ing Lab-o-ra-tory, Tech-ni-cal
  []
 
 
-Overfull \hbox (2.6951pt too wide) in paragraph at lines 256--260
+Overfull \hbox (2.6951pt too wide) in paragraph at lines 346--350
 \OT1/cmr/m/n/10 Clas-si-fier En-sem-bles." In-ter-na-tional Jour-nal of Smart E
 n-gi-neer-ing Sys-tem De-sign
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 256--260
+Underfull \hbox (badness 10000) in paragraph at lines 346--350
 
  []
 
 
-Overfull \hbox (43.79599pt too wide) in paragraph at lines 261--263
+Overfull \hbox (43.79599pt too wide) in paragraph at lines 351--353
 \OT1/cmr/m/n/10 [6] Lich-man, M. (2013). UCI Ma-chine Learn-ing Repos-i-tory [h
 ttp://archive.ics.uci.edu/ml].
  []
 
 
-Overfull \hbox (4.80627pt too wide) in paragraph at lines 261--263
+Overfull \hbox (4.80627pt too wide) in paragraph at lines 351--353
 \OT1/cmr/m/n/10 Irvine, CA: Uni-ver-sity of Cal-i-for-nia, School of In-for-ma-
 tion and Com-puter Sci-ence. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 261--263
+Underfull \hbox (badness 10000) in paragraph at lines 351--353
 
  []
 
@@ -258,39 +407,54 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ù in font cmr10!
 
-Overfull \hbox (11.09338pt too wide) in paragraph at lines 266--267
+Underfull \hbox (badness 10000) in paragraph at lines 354--356
+
+ []
+
+
+Overfull \hbox (11.09338pt too wide) in paragraph at lines 357--359
 \OT1/cmr/m/n/10 In-for-ma-tion In-equal-i-ties." (n.d.): n. pag. Uni-ver-sity o
 f North-ern British Columbia. 
  []
 
-[6 <./dp_n5000.jpg>] [7] [8] (Dp_div.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 357--359
+
+ []
+
+[8 <./images/dp_n5000.jpg>] [9] [10] (Dp_div.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
- ) 
+ )
+(\end occurred inside a group at level 1)
+
+### simple group (level 1) entered at line 1061 ({)
+### bottom level 
 Here is how much of TeX's memory you used:
- 1208 strings out of 493634
- 15342 string characters out of 3149417
- 84192 words of memory out of 3000000
- 4618 multiletter control sequences out of 15000+200000
- 10349 words of font info for 36 fonts, out of 3000000 for 9000
+ 2522 strings out of 493634
+ 33454 string characters out of 3149417
+ 116767 words of memory out of 3000000
+ 5905 multiletter control sequences out of 15000+200000
+ 12959 words of font info for 45 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 27i,10n,20p,900b,276s stack positions out of 5000i,500n,10000p,200000b,50000s
-<F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><F:/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmbx12.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmbx7.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx9.pfb><F:/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><F:/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmmi10.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.
-pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><F:/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmmi7.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmmi9.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><F:/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><F:/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmr5.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><
-F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><F:/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Dp_div.pdf (8 pages, 360353 bytes).
+ 32i,12n,24p,1052b,1957s stack positions out of 5000i,500n,10000p,200000b,50000s
+<F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><F:/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><F:/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cm/cmbx7.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx9
+.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><F:/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmmi10.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmmi12.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><F:/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><F:/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cm/cmmi9.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10
+.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><F:/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmr5.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmr7.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><F:/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><F:/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmti10.pfb>
+Output written on Dp_div.pdf (10 pages, 428970 bytes).
 PDF statistics:
- 98 PDF objects out of 1000 (max. 8388607)
+ 109 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

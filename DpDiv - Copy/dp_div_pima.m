@@ -110,7 +110,7 @@ for ii = 1:numel(sampleSizesI)
     
         f0=datasample(incomp0(:,1:8),currSampSize,'Replace',false);
         f1=datasample(incomp1(:,1:8),currSampSize,'Replace',false);
-        
+%         
 %         f0=datasample(incomp0,currSampSize,'Replace',true);
 %         f1=datasample(incomp1,currSampSize,'Replace',true);
         dp_data1(ii,jj)=Dp_div(f0,f1);

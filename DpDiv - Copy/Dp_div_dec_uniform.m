@@ -14,7 +14,7 @@ numTrials=200;
 dp_data1=zeros(3,numTrials);
 dp_data2=zeros(3,numTrials);
 
-dataSize=10000;
+dataSize=5000;
 
 data1=zeros(dataSize,dimension,2);
 a=repmat(offset(1,:),[dataSize,1])+rand(dataSize,dimension);
@@ -38,16 +38,16 @@ data1(:,:,2)=b;
 % maxSampleSize=[100 500  10000];
 % sampleStepSize=[5 25    50];
 
-minSampleSize=[10 100 500    1000];
-maxSampleSize=[100 500 1000  2000];
-sampleStepSize=[5 25 50     100];
+minSampleSize=[10 100 500  ];%  1000];
+maxSampleSize=[100 500 1000] ;% 2000];
+sampleStepSize=[5 25 50    ];% 100];
 
 fullDpmeans1=[];
 % fullDpmeans2=[];
 fullSampleSizes=[];
 
 % for nn = 1:10
-
+fulldpdata=zeros(numTrials,1);
 for n = 1:length(maxSampleSize)
     
     
@@ -82,10 +82,11 @@ for n = 1:length(maxSampleSize)
 %     dpdivMeans2=mean(dp_data2,2);
     
     fullDpmeans1=[fullDpmeans1 dpdivMeans1'];
+    fulldpdata=[fulldpdata dp_data1'];
 %     fullDpmeans2=[fullDpmeans2 dpdivMeans2'];
     
 end
-
+fulldpdata=fulldpdata(:,2:48);
 figure(1)
 hold on
 grid on
@@ -93,8 +94,8 @@ grid on
 [dpdivFit1, points1]=fit(fullSampleSizes',fullDpmeans1','power2')
 % [dpdivFit2, points2]=fit(fullSampleSizes',fullDpmeans2','power2')
 plot(dpdivFit1,fullSampleSizes,fullDpmeans1')
-% plot(dpdivFit2,fullSampleSizes,fullDpmeans2','x')
-% boxplot(dpdivResults1, 'Labels',sampleSizes)
+indexes=fliplr([47:-3:2]);
+boxplot(fulldpdata(:,indexes), 'Labels',fullSampleSizes(indexes)')
 
 
 data1coef1=coeffvalues(dpdivFit1);
