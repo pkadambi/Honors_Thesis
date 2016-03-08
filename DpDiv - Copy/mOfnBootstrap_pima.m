@@ -26,7 +26,7 @@ dpmean=mean(bs_dpmeans)
 lb=100*(0.5-0.5*sqrt(dpmean))
 ub=100*(0.5-0.5*dpmean)
 
-CI_double_bs=[prctile(bs_dpmeans,2.5) prctile(bs_dpmeans,97.5)]
+CI_b_s=[prctile(bs_dpmeans,2.5) prctile(bs_dpmeans,97.5)]
 %--------------------------------------------------------------------------
 
 CI_direct=[prctile(dpvals,2.5) prctile(dpvals,97.5)]
@@ -44,7 +44,7 @@ hold on
 
 
 [f1 xi1]=ksdensity(dpvals);
-figure (2)
+
 
 plot(xi1,f1)
 

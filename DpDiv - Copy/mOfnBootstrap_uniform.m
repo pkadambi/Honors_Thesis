@@ -20,7 +20,7 @@ for jj = 1:numTrials
 end
 
 tenThousandDpUniform=Dp_div(data1(:,:,1),data1(:,:,1));
-CI_double_bs=[prctile(bs_dpmeans,2.5) prctile(bs_dpmeans,97.5)]
+CI_b_s=[prctile(bs_dpmeans,2.5) prctile(bs_dpmeans,97.5)]
 %--------------------------------------------------------------------------
 
 CI_direct=[prctile(dpvals,2.5) prctile(dpvals,97.5)]

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.1.19)  19 FEB 2016 04:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.1.19)  8 MAR 2016 01:31
 entering extended mode
 **./Dp_div.tex
 (Dp_div.tex
@@ -177,7 +177,35 @@ LaTeX Font Info:    Try loading font information for U+eur on input line 839.
 
 ("F:\MiKTeX 2.9\tex\latex\amsfonts\ueur.fd"
 File: ueur.fd 2013/01/14 v3.01 Euler Roman
-)) (Dp_div.aux
+))
+("F:\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+("F:\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+("F:\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+("F:\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count94
+\Gm@cntv=\count95
+\c@Gm@tempcnt=\count96
+\Gm@bindingoffset=\dimen161
+\Gm@wd@mp=\dimen162
+\Gm@odd@mp=\dimen163
+\Gm@even@mp=\dimen164
+\Gm@layoutwidth=\dimen165
+\Gm@layoutheight=\dimen166
+\Gm@layouthoffset=\dimen167
+\Gm@layoutvoffset=\dimen168
+\Gm@dimlist=\toks15
+
+("F:\MiKTeX 2.9\tex\latex\geometry\geometry.cfg")) (Dp_div.aux
 
 LaTeX Warning: Label `table:nonlin' multiply defined.
 
@@ -198,123 +226,135 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
 LaTeX Font Info:    ... okay on input line 8.
  ("F:\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count94
-\scratchdimen=\dimen161
+\scratchcounter=\count97
+\scratchdimen=\dimen169
 \scratchbox=\box35
-\nofMPsegments=\count95
-\nofMParguments=\count96
-\everyMPshowfont=\toks15
-\MPscratchCnt=\count97
-\MPscratchDim=\dimen162
-\MPnumerator=\count98
-\makeMPintoPDFobject=\count99
-\everyMPtoPDFconversion=\toks16
+\nofMPsegments=\count98
+\nofMParguments=\count99
+\everyMPshowfont=\toks16
+\MPscratchCnt=\count100
+\MPscratchDim=\dimen170
+\MPnumerator=\count101
+\makeMPintoPDFobject=\count102
+\everyMPtoPDFconversion=\toks17
 )
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(81.94394pt, 433.62pt, 81.94394pt)
+* v-part:(T,H,B)=(106.75473pt, 578.15999pt, 160.13213pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=433.62pt
+* \textheight=578.15999pt
+* \oddsidemargin=9.67395pt
+* \evensidemargin=9.67395pt
+* \topmargin=-2.51526pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 14.
+(Font)              <12> on input line 15.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 14.
+(Font)              <8> on input line 15.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 14.
+(Font)              <6> on input line 15.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 19.
+(Font)              <9> on input line 20.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 19.
+(Font)              <5> on input line 20.
 
-Overfull \hbox (16.22435pt too wide) in paragraph at lines 19--20
-[]\OT1/cmr/m/n/9 This work de-tails the boot-strap es-ti-ma-tion of a non-param
-etric in-for-ma-tion
- []
-
-
-Overfull \hbox (5.24864pt too wide) in paragraph at lines 19--20
-\OT1/cmr/m/n/9 di-ver-gence mea-sure are then com-pared to sev-eral other re-sa
-m-pling meth-ods.
- []
-
-
-Overfull \hbox (10.32014pt too wide) in paragraph at lines 19--20
-\OT1/cmr/m/n/9 Uti-liz-ing the in-her-ent re-la-tion be-tween di-ver-gence mea-
-sures and clas-si-fi-ca-tion
- []
-
-
-Overfull \hbox (5.90569pt too wide) in paragraph at lines 29--30
-\OT1/cmr/m/n/10 clas-si-fi-ca-tion rule, where class la-bels $\OML/cmm/m/it/10 
-c[]$ \OT1/cmr/m/n/10 and $\OML/cmm/m/it/10 c[]$ \OT1/cmr/m/n/10 cor-re-spond to
- re-spec-tive prob-a-bil-ity
+Overfull \hbox (6.3392pt too wide) in paragraph at lines 20--21
+[]\OT1/cmr/m/n/9 This work de-tails the boot-strap es-ti-ma-tion of a non-para-
+met-ric in-for-ma-tion di-ver-gence mea-sure,
  []
 
 [1
 
-{C:/Users/Prad/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Overfull \hbox (9.36185pt too wide) in paragraph at lines 42--43
-\OT1/cmr/m/n/10 mea-sure still re-quire in-for-ma-tion about the con-di-tional 
-dis-tri-bu-tions cor-re-spond-ing
- []
-
-[2] <dp_n200_uniform.jpg, id=24, 422.32782pt x 319.1925pt>
+{C:/Users/Prad/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
+<dp_n200_uniform.jpg, id=24, 422.32782pt x 319.1925pt>
 File: dp_n200_uniform.jpg Graphic file (type jpg)
 
 <use dp_n200_uniform.jpg>
-Package pdftex.def Info: dp_n200_uniform.jpg used on input line 140.
+Package pdftex.def Info: dp_n200_uniform.jpg used on input line 158.
 (pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-File: dp_n200_uniform.jpg Graphic file (type jpg)
-<use dp_n200_uniform.jpg>
-Package pdftex.def Info: dp_n200_uniform.jpg used on input line 148.
-(pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
+<dp_n200_uniform_bars.jpg, id=25, 483.30562pt x 329.73187pt>
+File: dp_n200_uniform_bars.jpg Graphic file (type jpg)
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<dp_n50_gaussian.jpg, id=25, 422.32782pt x 319.1925pt>
-File: dp_n50_gaussian.jpg Graphic file (type jpg)
-
-<use dp_n50_gaussian.jpg>
-Package pdftex.def Info: dp_n50_gaussian.jpg used on input line 179.
-(pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
+<use dp_n200_uniform_bars.jpg>
+Package pdftex.def Info: dp_n200_uniform_bars.jpg used on input line 166.
+(pdftex.def)             Requested size: 289.98561pt x 197.84064pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [3]
-Overfull \hbox (2.46365pt too wide) in paragraph at lines 185--186
-\OT1/cmr/m/n/10 [7]. The 4-dimensional dataset con-tains data ex-tracted from i
-m-ages of ban-knotes.
- []
 
-[4 <./dp_n200_uniform.jpg>] [5 <./dp_n50_gaussian.jpg>]
-<dp_n50_banknote.jpg, id=36, 422.32782pt x 319.1925pt>
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<dp_n50_gaussian.jpg, id=29, 422.32782pt x 319.1925pt>
+File: dp_n50_gaussian.jpg Graphic file (type jpg)
+
+<use dp_n50_gaussian.jpg>
+Package pdftex.def Info: dp_n50_gaussian.jpg used on input line 198.
+(pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[4 <./dp_n200_uniform.jpg> <./dp_n200_uniform_bars.jpg>]
+<dp_n50_banknote.jpg, id=33, 422.32782pt x 319.1925pt>
 File: dp_n50_banknote.jpg Graphic file (type jpg)
 
 <use dp_n50_banknote.jpg>
-Package pdftex.def Info: dp_n50_banknote.jpg used on input line 192.
+Package pdftex.def Info: dp_n50_banknote.jpg used on input line 209.
 (pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
- [6 <./dp_n50_banknote.jpg>]
-<dp_n50_pima.jpg, id=40, 422.32782pt x 319.1925pt>
+ [5 <./dp_n50_gaussian.jpg> <./dp_n50_banknote.jpg>]
+Overfull \hbox (3.88077pt too wide) in paragraph at lines 215--216
+\OT1/cmr/m/n/10 The em-pir-i-cal ex-am-ple we con-sider is the Ban-knote Au-the
+n-ti-ca-tion Data Set taken from the Uni-ver-sity
+ []
+
+[6] <dp_n50_pima.jpg, id=40, 422.32782pt x 319.1925pt>
 File: dp_n50_pima.jpg Graphic file (type jpg)
  <use dp_n50_pima.jpg>
-Package pdftex.def Info: dp_n50_pima.jpg used on input line 203.
+Package pdftex.def Info: dp_n50_pima.jpg used on input line 224.
 (pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
 
 <dp_n200_pima.jpg, id=41, 422.32782pt x 319.1925pt>
 File: dp_n200_pima.jpg Graphic file (type jpg)
  <use dp_n200_pima.jpg>
-Package pdftex.def Info: dp_n200_pima.jpg used on input line 211.
+Package pdftex.def Info: dp_n200_pima.jpg used on input line 232.
 (pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
 
 <images/dp_n5000.jpg, id=42, 422.32782pt x 319.1925pt>
 File: images/dp_n5000.jpg Graphic file (type jpg)
 
 <use images/dp_n5000.jpg>
-Package pdftex.def Info: images/dp_n5000.jpg used on input line 219.
+Package pdftex.def Info: images/dp_n5000.jpg used on input line 240.
 (pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
 
 
@@ -324,26 +364,112 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 302--302
+[8 <./images/dp_n5000.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 323--323
 []$\OML/cmm/m/it/10 D[]$ \OT1/cmr/m/n/10 Asymp-totic Value (95%
  []
 
 
-Underfull \hbox (badness 2961) in paragraph at lines 302--302
+Underfull \hbox (badness 2961) in paragraph at lines 323--323
 []\OT1/cmr/m/n/10 Bayes Er-ror Rate (%),
  []
 
+[9]
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ù in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ì in font cmr10!
 
-Overfull \hbox (74.8858pt too wide) in paragraph at lines 299--331
- [] 
+Overfull \hbox (8.48158pt too wide) in paragraph at lines 358--366
+\OT1/cmr/m/n/10 [!h] [1] Hawes, Chad M., and Carey E. Priebe. "A Boot-strap In-
+ter-val Es-ti-ma-tor for Bayes' Clas-si-fi-ca-tion
  []
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Overfull \hbox (0.57524pt too wide) in paragraph at lines 358--366
+\OT1/cmr/m/n/10 [4] K. Tumer, K. (1996) "Es-ti-mat-ing the Bayes er-ror rate th
+rough clas-si-fier com-bin-ing" in Pro-ceed-ings
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 367--371
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 372--374
+
+ []
+
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ù in font cmr10!
+
+Overfull \hbox (189.30733pt too wide) in paragraph at lines 375--377
+\OT1/cmr/m/n/10 [7] V. Lo-hweg, Ban-knote Au-then-ti-ca-tion Data Set, 2012. [O
+n-line]. Avail-able: https://archive.ics.uci.edu/ml/datasets/banknote+authentic
+ation. 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 375--377
+
+ []
+
+
+Overfull \hbox (5.31606pt too wide) in paragraph at lines 378--380
+\OT1/cmr/m/n/10 [8] K. Pranesh, and L. Hunter. "On an In-for-ma-tion Di-ver-gen
+ce Mea-sure and In-for-ma-tion In-equal-i-ties."
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 378--380
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 381--385
+
+ []
+
+
+Overfull \hbox (108.90903pt too wide) in paragraph at lines 386--391
+\OT1/cmr/m/n/10 [12] http://www.princeton.edu/ verdu/reprints/WanKulVer.May2009
+.pdf?q=tilde/verdu/ reprints/WanKulVer.May2009.pdf
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 386--391
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 392--394
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 401--403
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 404--406
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 407--410
+
+ []
 
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
@@ -355,74 +481,37 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
 
-Overfull \hbox (11.38849pt too wide) in paragraph at lines 337--345
-\OT1/cmr/m/n/10 for Bayes' Clas-si-fi-ca-tion Er-ror." 2012 IEEE Sta-tis-ti-cal
- Sig-nal Pro-cess-ing Work-shop,
- []
-
-
-Overfull \hbox (16.459pt too wide) in paragraph at lines 337--345
-\OT1/cmr/m/n/10 [3] A. O. Hero, B. Ma, O. Michel, and J. Gor-man, Alpha-diverge
-nce for clas-si-fi-ca-tion,
- []
-
-
-Overfull \hbox (14.91742pt too wide) in paragraph at lines 337--345
-\OT1/cmr/m/n/10 in-dex-ing and re-trieval, Com-mu-ni-ca-tion and Sig-nal Pro-ce
-ss-ing Lab-o-ra-tory, Tech-ni-cal
- []
-
-
-Overfull \hbox (2.6951pt too wide) in paragraph at lines 346--350
-\OT1/cmr/m/n/10 Clas-si-fier En-sem-bles." In-ter-na-tional Jour-nal of Smart E
-n-gi-neer-ing Sys-tem De-sign
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 346--350
+Underfull \hbox (badness 10000) in paragraph at lines 411--415
 
  []
 
 
-Overfull \hbox (43.79599pt too wide) in paragraph at lines 351--353
-\OT1/cmr/m/n/10 [6] Lich-man, M. (2013). UCI Ma-chine Learn-ing Repos-i-tory [h
-ttp://archive.ics.uci.edu/ml].
- []
-
-
-Overfull \hbox (4.80627pt too wide) in paragraph at lines 351--353
-\OT1/cmr/m/n/10 Irvine, CA: Uni-ver-sity of Cal-i-for-nia, School of In-for-ma-
-tion and Com-puter Sci-ence. 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 351--353
+Underfull \hbox (badness 10000) in paragraph at lines 416--418
 
  []
 
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ú in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ù in font cmr10!
-
-Underfull \hbox (badness 10000) in paragraph at lines 354--356
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 419--421
 
  []
 
 
-Overfull \hbox (11.09338pt too wide) in paragraph at lines 357--359
-\OT1/cmr/m/n/10 In-for-ma-tion In-equal-i-ties." (n.d.): n. pag. Uni-ver-sity o
-f North-ern British Columbia. 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 357--359
+Underfull \hbox (badness 10000) in paragraph at lines 422--424
 
  []
 
-[8 <./images/dp_n5000.jpg>] [9] [10] (Dp_div.aux)
+
+Overfull \hbox (1.34383pt too wide) in paragraph at lines 425--427
+\OT1/cmr/m/n/10 [23] L. Song, M.D. Reid, A.J. Smola, and R.C. Williamson. Dis-c
+rim-i-na-tive es-ti-ma-tion of f -divergence.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 425--427
+
+ []
+
+[11] (Dp_div.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -432,29 +521,28 @@ LaTeX Warning: There were multiply-defined labels.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 2522 strings out of 493634
- 33454 string characters out of 3149417
- 116767 words of memory out of 3000000
- 5905 multiletter control sequences out of 15000+200000
- 12959 words of font info for 45 fonts, out of 3000000 for 9000
+ 3026 strings out of 493634
+ 40830 string characters out of 3149417
+ 124953 words of memory out of 3000000
+ 6391 multiletter control sequences out of 15000+200000
+ 13271 words of font info for 46 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 32i,12n,24p,1052b,1957s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 32i,12n,31p,1110b,2456s stack positions out of 5000i,500n,10000p,200000b,50000s
 <F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><F:/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><F:/MiKTeX 2.9/fonts/type1/p
 ublic/amsfonts/cm/cmbx7.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx9
 .pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><F:/MiKTeX 2.9/fo
 nts/type1/public/amsfonts/cm/cmmi10.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmmi12.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><F:/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><F:/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmmi9.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10
-.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><F:/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmr5.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmr7.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><F:/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><F:/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmti10.pfb>
-Output written on Dp_div.pdf (10 pages, 428970 bytes).
+nts/cm/cmmi6.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><F:/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi9.pfb><F:/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmr10.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.
+pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><F:/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmr5.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmr7.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><F:/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on Dp_div.pdf (11 pages, 469721 bytes).
 PDF statistics:
  109 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -3,58 +3,73 @@
 \usepackage{graphicx}
 \usepackage[]{algorithm2e}
 \usepackage{program}
-
+\usepackage[a4paper, total={6in, 8in}]{geometry}
 \graphicspath{ {images/} }
 \begin{document}
 	
 	\title{Bootstrap Estimation of a Non-Parametric Information Divergence Measure}
-	\author { \\
-		\small Arizona State University}
+	\author { Prad Kadambi and Visar Berisha \\
+		\small Arizona State University \\
+		\small School of Electrical, Computer and Energy Engineering}
 	\date{}
 	\maketitle
 	
 	%----------------------------------------------------------------------------
 	\begin{abstract}
 		
-		This work details the bootstrap estimation of a non-parametric information divergence measure, the $D_p$ divergence measure, in the context of a binary classification problem. To address the limitation posed by a finite size data set, a bootstrap approach - suggested by Hawes and Priebe - is used to calculate an asymptotic estimate of the divergence measure. Bootstrap estimates of $D_p$ are found for increasing values of sample data size, and a power law fit is used to find the asymptotic convergence value of the divergence measure as a function of sample size. The fit is also used to generate a confidence interval for the estimate which allows us to characterize the quality of the estimator. The results obtained for the divergence measure are then compared to several other resampling methods.  Utilizing the inherent relation between divergence measures and classification error rate, an analysis of the Bayes Error Rate of several test data sets is conducted via the power law estimation approach for $D_p$.
+		This work details the bootstrap estimation of a nonparametric information divergence measure, the $D_p$ divergence measure, applied to the binary classification problem.\ To address the challenge posed by computing accurate divergence estimates given finite size data, a bootstrap approach is used to in conjunction with a power law curve to calculate an asymptotic estimate of the divergence measure in question. Monte Carlo estimates of $D_p$ are found for increasing values of sample data size, and a power law fit is used to find the asymptotic convergence value of the divergence measure as a function of sample size.\ The fit is also used to generate a confidence interval for the estimate which allows us to characterize the quality of the estimator.\ The results obtained for the divergence measure are then compared to several other resampling methods.\  Utilizing the inherent relation between divergence measures and classification error rate, an analysis of the Bayes Error Rate of several test data sets is conducted via the power law estimation approach for $D_p$.
 	\end{abstract}
-	
 	%----------------------------------------------------------------------------
-	\section{Introduction}
-	\indent Information divergence measures have a wide variety of applications in machine learning, pattern recognition, statistics, and big data analysis [8]. Due to their wide range of applications, there has been particular interest in estimation of these information theoretic quantities []. 
+	% IDMs are really useful, but they're hard to compute in many cases
+	\section{Introduction} 
+	\indent Information divergence measures have a wide variety of applications in machine learning, pattern recognition, feature extraction, and big data analysis [8]. The two main classes of information divergence measures are parametric and nonparametric measures.\ Parametric divergence measures are functions of an unknown parameter $\theta$, and describe the information contained in the data about $\theta$ [18].\ Nonparametric divergence measures, notably including $f$-divergences such as the Kullback-Leibler divergence,  measure the difference between two distributions $P$ and $Q$.\ 
+	\\ [0.5ex] 
+	%Among other applications, it is possible to arrive at bounds for the classification error rate from $f$-divergences [19], so it is of interest to study estimation of $f$-divergences for classification problems.
+	\indent Normally, in estimating the divergence between two distributions, we have access to independent and identically distributed (i.i.d) training data from each distribution $X_i \in c_0$ and $Y_i \in c_1$ (where $c_0$, $c_1$ correspond to two classes of data). The challenge in estimating the divergence measure between two datasets, is that the distributions of the data $P$ and $Q$ are usually unknown. An $f$-divergence, $D_f$, is of the form: 	\begin{equation} D_f=\int_{\Omega} \phi(\frac{dP}{dQ})dP \end{equation} given a convex function $\phi(x)$, and feature space $\Omega$ [20].
+ 	As we lack knowledge of the distribution functions, a direct computation of $D_f$ is not possible.
+ 	
+ 	A naive method to calculate the divergence between the i.i.d. data is to first find the densities for $X_i$ and $Y_i$, and then calculate the divergence from the computed density estimates. 
 	
-	Equally important to estimating 
+	%SO, it is difficult to estimate IDMs, so we will get a new method
+	%THEN,we will use our method on the Bin Class PRob (BCP), After introducing the BCP, here's why we need to use the method for the BCP
 	
-	\subsection*{\small The Binary Classification Problem}
-	A common problem in machine learning is the binary classification problem, in which data $x_i\in$ $\mathbf{R^n}$ is assigned a class label $c_i \in \{0,1\}$ according to a classification rule, where class labels $c_0$ and $c_1$ correspond to respective probability distributions $f_0(\textbf{x})$ and $f_1(\textbf{x})$. The Bayesian classifier assigns class labels to $x_i$ such that the posterior probability is maximized. The error rate of this classifier, the Bayes error rate, provides an absolute lower bound on the classification error rate.  Estimating the best achievable classification error rate makes it possible to quantify the usefulness of a feature set or the performance of a classifier [1]. 
+	A common problem in machine learning is binary classification, in which data $x_i\in \mathbf{R^n}$ are assigned a class label $c_i \in \{0,1\}$, with the aim of minimizing errors in class assignment.\ Given class labels $c_0$ and $c_1$ corresponding to respective probability distributions $f_0(\textbf{x})$ and $f_1(\textbf{x})$, prior probabilities $p$ and $q$, the Bayesian classifier assigns class labels to $x_i$ such that the posterior probability is maximized.\ The error rate of this optimal classifier, the Bayes error rate (BER), provides an absolute lower bound on the classification error rate.\ Accurate estimation of the BER makes it possible to quantify the performance of a classifier with respect to this optimal lower bound, or apply improved BER estimation methods in a feature selection algorithm [1]. 
 	
-	Given the two conditional distributions, $f_0(\textbf{x})$ and $f_1(\textbf{x})$, it is possible to write the Bayes error rate in terms of the prior probabilities $p_0$ and $p_1$ as given in [2]:
+	Given the two conditional density functions, $p(\textbf{x})$ and $q(\textbf{x})$, it is possible to write the Bayes error rate in terms of the prior probabilities $p$ and $q$ as given in [2]:
 	%insert bayes error rate equation here
-	\begin{equation} E_{Bayes}=\int_{r_1} p_0f_0(\textbf{x}) \,dx + \int_{r_0} p_1f_1(\textbf{x}) \,dx	\end{equation}
+	\begin{equation} E_{Bayes}=\int_{r_1} pf_0(\textbf{x}) \,d\textbf{x} + \int_{r_0} qf_1(\textbf{x}) \,d\textbf{x} \end{equation}
 	%ADD PROPER LIMITS TO INTEGRAL
 	%
-	Here, $r_1$ and $r_0$ refer to the region where the corresponding posterior probability is larger[5].
+	Here, $r_1$ and $r_0$ refer to the regions where the respective posterior probabilities $p_1$ and $p_0$ are larger.
 	
 	
-	Direct evaluation of this integral can be quite involved and impractical, as it is challenging to create an exact model for the posterior distributions $f_0(\textbf{x})$ and $f_1(\textbf{x})$. As an alternative to direct evaluation, it is possible to derive bounds for the Bayes error rate.
+	Direct evaluation of this integral can be quite involved and impractical, as it is challenging to create an exact model for the posterior distributions $f_0(\textbf{x})$ and $f_1(\textbf{x})$. As an alternative to direct evaluation of the integral, it is possible to derive bounds for the Bayes error rate from $f$-divergences [5]. However, in estimating $f$-divergences, many of the same problems with estimating BER are encountered. Namely, $f_0(\textbf{x})$ and $f_1(\textbf{x})$ are unknown, 
+	
+	%Information divergence measures have a wide variety of applications in machine learning, pattern recognition, feature extraction, and big data analysis [8].  The two main classes of %information divergence measures are parametric and nonparametric measures.\ Parametric divergence measures are functions of an unknown parameter $\theta$, and describe the information %contained in the data about $\theta$[18].\ Nonparametric divergence measures measure the difference between two distribution functions $f_0$ and $f_1$. Due to their wide range of %sapplications, there has been particular interest in estimation of these information theoretic quantities, particularly in the machine learning literature [10-14].
+	
+	% Need some paragraph here
+	%
+	
+	Equally important to estimating the divergence measures, is obtaining a metric of estimator quality, such as variance or 95\% confidence interval. Before the estimator is applied in data analysis, knowledge of its approximate sampling distribution is critical in quantifying its usefulness. We analyze a nonparametric, asymptotically consistent divergence measure and apply it to the binary classification task.
+	
+	%\subsection*{\small The Binary Classification Problem}
 	
 	
-	We arrive at an estimate of the Bayes error rate by using expressions that give bounds on the classification error in terms of information divergence measures. However, common methods of estimating the Bayes error rate via divergence measure still require information about the conditional distributions corresponding to both class labels.\ Therefore the non-parametric divergence measure given in [3] will be used in conjunction with the Bayes error estimates derived for this divergence measure in [2] to conduct the analysis.     
+	We arrive at an estimate of the Bayes error rate by using expressions that give bounds on the classification error in terms of information divergence measures. However, common methods of estimating the Bayes error rate via divergence measure still require information about the conditional distributions corresponding to both class labels.\ Therefore the nonparametric divergence measure given in [3] will be used in conjunction with the Bayes error estimates derived for this divergence measure in [2] to conduct the analysis.     
 	
 	
 	The work is organized as follows:\ the remainder of Section 1 is devoted to previous work, Section 2 provides a description of the divergence measure used, and its relation to the Bayes error rate, and Section 3 introduces the bootstrap sampling method, and the power law used to estimate $D_p$. In Section 4 we will apply the method to several generated datasets and real world datasets to show that the power law method can successfully be applied to several distributions. In 4.1 we will consider the generated example datasets, and in 4.2 we will perform our analysis on the Pima Indians dataset and the Banknote dataset found in the University of California, Irvine machine learning repository [6].
-	%%%Revise%%%
+
 	
-	%%%Revise%%%
 	
-	2
-	\subsection*{\small Previous Work}	
-	
+	\subsection*{\ Background}	
+	% MST based estimator
 	%Work on other divergence measures
 	%work on parametric divergence measures
 	%the fisher information
 	%but we want nonparametric way, therefore
 	%work on non parametric divergence measure
+	%ASYMPTOTICALLY CONSISTENT
 	%kl divergence useful, 
 	%thses are all f divergences
 	%can use other nonparametric measures such as bhattacharya
@@ -65,11 +80,12 @@
 	
 	%----------------------------------------------------------------------------
 	
-	\section{The $D_p$ Divergence Measure}
+	\subsection{\small The $D_p$ Divergence Measure}
 	%
-	\section{Bootstrap Sampling}
+	The divergence measure introduced in [2]
+	\subsection{\small Bootstrap Sampling}
 	
-	As we have just shown, the method for empirically calculating a specific $D_p$ value for a dataset of length $N$ is quite straight forward, but it leaves much to be desired. Specifically, it is desirable to characterize the quality of the $D_p$ estimate. A direct calculation of the divergence measure using all $N$ data points yields only a single value, and does not provide any insight into the error or spread of  the statistic. 
+	As we have just shown, the method for empirically calculating a specific $D_p$ value for a dataset of length $N$ is quite straight forward, but it leaves much to be desired. Specifically, it is desirable to characterize the quality of the $D_p$ estimate, and have the ability to obtain a . A direct calculation of the divergence measure using all $N$ data points yields only a single value, and does not provide any insight into the error or spread of  the statistic. 
 	
 	%Explain why we want a CI for D_p
 	Because bounds on the Bayes Error Rate can be calculated directly from $D_p$, Resampling techniques such as the jackknife[9], and the bootstrap[10] can be applied to find the statistical distribution of the estimated quantity in question. 
@@ -80,9 +96,10 @@
 	
 	% CITE THE ORIGINAL BOOTSTRAP PAPER BY EFRON HERE
 	
-	Bootstrap resampling, first introduced in , is a powerful method to find the sampling distribution of an estimator. Given a In order to characterize the 
-	While the $D_p$ value provides an insight into the separation of the data   
-	Given a dataset of size $N$ and dimensionality $D$, we have established how to calculate the $D_p$ value. How
+	Bootstrap resampling, first introduced by Efron in [10], is a powerful method to find the sampling distribution of an estimator. Given a data set of size $N$, bootstrap  straIn order to characterize the 
+
+	%While the $D_p$ value provides an insight into the separation of the data, as stated prevopu   
+%	Given a dataset of size $N$ and dimensionality $D$, we have established how to calculate the $D_p$ value. How
 	%limitation of sample size
 	
 	% why we want the aasymptotic boostrap
@@ -90,12 +107,13 @@
 	
 	\section{Methods}
 	\begin{algorithm}[H]
-		\KwData{this text}
-		\KwResult{how to write algorithm with \LaTeX2e }
-		initialization\;
-		\While{not at end of this document}{
-			read current\;
-			\eIf{understand}{
+		\SetKwInOut{Input}{Input}
+		\SetKwInOut{Output}{Output}
+		\Input {Data $x_0,x_1\in$ $\mathbf{R^n}$  of length $N$, $B$ Monte-Carlo iterations, \newline $n_i$ Bootstrap subsample sizes  }
+		\KwResult{Estimate of $D_p$ for }
+		\For{$j\in$ $n_1 ... n_i$}{
+			
+			\eIf{}{
 				go to next section\;
 				current section becomes this one\;
 			}{
@@ -113,7 +131,7 @@
 	\subsection*{\small Uniform Dataset}
 	
 	\begin{table}[ht]
-		\caption{Uniform Dataset for Bootstrap Analysis of $D_p$}
+		\caption{Uniform Dataset for Bootstrap Analysis of $D_p$}e32
 		\centering % used for centering table
 		\begin{tabular}{c c c c c c c c c c} % centered columns (4 columns)
 			%inserts double horizontal lines
@@ -145,11 +163,12 @@
 		\caption{Distribution of $D_p$ Values for 8-Dimensional Uniform Data Set, N = 200 trials}
 		\centering
 		%	\begin{center}
-		\includegraphics[scale=0.6]{dp_n200_uniform}
+		\includegraphics[scale=0.6]{dp_n200_uniform_bars}
 		%	\end{center}
 	\end{figure}	
-
+\newpage
 	\subsection*{\small Gaussian Dataset}
+	
 	
 	\begin{table}[!h]
 		\caption{Gaussian Dataset for Bootstrap Analysis of $D_p$}
@@ -180,9 +199,7 @@
 		%	\end{center}
 	\end{figure}	
 	
-	\newpage
-	\subsection*{\small Banknote Dataset}
-	The first real world example we consider is the Banknote Authentication Data Set taken from the University of California, Irvine Machine Learning Repository [7]. The 4-dimensional dataset contains data extracted from images of banknotes. The data set consists of a relatively small number of dimensions, and highly separated data, so the convergence is . We note that for a sensitive task such as authenticating banknotes, it should not be surprising to see an asymptotic value for $D_p$ that is close to 1.  
+
 	
 	\newpage
 	\begin{figure}[h!]
@@ -192,6 +209,10 @@
 		\includegraphics[scale=0.6]{dp_n50_banknote}
 		%	\end{center}
 	\end{figure}
+	
+	\newpage
+	\subsection*{\small Banknote Dataset}
+	The empirical example we consider is the Banknote Authentication Data Set taken from the University of California, Irvine Machine Learning Repository [7]. The 4-dimensional dataset contains data extracted from images of banknotes. The data set consists of a relatively small number of dimensions, and highly separated data, so the convergence is rapid, even for relatively small sample size. We note that for a sensitive task such as authenticating banknotes, it should not be surprising to see an asymptotic value for $D_p$ that is close to 1, indicating that the classes are well separated.  
 	
 	\newpage
 	\subsection*{\small Pima Indians Dataset}
@@ -321,7 +342,6 @@
 				
 				\hline
 				300	& 50	& 0.3118  (0.2827, 0.3409)  & $22.08  \pm 1.31$\\
-				
 				\hline
 				300	& 200	& 0.3073  (0.2926, 0.3219)	& $22.28  \pm 0.66$\\
 				\hline
@@ -333,6 +353,7 @@
 	%	\newpage
 	%		\section{Conclusion}
 	
+%	\Needspace{5\baselineskip}
 	\newpage
 	\section*{References}[!h]
 	[1] Hawes, Chad M., and Carey E. Priebe. "A Bootstrap Interval Estimator for Bayes' Classification Error." 2012 IEEE Statistical Signal Processing Workshop, 2012
@@ -358,20 +379,51 @@
 	\\ [0.5ex]
 	
 	\noindent [9] Tukey, J.W. 1958. Bias and confidence in not-quite large samples. Annals of Mathematical Statistics 29: 614
-	
+	\\ [0.5ex]
 	\noindent [10]Efron, B. "Bootstrap Methods: Another Look at the Jackknife." Annals of Statistics 7.1 (1979)
-	
+	\\ [0.5ex]
 	
 	\noindent [11] https://www.princeton.edu/~verdu/reprints/WanKulVerSep2005.pdf **Create Citation
+	\\ [0.5ex]
+	\noindent [12] http://www.princeton.edu/~verdu/reprints/WanKulVer.May2009.pdf?q=tilde/verdu/
+	reprints/WanKulVer.May2009.pdf **Create Citation
+	\\ [0.5ex]
 	
-	\noindent [12]http://www.princeton.edu/~verdu/reprints/WanKulVer.May2009.pdf?q=tilde/verdu/reprints/WanKulVer.May2009.pdf **Create Citation
+	\noindent [13] http://www.eecs.berkeley.edu/~wainwrig/Papers/NguWaiJor10.pdf **Create Citation
+	\\ [0.5ex]
 	
-	\noindent [13]http://www.eecs.berkeley.edu/~wainwrig/Papers/NguWaiJor10.pdf **Create Citation
-	
-	\noindent [14] http://www.stat.yale.edu/~arb4/publications_files/DistributionEstimationConsistentInTotalVariationAndInTwoTypesOfInformationDivergenceIEEEIT.pdf
-	**Create Citation
-	
-	\noindent [15] http://www.tsc.uc3m.es/~fernando/bare_conf3.pdf **Create Citation
+%	\noindent [14] http://www.stat.yale.edu/~arb4/publications_files/	Distribution Estimation Consistent In Total Variation And In Two Types Of Information Divergence IEEE IT.pdf **Create Citation
+%	\\ [0.5ex]
+
+%	\noindent [15] http://www.tsc.uc3m.es/~fernando/bare_conf3.pdf **Create Citation
+%	\\ [0.5ex]
 	
 	\noindent [16] http://arxiv.org/pdf/1404.6230.pdf** Create Citation
+	\\ [0.5ex]
+	
+	\noindent [17] Bootstrap sampling Efron Citation
+	\\ [0.5ex]
+	
+	\noindent [18]
+	% http://ac.els-cdn.com/S0019995881902631/1-s2.0-S0019995881902631-main.pdf?_tid=93d74928-deb7-11e5-a4b5-00000aab0f01&acdnat=1456731754_14a794e35c706d6376e880a3eab5c757
+	\\ [0.5ex]
+	
+	\noindent [19]S. Ali and S. D. Silvey, “A general class of coefficients of divergence of one distribution from another,” Journal of the Royal Statistical Society.
+	Series B (Methodological), pp. 131–142, 1966.
+	%Ali silvey
+	\\ [0.5ex]
+	
+	\noindent [20] Nguyen, Xuanlong, Martin J. Wainwright, and Michael I. Jordan. "Nonparametric Estimation of the Likelihood Ratio and Divergence Functionals." 2007 IEEE International Symposium on Information Theory (2007)
+	\\ [0.5ex]
+
+	\noindent [21] Sugiyama, Masashi, Song Liu, Marthinus Christoffel Du Plessis, Masao Yamanaka, Makoto Yamada, Taiji Suzuki, and Takafumi Kanamori. Journal of Computing Science and Engineering 7.2 (2013)
+	\\ [0.5ex]
+	
+	\noindent [22] Nguyen, Xuanlong, Martin J. Wainwright, and Michael I. Jordan. "Estimating Divergence Functionals and the Likelihood Ratio by Convex Risk Minimization." IEEE Trans. Inform. Theory IEEE Transactions on Information Theory 56.11 (2010)
+	\\ [0.5ex]
+	
+	\noindent [23] L. Song, M.D. Reid, A.J. Smola, and R.C. Williamson. Discriminative estimation of f -divergence. Submitted to AISTATS09, October 2008.
+	\\ [0.5ex]
+	
+	\noindent [24] Tumer, Kagan, and Joydeep Ghosh. "Bayes Error Rate Estimation Using Classifier Ensembles." International Journal of Smart Engineering System Design 5.2 (2003)
 \end{document}
