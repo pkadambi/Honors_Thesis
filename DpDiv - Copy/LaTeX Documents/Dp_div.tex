@@ -59,12 +59,12 @@
 	\subsection{\small $f$-divergences}
 	%Choice of PHI
 	\indent From equation (1), $f$-divergences are a function of the distributions of the data from each class.\ In terms of the probability densities $p(x)$ and $g(x)$, the equation may be written as follows:\begin{equation}
-		 D_\phi(p({x}),g({x})) = \int_{\Omega} f\bigg(\frac{p({x})}{g({x})}\bigg)g({x})dx
+		 D_f(p({x}),g({x})) = \int_{\Omega} f\bigg(\frac{p({x})}{g({x})}\bigg)g({x})dx
 	\end{equation}The resultant divergence (such as K-L divergence) is dependent on the choice of $f(x)$.\ For example, the K-L divergence corresponds to $f(x) = -ln(x)$ [6].\  A table of commonly used divergences is given below.
 	\\ [0.5ex]
 	\begin{tabular}[!h]{ |p{5cm}||p{4cm}|  }
 		\hline
-		Divergence Measure & $D_\phi$ \\ 
+		Divergence Measure & $D_f$ \\ 
 		\hline\hline
 		K-L Divergence 	& $\int g(x)ln(\frac{p(x)}{g(x)})dx$ \\
 		
@@ -96,7 +96,7 @@
 			
 	as $N_f \rightarrow \infty$ and $N_g \rightarrow \infty$. Given that $\frac{N_f}{N_f+N_g} \rightarrow p$ and $\frac{N_g}{N_f+N_g} \rightarrow q$. Using this method, $D_p$ is estimated from the data samples without any density estimation. As expected, $D_p$ has the following properties : $0 \leq D_p \leq 1$, $D_p=0$ when $f(x)=g(x)$, and $D_p(f,g)=D_p(g,f)$. 
 	\\[0.5ex]
-	\indent In [2] a modified version of this distance is proposed for implementation in binary classification tasks, as it leads to simple expressions for bounding the classification error rate in terms of the quantity. As a binary classification problems are considered in this work, a modified form of the distance, and its estimator are used:
+	\indent In [2] a modified version of this distance is proposed for implementation in binary classification tasks. As binary classification problems are considered in this work, the modified form of the distance, and its estimator are used:
 	\begin{equation}
 		\widetilde{D}_p=\int \frac{(pf(\textbf{x})-qg(\textbf{x}))^2}{pf(\textbf{x})+qg(\textbf{x}))}d\textbf{x}
 	\end{equation}
@@ -104,29 +104,32 @@
 	1 - 2 \frac{\mathcal{C}(\textbf{X}_f,\textbf{X}_g)}{N_f + N_g} \rightarrow \widetilde{D}_p
 	\end{equation}
 %	\\ [0.5ex]
-	
-	
-	\subsection{\small Bootstrap Sampling}
-	\indent	As we have just shown, the method for empirically calculating a specific $D_p$ value for a dataset of length $N$ is quite straight forward, but it leaves much to be desired. Specifically, it is desirable to characterize the quality of the $D_p$ estimate, and have the ability to obtain a. A direct calculation of the divergence measure using all $N$ data points yields only a single value, and does not provide any insight into the error or spread of  the statistic. 
-	\\ [0.5ex]
-	%Explain why we want a CI for D_p
-	 Resampling techniques such as the jackknife [9], and the bootstrap [10] can be applied to find the statistical distribution of the estimated quantity in question. 
-	\\ [0.5ex]
-	%resampling techniques
-	%the bootstrap
+	Although this quantity is not a distance, as in the case of $p\neq q$ and $f(x)=g(x)$, (6) is estimated rather than (4) as it leads to less complex expressions for bounding the classification error rate [2]. Additionally, it is easily seen that $\widetilde{D}_p=D_p$ when the condition $p=q=0.5$ is met.
 	\subsection{\small Bayes Error Rate and Divergence Measures}
-	\indent A common problem in machine learning is binary classification, in which data $\textbf{x}_i\in \mathbf{R^n}$ are assigned a class label $c_i \in \{0,1\}$.
-	Given $c_0$ and $c_1$ contain data with respective probability distributions $f_0(\textbf{x})$ and $f_1(\textbf{x})$, prior probabilities $p \in (0,1)$ and $q=1-p$, the Bayes optimal classifier assigns class labels to $x_i$ such that the posterior probability is maximized [4].\ The error rate of this optimal classifier, the Bayes error rate (BER), provides an absolute lower bound on the classification error rate.\ Accurate estimation of the BER makes it possible to quantify the performance of a classifier with respect to this optimal lower bound, or apply improved BER estimation methods in a feature selection algorithm [1]. 
+	\indent A common problem in machine learning is binary classification, in which data $\textbf{X}_i\in \mathbf{R^{n \times d}}$ are assigned a class label $c_i \in \{0,1\}$.
+	Given $c_0$ and $c_1$ contain data with respective probability distributions $f(\textbf{x})$ and $g(\textbf{x})$, prior probabilities $p \in (0,1)$ and $q=1-p$, the Bayes optimal classifier assigns class labels to $x_i$ such that the posterior probability is maximized [4].\ The error rate of this optimal classifier, the Bayes error rate (BER), provides an absolute lower bound on the classification error rate.\ Accurate estimation of the BER makes it possible to quantify the performance of a classifier with respect to this optimal lower bound, or apply improved BER estimation methods in a feature selection algorithm [1]. 
 	\\ [0.5ex]
 	\indent Given the two conditional density functions, $f_0(\textbf{x})$ and $f_1(\textbf{x})$, it is possible to write the Bayes error rate in terms of the prior probabilities $p$ and $q$ as given in [2]:
 	%insert bayes error rate equation here
 	\begin{equation} E_{Bayes}=\int_{r_1} pf_0(\textbf{x}) \,d\textbf{x} + \int_{r_0} qf_1(\textbf{x}) \,d\textbf{x} \end{equation}
 	%ADD PROPER LIMITS TO INTEGRAL
 	\indent Here, $r_1$ and $r_0$ refer to the regions where the respective posterior probabilities are larger.\ Direct evaluation of this integral can be quite involved and impractical, and poses similar problems to that of estimation of $f$-divergences: it is challenging to create an exact model for the distributions $f_0(\textbf{x})$ and $f_1(\textbf{x})$.\ As an alternative to direct evaluation of the integral, it is possible to derive bounds for the Bayes error rate in terms of divergences measures [5]. 
+	\\ [0.5ex]	
+	\subsection{\small Bootstrap Sampling}
+	\indent	As we have just shown, the method for empirically calculating a specific $D_p$ value for a dataset of length $N$ is quite straight forward, but it leaves much to be desired. Specifically, it is desirable to characterize the quality of the $D_p$ estimate, and have the ability to obtain a. A direct calculation of the divergence measure using all $N$ data points yields only a single value, and does not provide any insight into the error or spread of  the statistic. Indeed, in many cases knowledge of the spread of the estimate is as important as the estimate itself.
+	\indent Bootstrap resampling, first introduced by Efron in [10], is a powerful method to find the sampling distribution of an estimator. Given a data set of size $D$, bootstrap method relies on repeated random sampling of the 
 	\\ [0.5ex]
-	% CITE THE ORIGINAL BOOTSTRAP PAPER BY EFRON HERE
-	\indent Bootstrap resampling, first introduced by Efron in [10], is a powerful method to find the sampling distribution of an estimator. Given a data set of size $N$, bootstrap  straIn order to characterize the 
+	%bootstrapping is great, it gives us this spread knowledge, but
+	% we also want to apply this estimation method into 
 	\\ [0.5ex]
+	%Explain why we want a CI for D_p
+	 Resampling techniques such as the jackknife [9], and the bootstrap [10] can be applied to find the statistical distribution of the estimated quantity in question. 
+	\\ [0.5ex]
+	%resampling techniques
+	%the bootstrap
+
+	
+	
 	%While the $D_p$ value provides an insight into the separation of the data, as stated prevopu   
 %	Given a dataset of size $N$ and dimensionality $D$, we have established how to calculate the $D_p$ value. How
 	%limitation of sample size
