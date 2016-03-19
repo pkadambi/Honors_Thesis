@@ -94,6 +94,7 @@ grid on
 [dpdivFit1, points1]=fit(fullSampleSizes',fullDpmeans1','power2')
 % [dpdivFit2, points2]=fit(fullSampleSizes',fullDpmeans2','power2')
 plot(dpdivFit1,fullSampleSizes,fullDpmeans1')
+axis([0 1000 0 1])
 indexes=fliplr([47:-3:2]);
 boxplot(fulldpdata(:,indexes), 'Labels',fullSampleSizes(indexes)')
 
