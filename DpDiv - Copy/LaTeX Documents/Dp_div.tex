@@ -117,8 +117,9 @@
 	\\ [0.5ex]	
 	\subsection{\small Bootstrap Sampling}
 	\indent	As we have just shown, the method for empirically calculating a specific $D_p$ value for a dataset of length $N$ is quite straight forward, but it leaves much to be desired. Specifically, it is desirable to characterize the quality of the $D_p$ estimate, and have the ability to obtain a. A direct calculation of the divergence measure using all $N$ data points yields only a single value, and does not provide any insight into the error or spread of  the statistic. Indeed, in many cases knowledge of the spread of the estimate is as important as the estimate itself.
-	\indent Bootstrap resampling, first introduced by Efron in [10], is a powerful method to find the sampling distribution of an estimator. Given a data set of size $D$, bootstrap method relies on repeated random sampling of the 
-	\\ [0.5ex]
+	\\[0.5ex]
+	\indent Bootstrap resampling, first introduced by Efron in [10], is a powerful method to find the spread of an estimator. From a data set $\textbf{X}_i$ of size $D$, bootstrap method functions by taking $i$ sets of repeated random samples of size $n<D$ with replacement, and computing estimates for all $i$ generated sets. This Monte Carlo approach gives a powerful way to analyze some measure estimator quality. However, the bootstrap with replacement fails when applied to the F-R test statistic based estimator.
+	% we denote $S(\textbf{X}_i)$.
 	%bootstrapping is great, it gives us this spread knowledge, but
 	% we also want to apply this estimation method into 
 	\\ [0.5ex]

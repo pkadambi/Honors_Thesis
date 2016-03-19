@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.1.19)  19 MAR 2016 06:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.1.19)  19 MAR 2016 08:39
 entering extended mode
 **./Dp_div.tex
 (Dp_div.tex
@@ -322,7 +322,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 114--118
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 119--130
+Underfull \hbox (badness 10000) in paragraph at lines 119--131
 
  []
 
@@ -330,14 +330,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 119--130
 File: dp_n200_uniform.jpg Graphic file (type jpg)
 
 <use dp_n200_uniform.jpg>
-Package pdftex.def Info: dp_n200_uniform.jpg used on input line 195.
+Package pdftex.def Info: dp_n200_uniform.jpg used on input line 196.
 (pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
 
 <dp_n200_uniform_bars.jpg, id=33, 483.30562pt x 329.73187pt>
 File: dp_n200_uniform_bars.jpg Graphic file (type jpg)
 
 <use dp_n200_uniform_bars.jpg>
-Package pdftex.def Info: dp_n200_uniform_bars.jpg used on input line 203.
+Package pdftex.def Info: dp_n200_uniform_bars.jpg used on input line 204.
 (pdftex.def)             Requested size: 289.98561pt x 197.84064pt.
 
 
@@ -348,7 +348,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: dp_n50_gaussian.jpg Graphic file (type jpg)
 
 <use dp_n50_gaussian.jpg>
-Package pdftex.def Info: dp_n50_gaussian.jpg used on input line 235.
+Package pdftex.def Info: dp_n50_gaussian.jpg used on input line 236.
 (pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
 
 
@@ -359,10 +359,10 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: dp_n50_banknote.jpg Graphic file (type jpg)
 
 <use dp_n50_banknote.jpg>
-Package pdftex.def Info: dp_n50_banknote.jpg used on input line 246.
+Package pdftex.def Info: dp_n50_banknote.jpg used on input line 247.
 (pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
  [7 <./dp_n50_gaussian.jpg> <./dp_n50_banknote.jpg>]
-Overfull \hbox (3.88077pt too wide) in paragraph at lines 252--253
+Overfull \hbox (3.88077pt too wide) in paragraph at lines 253--254
 \OT1/cmr/m/n/10 The em-pir-i-cal ex-am-ple we con-sider is the Ban-knote Au-the
 n-ti-ca-tion Data Set taken from the Uni-ver-sity
  []
@@ -370,19 +370,19 @@ n-ti-ca-tion Data Set taken from the Uni-ver-sity
 [8] <dp_n50_pima.jpg, id=49, 422.32782pt x 319.1925pt>
 File: dp_n50_pima.jpg Graphic file (type jpg)
  <use dp_n50_pima.jpg>
-Package pdftex.def Info: dp_n50_pima.jpg used on input line 261.
+Package pdftex.def Info: dp_n50_pima.jpg used on input line 262.
 (pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
 
 <dp_n200_pima.jpg, id=50, 422.32782pt x 319.1925pt>
 File: dp_n200_pima.jpg Graphic file (type jpg)
  <use dp_n200_pima.jpg>
-Package pdftex.def Info: dp_n200_pima.jpg used on input line 269.
+Package pdftex.def Info: dp_n200_pima.jpg used on input line 270.
 (pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
 
 <dp_n5000.jpg, id=51, 422.32782pt x 319.1925pt>
 File: dp_n5000.jpg Graphic file (type jpg)
  <use dp_n5000.jpg>
-Package pdftex.def Info: dp_n5000.jpg used on input line 277.
+Package pdftex.def Info: dp_n5000.jpg used on input line 278.
 (pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
 
 
@@ -393,12 +393,12 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [10 <./dp_n5000.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 360--360
+Underfull \hbox (badness 10000) in paragraph at lines 361--361
 []$\OML/cmm/m/it/10 D[]$ \OT1/cmr/m/n/10 Asymp-totic Value (95%
  []
 
 
-Underfull \hbox (badness 2961) in paragraph at lines 360--360
+Underfull \hbox (badness 2961) in paragraph at lines 361--361
 []\OT1/cmr/m/n/10 Bayes Er-ror Rate (%),
  []
 
@@ -413,24 +413,24 @@ Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
 
-Overfull \hbox (8.48158pt too wide) in paragraph at lines 395--403
+Overfull \hbox (8.48158pt too wide) in paragraph at lines 396--404
 \OT1/cmr/m/n/10 [!h] [1] Hawes, Chad M., and Carey E. Priebe. "A Boot-strap In-
 ter-val Es-ti-ma-tor for Bayes' Clas-si-fi-ca-tion
  []
 
 
-Overfull \hbox (0.57524pt too wide) in paragraph at lines 395--403
+Overfull \hbox (0.57524pt too wide) in paragraph at lines 396--404
 \OT1/cmr/m/n/10 [4] K. Tumer, K. (1996) "Es-ti-mat-ing the Bayes er-ror rate th
 rough clas-si-fier com-bin-ing" in Pro-ceed-ings
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 404--408
+Underfull \hbox (badness 10000) in paragraph at lines 405--409
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 409--411
+Underfull \hbox (badness 10000) in paragraph at lines 410--412
 
  []
 
@@ -441,61 +441,61 @@ Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no  in font cmr10!
 
-Overfull \hbox (189.30733pt too wide) in paragraph at lines 412--414
+Overfull \hbox (189.30733pt too wide) in paragraph at lines 413--415
 \OT1/cmr/m/n/10 [7] V. Lo-hweg, Ban-knote Au-then-ti-ca-tion Data Set, 2012. [O
 n-line]. Avail-able: https://archive.ics.uci.edu/ml/datasets/banknote+authentic
 ation. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 412--414
+Underfull \hbox (badness 10000) in paragraph at lines 413--415
 
  []
 
 
-Overfull \hbox (5.31606pt too wide) in paragraph at lines 415--417
+Overfull \hbox (5.31606pt too wide) in paragraph at lines 416--418
 \OT1/cmr/m/n/10 [8] K. Pranesh, and L. Hunter. "On an In-for-ma-tion Di-ver-gen
 ce Mea-sure and In-for-ma-tion In-equal-i-ties."
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 415--417
+Underfull \hbox (badness 10000) in paragraph at lines 416--418
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 418--422
+Underfull \hbox (badness 10000) in paragraph at lines 419--423
 
  []
 
 
-Overfull \hbox (108.90903pt too wide) in paragraph at lines 423--428
+Overfull \hbox (108.90903pt too wide) in paragraph at lines 424--429
 \OT1/cmr/m/n/10 [12] http://www.princeton.edu/ verdu/reprints/WanKulVer.May2009
 .pdf?q=tilde/verdu/ reprints/WanKulVer.May2009.pdf
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 423--428
+Underfull \hbox (badness 10000) in paragraph at lines 424--429
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 429--431
+Underfull \hbox (badness 10000) in paragraph at lines 430--432
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 438--440
+Underfull \hbox (badness 10000) in paragraph at lines 439--441
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 441--443
+Underfull \hbox (badness 10000) in paragraph at lines 442--444
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 444--447
+Underfull \hbox (badness 10000) in paragraph at lines 445--448
 
  []
 
@@ -509,43 +509,43 @@ Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 448--452
+Underfull \hbox (badness 10000) in paragraph at lines 449--453
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 453--455
+Underfull \hbox (badness 10000) in paragraph at lines 454--456
 
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 456--458
+Underfull \hbox (badness 10000) in paragraph at lines 457--459
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 459--461
+Underfull \hbox (badness 10000) in paragraph at lines 460--462
 
  []
 
 
-Overfull \hbox (1.34383pt too wide) in paragraph at lines 462--464
+Overfull \hbox (1.34383pt too wide) in paragraph at lines 463--465
 \OT1/cmr/m/n/10 [23] L. Song, M.D. Reid, A.J. Smola, and R.C. Williamson. Dis-c
 rim-i-na-tive es-ti-ma-tion of f -divergence.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 462--464
+Underfull \hbox (badness 10000) in paragraph at lines 463--465
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 465--467
+Underfull \hbox (badness 10000) in paragraph at lines 466--468
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 468--470
+Underfull \hbox (badness 10000) in paragraph at lines 469--471
 
  []
 
@@ -559,29 +559,29 @@ Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 471--473
+Underfull \hbox (badness 10000) in paragraph at lines 472--474
 
  []
 
 
-Overfull \hbox (11.08238pt too wide) in paragraph at lines 474--476
+Overfull \hbox (11.08238pt too wide) in paragraph at lines 475--477
 \OT1/cmr/m/n/10 Based on Data-Dependent Par-ti-tions." IEEE Trans. In-form. The
 -ory IEEE Trans-ac-tions on In-for-ma-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 474--476
+Underfull \hbox (badness 10000) in paragraph at lines 475--477
 
  []
 
 
-Overfull \hbox (7.34392pt too wide) in paragraph at lines 477--479
+Overfull \hbox (7.34392pt too wide) in paragraph at lines 478--480
 \OT1/cmr/m/n/10 [28] Wang, Qing, San-jeev R. Kulka-rni, and Ser-gio Verdu. "Di-
 ver-gence Es-ti-ma-tion for Mul-ti-di-men-sional
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 477--479
+Underfull \hbox (badness 10000) in paragraph at lines 478--480
 
  []
 
@@ -619,7 +619,7 @@ s/type1/public/amsfonts/cm/cmr17.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmr5.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><F:/MiKTeX 
 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><F:/MiKTeX 2.9/fonts/type1/public/a
 msfonts/cm/cmsy10.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on Dp_div.pdf (13 pages, 499029 bytes).
+Output written on Dp_div.pdf (13 pages, 499317 bytes).
 PDF statistics:
  124 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
