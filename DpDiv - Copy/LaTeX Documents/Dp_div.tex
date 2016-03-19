@@ -3,6 +3,7 @@
 \usepackage{graphicx}
 \usepackage[]{algorithm2e}
 \usepackage{program}
+\usepackage{eufrak}
 \usepackage[a4paper, total={6in, 8in}]{geometry}
 \graphicspath{ {images/} }
 \begin{document}
@@ -25,7 +26,7 @@
 	Information divergence measures have a wide variety of applications in machine learning, pattern recognition, feature extraction, and big data analysis [8]. The two main classes of information divergence measures are parametric and nonparametric measures. Nonparametric divergence measures, notably including $f$-divergences such as the Kullback-Leibler (KL) divergence,  measure the difference between two distributions $P$ and $Q$.\ Arguably the most well known $f$-divergence, the KL Divergence is a measure of the relative entropy and has applications in coding theory, feature selection, and hypothesis testing [20].	Given these wide variety of applications, there is great interest in estimation of $f$ divergences.
 	\\ [0.5ex] %write something like this to end the second para
 	%Among other applications, it is possible to arrive at bounds for the classification error rate from $f$-divergences [19], so it is of interest to study estimation of $f$-divergences for classification problems.
-	\indent Normally, when estimating the divergence between two distributions, we have access to independent and identically distributed (i.i.d) training data from each distribution $X_i \in c_0$ and $Y_i \in c_1$ (where $c_0$, $c_1$ correspond to two classes of data). The challenge in estimating the divergence measure between two datasets, is that the distributions of the data $P$ and $Q$ are usually unknown. An $f$-divergence, $D_\phi$, is of the form: \begin{equation} D_\phi(P\vert \vert Q) = \int_{\Omega} \phi(\frac{dP}{dQ})dP \end{equation} given a convex function $\phi(x)$, and feature space $\Omega$ [20].
+	\indent Normally, when estimating the divergence between two distributions, we have access to independent and identically distributed (i.i.d) training data from each distribution $X_i \in c_0$ and $Y_i \in c_1$ (where $c_0$, $c_1$ correspond to two classes of data). The challenge in estimating the divergence measure between two datasets, is that the distributions of the data $P$ and $Q$ are usually unknown. An $f$-divergence, $D_\phi$, is of the form: \begin{equation} D_\phi(P\vert \vert Q) = \int_{\Omega} \phi\bigg(\frac{dP}{dQ}\bigg)dP \end{equation} given a convex function $\phi(x)$, and feature space $\Omega$ [20].
  	As we lack knowledge of the distribution functions, a direct computation of $D_\phi$ is not possible.
  	\\ [0.5ex]
  	\indent A naive method to calculate the divergence between the data is to first find the densities for $X_i$ and $Y_i$, and then calculate the divergence from the computed density estimates. However, as noted in [5] adding this intermediate step before the computation of the divergence measures introduces additional error, and can be difficult for cases of high dimensionality. 
@@ -57,33 +58,54 @@
 	%----------------------------------------------------------------------------
 	\subsection{\small $f$-divergences}
 	%Choice of PHI
-	\indent From equation (1), $f$-divergences are a function of the distributions of the data from each class.\ In terms of the probability densities, the equation may be rewritten as follows:\begin{equation}
-		 D_\phi(p({x}),q({x})) = \int_{\Omega} f\bigg(\frac{p({x})}{q({x})}\bigg)q(\textbf{x})dx
+	\indent From equation (1), $f$-divergences are a function of the distributions of the data from each class.\ In terms of the probability densities $p(x)$ and $g(x)$, the equation may be written as follows:\begin{equation}
+		 D_\phi(p({x}),g({x})) = \int_{\Omega} f\bigg(\frac{p({x})}{g({x})}\bigg)g({x})dx
 	\end{equation}The resultant divergence (such as K-L divergence) is dependent on the choice of $f(x)$.\ For example, the K-L divergence corresponds to $f(x) = -ln(x)$ [6].\  A table of commonly used divergences is given below.
 	\\ [0.5ex]
 	\begin{tabular}[!h]{ |p{5cm}||p{4cm}|  }
 		\hline
-		Divergence Measure & $f(x)$ \\ 
+		Divergence Measure & $D_\phi$ \\ 
 		\hline\hline
-		K-L Divergence 	& $ -ln(x)$ \\
-		$L^2$ Divergence & $ tlog(t)$ \\
-		Total Variation Distance & $ \vert t-1 \vert$ \\
-		Bhattacharya Distance & $(\sqrt{t}-1)^2$\\ 
+		K-L Divergence 	& $\int g(x)ln(\frac{p(x)}{g(x)})dx$ \\
+		
+		$L^2$ Divergence & $ \int (p(x)-g(x))^2dx$ \\
+		
+		Total Variation Distance & $ \frac{1}{2}\int \vert p(x)-g(x)\vert dx$ \\
+		
+		Bhattacharya Distance & $\int\sqrt{p(x)g(x)}dx$\\ 
 		\hline 		
 	\end{tabular}	
 	\\ [0.5ex]
-	\indent Note that for some cases the divergence may yield values that are not bounded depending on the choice of $\phi(x)$. An undefined or unbounded K-L divergence result can be problematic if we then apply the result to a task, and it may be desirable use a bounded divergence measure. 
+	\indent Note that for some cases the divergence may yield values that are not bounded depending on the choice of $f(x)$. An undefined or unbounded K-L divergence result can be problematic if we then apply the result to a task, and it may be desirable use a bounded divergence measure. 	
 	\\ [0.5ex]
-	\indent Since direct evaluation of the expression containing these $\phi(x)$ is not possible, a number of estimation methods have been used to make the problem more tractable. Wang $et$ $al$. [27] derived a nonparametric divergence estimator based on first estimating the density ratio $\frac{dP}{dQ}$, and in [28] defined an  $k$-Nearest-Neighbors based divergence estimator that also requires estimates of a density ratio. But estimation of $\frac{dP}{dQ}$ instead of $dP$ and $dQ$ independently still poses the same drawback as estimating $dP$ and $dQ$: it is undesirable to estimate the divergence by performing the intermediate step of estimating the probability distribution. A key advantage of the $f$-divergence we consider is that can be estimated from the training data samples themselves, without independent steps. 
+	\indent Since in most cases, direct evaluation of the expression containing these $f(x)$ is not possible, a number of estimation methods have been used to make the problem more tractable. Wang $et$ $al$. [27] derived a nonparametric divergence estimator based on first estimating the density ratio $\frac{dP}{dQ}$, and in [28] defined an  $k$-Nearest-Neighbors based divergence estimator that also requires estimates of a density ratio. But estimation of $\frac{dP}{dQ}$ instead of $dP$ and $dQ$ independently still poses the same drawback as estimating $dP$ and $dQ$: it is undesirable to estimate the divergence by performing the intermediate step of estimating the probability distribution.
 	\\ [0.5ex]	
-	\indent Towards this end, P{\'o}czos $et al.$ [29] derive estimators for R{\'e}nyi and $L_2$ divergences based on $k$-Nearest Neighbors statistics, and apply the estimate to classifying astronomical data. Hero $et al.$ de
+	\indent A key advantage of the $f$-divergence we consider is that can be estimated from the training data samples themselves, without independent estimation steps. Towards this end, Hero $et$ $al.$ derive a divergence estimator assuming one of the densities was known. P{\'o}czos $et$ $al.$ [29] derive estimators for R{\'e}nyi and $L_2$ divergences based on $k$-Nearest Neighbors statistics, and apply the estimate to classifying astronomical data. The $f$-divergence described in [25] allows for nonparametric estimation directly from data via a minimum spanning tree(MST). 
 	%It is apparent that when the probability density functions contain no common region of support, the K-L divergence is not bounded. For the total variation distance, $\phi(x) = 0.5 \vert t-1\vert$. Work has
 	%Estimation approaches of these measures
 	\subsection{\small The $D_p$ Divergence Measure}
+	The aforementioned distance given in [25] for probability $p\in (0,1)$, $q=1-p$, and probability densities $f$ and $g$ is:
 	\begin{equation}
-	D_p=\frac{1}{4pq}\bigg[ \int \frac{(pf(\textbf{x})-qg(\textbf{x}))^2}{pf(\textbf{x})+qg(\textbf{x}))}d\textbf{x}-(p-q)^2 \bigg]
+			D_p=\frac{1}{4pq}\bigg[ \int \frac{(pf(\textbf{x})-qg(\textbf{x}))^2}{pf(\textbf{x})+qg(\textbf{x}))}d\textbf{x}-(p-q)^2 \bigg]
 	\end{equation}
-	\\ [0.5ex]
+	\\[0.5ex]
+	\indent The estimator for this divergence relies on finding the Friedman-Rafsky(F-R) test statistic: $\mathcal{C}(\textbf{X}_f,\textbf{X}_g)$ from the $d$-dimensional class data $\textbf{X}_f$ and $\textbf{X}_g$. The F-R test statistic is calculated done by generating a dataset containing both $\textbf{X}_f$ and $\textbf{X}_g$, finding the Euclidean MST for the data, and counting the number of edges of the MST that connect a point from $\textbf{X}_f$ and $\textbf{X}_g$ [2]. In terms of the F-R test statistic, the estimator for $D_p$ is shown in [2]:
+	\begin{equation}
+	1 - \mathcal{C}(\textbf{X}_f,\textbf{X}_g)\frac{N_f+N_g}{2N_f N_g} \rightarrow D_p
+	\end{equation}
+			
+	as $N_f \rightarrow \infty$ and $N_g \rightarrow \infty$. Given that $\frac{N_f}{N_f+N_g} \rightarrow p$ and $\frac{N_g}{N_f+N_g} \rightarrow q$. Using this method, $D_p$ is estimated from the data samples without any density estimation. As expected, $D_p$ has the following properties : $0 \leq D_p \leq 1$, $D_p=0$ when $f(x)=g(x)$, and $D_p(f,g)=D_p(g,f)$. 
+	\\[0.5ex]
+	\indent In [2] a modified version of this distance is proposed for implementation in binary classification tasks, as it leads to simple expressions for bounding the classification error rate in terms of the quantity. As a binary classification problems are considered in this work, a modified form of the distance, and its estimator are used:
+	\begin{equation}
+		\widetilde{D}_p=\int \frac{(pf(\textbf{x})-qg(\textbf{x}))^2}{pf(\textbf{x})+qg(\textbf{x}))}d\textbf{x}
+	\end{equation}
+	\begin{equation}
+	1 - 2 \frac{\mathcal{C}(\textbf{X}_f,\textbf{X}_g)}{N_f + N_g} \rightarrow \widetilde{D}_p
+	\end{equation}
+%	\\ [0.5ex]
+	
+	
 	\subsection{\small Bootstrap Sampling}
 	\indent	As we have just shown, the method for empirically calculating a specific $D_p$ value for a dataset of length $N$ is quite straight forward, but it leaves much to be desired. Specifically, it is desirable to characterize the quality of the $D_p$ estimate, and have the ability to obtain a. A direct calculation of the divergence measure using all $N$ data points yields only a single value, and does not provide any insight into the error or spread of  the statistic. 
 	\\ [0.5ex]
@@ -93,10 +115,10 @@
 	%resampling techniques
 	%the bootstrap
 	\subsection{\small Bayes Error Rate and Divergence Measures}
-	A common problem in machine learning is binary classification, in which data $\textbf{x}_i\in \mathbf{R^n}$ are assigned a class label $c_i \in \{0,1\}$.
+	\indent A common problem in machine learning is binary classification, in which data $\textbf{x}_i\in \mathbf{R^n}$ are assigned a class label $c_i \in \{0,1\}$.
 	Given $c_0$ and $c_1$ contain data with respective probability distributions $f_0(\textbf{x})$ and $f_1(\textbf{x})$, prior probabilities $p \in (0,1)$ and $q=1-p$, the Bayes optimal classifier assigns class labels to $x_i$ such that the posterior probability is maximized [4].\ The error rate of this optimal classifier, the Bayes error rate (BER), provides an absolute lower bound on the classification error rate.\ Accurate estimation of the BER makes it possible to quantify the performance of a classifier with respect to this optimal lower bound, or apply improved BER estimation methods in a feature selection algorithm [1]. 
 	\\ [0.5ex]
-	Given the two conditional density functions, $f_0(\textbf{x})$ and $f_1(\textbf{x})$, it is possible to write the Bayes error rate in terms of the prior probabilities $p$ and $q$ as given in [2]:
+	\indent Given the two conditional density functions, $f_0(\textbf{x})$ and $f_1(\textbf{x})$, it is possible to write the Bayes error rate in terms of the prior probabilities $p$ and $q$ as given in [2]:
 	%insert bayes error rate equation here
 	\begin{equation} E_{Bayes}=\int_{r_1} pf_0(\textbf{x}) \,d\textbf{x} + \int_{r_0} qf_1(\textbf{x}) \,d\textbf{x} \end{equation}
 	%ADD PROPER LIMITS TO INTEGRAL
