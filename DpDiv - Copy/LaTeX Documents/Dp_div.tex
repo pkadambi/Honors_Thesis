@@ -140,7 +140,7 @@
 	\frac{1}{2}-\frac{1}{2}\sqrt{\widetilde{D}_p(f_0,f_1)}\leq E_{Bayes} \leq \frac{1}{2}-\frac{1}{2}\widetilde{D}_p(f_0,f_1)
 	\end{equation}
 	\\ [0.5ex]
-	\subsection{\ Bootstrap Sampling}
+	\subsection{\ Bootstrap Estimation Based on Power Law}
 	\indent	As we have just shown, the method for empirically calculating a specific $\widetilde{D}_p$ value for a dataset of length $N$, and obtaining an estimate for the BER is quite straight forward, but it leaves much to be desired. Specifically, it is necessary to characterize the quality of the $\widetilde{D}_p$ estimate. A direct calculation of the divergence measure using all $N$ data points yields only a single value, and does not provide any insight into the error or spread of  the statistic. Indeed, in many cases knowledge of the spread of the estimate is as important as the estimate itself.
 	\\[0.5ex]
 	
@@ -151,15 +151,19 @@
 	\\ [0.5ex]
 	
 	%Explain why we want a CI for D_p
-	\indent To satisfy this requirement, we consider another bootstrap resampling technique, the $m$ out of $N$ bootstrap, that generates $i$ randomly sampled subsets of size $m<N$, $without$ $replacement$, in order to obtain a sense of the distribution of the estimator. Particularly, we consider the confidence interval of $\widetilde{D}_p$. Now, we have an estimate of $\widetilde{D}_p$ along with a confidence interval. But, this estimate is for finite data size, and the estimator for $\widetilde{D}_p$, equation (6), specifies an asymptotic condition of $N_{f0} \rightarrow \infty$ and $N_{f_1} \rightarrow \infty$. Obtaining this estimate of $\widetilde{D}_p$ for $N \rightarrow \infty$ 
+	\indent To satisfy this requirement, we consider another bootstrap resampling technique, the $m$ out of $N$ bootstrap, that generates $i$ randomly sampled subsets of size $m<N$, $without$ $replacement$, in order to obtain a sense of the distribution of the estimator. Particularly, we consider the confidence interval of $\widetilde{D}_p$. Now, we have an estimate of $\widetilde{D}_p$ along with a confidence interval. But, this estimate is for finite data size, and the estimator for $\widetilde{D}_p$, equation (6), specifies an asymptotic condition of $N_{f0} \rightarrow \infty$ and $N_{f_1} \rightarrow \infty$. Obtaining this estimate of $\widetilde{D}_p$ for $N \rightarrow \infty$ is desirable in order to minimize the bias.
 	\\ [0.5ex]
 	
-	\indent 
-	%resampling techniques
-	%the bootstrap
-
+	\indent Hawes and Priebe [1] applied a $k$-Nearest Neighbors rule to find the upper and lower bound on the Bayes error rate as a function of sample size. They perform bootstrap estimates of the BER (which they denote as $\bar{L}_n(k)$) at sample sizes $n_1 \textless n_2 \textless ... \textless n_i \textless N$. Then they apply a parametric power law curve to calculate the Bayes error rate as a function of sample size, $n$:
+		\begin{equation}
+		\bar{L}_n(k)=an^b+c
+		\end{equation}
+	With power law fit constants $a$, $b$, $c$, and sample size $n$. Given that this model is valid, $b<0,$ and as $n \rightarrow \infty$, $\bar{L}_n(k)\rightarrow c$ with $c=\bar{L}_\infty(k)$. In [34] it is shown that $\vert \bar{L}_n(1)-\bar{L}_\infty (1) \vert \leq an^{-2}$; the absolute error of the BER estimate for a 1-dimensional data, with $k=1$ rule, converges in the form given by equation (9). This result was generalized in []
+	Please note that for the remainder of this paper, the Bayes error rate will be referred to as $E_{Bayes}$.
+	
+	\indent As shown in Section 1.2, it is possible to relate the Bayes error rate in terms of the classification error rate. Therefore, it is a sensible assumption that the $\widetilde{D}_p$ divergence estimate for $n \rightarrow \infty$ may be generated using the same power law. In this work, a parametric power law curve of the form:
 	\begin{equation}
-	\bar{D}_\phi(n)=an^b+c
+		\bar{D}_p(f_0,f_1)=an^b+c
 	\end{equation}
 	
 	%While the $D_p$ value provides an insight into the separation of the data, as stated prevopu   
@@ -559,4 +563,21 @@
 	\noindent [33] A. Bhattacharyya, “On a measure of divergence between two multinomial populations,” Sankhya: 
 	\indent The Indian Journal of Statistics ¯ , pp. 401–
 	406, 1946.
+	\\[0.5 ex]
+	
+	\noindent [34] Thomas M. Cover, “Rates of convergence of nearest
+	neighbor decision procedures,” in Proceedings \indent of 1st
+	Annual Hawaii Conference on Systems Theory, 1968,
+	pp. 413–415
+	\indent
+	\\[0.5ex]
+	
+	\noindent [35] Demetri Psaltis, Robert R. Snapp, and Santosh S.
+	Venkatesh, “On the finite sample performance \indent of the
+	nearest neighbor classifier,” IEEE Transactions on Information
+	Theory, vol. 40, no. 3, pp. \indent 820–837, 1994
+	\\[0.5ex]
+	
+	\noindent
+	
 \end{document}
