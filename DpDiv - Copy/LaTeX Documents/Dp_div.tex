@@ -9,7 +9,7 @@
 \begin{document}
 	
 	\title{Bootstrap Estimation of a Non-Parametric Information Divergence Measure}
-	\author { Prad Kadambi and Visar Berisha \\
+	\author { Pradyumna (Prad) Kadambi and Visar Berisha \\
 		\small Arizona State University \\
 		\small Department of Electrical, Computer and Energy Engineering}
 	\date{}
@@ -18,26 +18,29 @@
 	%----------------------------------------------------------------------------
 	\begin{abstract}
 		
-		This work details the bootstrap estimation of a nonparametric information divergence measure, the $D_p$ divergence measure, applied to the binary classification problem.\ To address the challenge posed by computing accurate divergence estimates given finite size data, a bootstrap approach is used to in conjunction with a power law curve to calculate an asymptotic estimate of the divergence measure in question. Monte Carlo estimates of $D_p$ are found for increasing values of sample data size, and a power law fit is used to find the asymptotic convergence value of the divergence measure as a function of sample size.\ The fit is also used to generate a confidence interval for the estimate which allows us to characterize the quality of the estimator.\ The results obtained for the divergence measure are then compared to several other resampling methods.\  Utilizing the inherent relation between divergence measures and classification error rate, an analysis of the Bayes Error Rate of several test data sets is conducted via the power law estimation approach for $D_p$.
+		This work details the bootstrap estimation of a nonparametric information divergence measure, the $D_p$ divergence measure, applied to the binary classification problem.\ To address the challenge posed by computing accurate divergence estimates given finite size data, a bootstrap approach is used in conjunction with a power law curve to calculate an asymptotic estimate of the divergence measure in question. Monte Carlo estimates of $D_p$ are found for increasing values of sample data size, and a power law fit is used to find the asymptotic value of the divergence measure as a function of sample size.\ The fit is also used to generate a confidence interval for the estimate to characterize the quality of the estimator, and the result obtained for the divergence measure is then compared to the result using other resampling methods.\  Using the inherent relation between divergence measures and classification error rate, an analysis of the Bayes error rate of several test data sets is conducted via this power law estimation approach for $D_p$.
 	\end{abstract}
 	%----------------------------------------------------------------------------
 	
 	% IDMs are really useful, but they're hard to compute in many cases
 	\section{Introduction} 
-	Information divergence measures have a wide variety of applications in machine learning, pattern recognition, feature extraction, and big data analysis [8]. The two main classes of information divergence measures are parametric and nonparametric measures. Nonparametric divergence measures, notably including $f$-divergences such as the Kullback-Leibler (KL) divergence,  measure the difference between two distributions $P$ and $Q$.\ Arguably the most well known $f$-divergence, the KL Divergence is a measure of the relative entropy and has applications in coding theory, feature selection, and hypothesis testing [20].	Given these wide variety of applications, there is great interest in estimation of $f$ divergences.
+	Information divergence measures have a wide variety of applications in machine learning, pattern recognition, feature extraction, and big data analysis [8]. The two main classes of information divergence measures are parametric and nonparametric measures. Nonparametric divergence measures, notably including $f$-divergences such as the Kullback-Leibler (KL) divergence,  measure the difference between two distributions $F_0$ and $F_1$.\ Arguably the most well known $f$-divergence, the KL Divergence is a measure of the relative entropy and has applications in coding theory, feature selection, and hypothesis testing [20].	Given these wide variety of applications, there is great interest in estimation of $f$ divergences.
 	\\ [0.5ex] %write something like this to end the second para
 	%Among other applications, it is possible to arrive at bounds for the classification error rate from $f$-divergences [19], so it is of interest to study estimation of $f$-divergences for classification problems.
-	\indent Normally, when estimating the divergence between two distributions, we have access to independent and identically distributed (i.i.d) training data from each distribution $X_i \in c_0$ and $Y_i \in c_1$ (where $c_0$, $c_1$ correspond to two classes of data). The challenge in estimating the divergence measure between two datasets, is that the distributions of the data $P$ and $Q$ are usually unknown. An $f$-divergence, $D_\phi$, is of the form: \begin{equation} D_\phi(P, Q) = \int_{\Omega} \phi\bigg(\frac{dP}{dQ}\bigg)dP \end{equation} given a convex function $\phi(x)$, and feature space $\Omega$ [20].
+	
+	\indent Normally, when estimating the divergence between two distributions, we have access to independent and identically distributed (i.i.d) training data from each distribution $X_i \in c_0$ and $Y_i \in c_1$ (where $c_0$, $c_1$ correspond to two classes of data). The challenge in estimating the divergence measure between two datasets, is that the distributions of the data $F_0$ and $F_1$ are usually unknown. An $f$-divergence, $D_\phi$, is of the form: \begin{equation} D_\phi(F_0, F_1) = \int_{\Omega} \phi\bigg(\frac{dF_0}{dF_1}\bigg)dF_0 \end{equation} given a convex function $\phi(x)$, and feature space $\Omega$ [20].
  	As we lack knowledge of the distribution functions, a direct computation of $D_\phi$ is not possible.
  	\\ [0.5ex]
- 	\indent A naive method to calculate the divergence between the data is to first find the densities for $X_i$ and $Y_i$, and then calculate the divergence from the computed density estimates. However, as noted in [5] adding this intermediate step before the computation of the divergence measures introduces additional error, and can be difficult for cases of high dimensionality. 
+ 	
+ 	\indent A naive method to calculate the divergence between the data is to first find the densities for $X_i$ and $Y_i$, and then calculate the divergence from the computed density estimates. However, as noted in [5] adding this naive approach adds an undesirable intermediate step before the computation of the divergence measure, introduces additional error, and can be difficult for cases of high dimensionality. 
 	\\ [0.5ex]
+	
 	%PAPER goal paragraph
-	\indent	In this paper, we perform a bootstrap estimation of a minimum spanning tree based $f$-divergence derived in [25] using a power law. From data of size $N$, we compute  Monte Carlo iterations at $i$ sample sizes $n\in \{n_1, n_2,... $ $,n_i\}<N$, and apply a power law curve.
- 	Utilizing this curve we extrapolate the divergence estimate as sample size $n\rightarrow\infty$. Exploiting the ability to estimate this divergence measure directly from data, computation of the densities is bypassed, and an asymptotic value of the divergence estimate is found directly from a finite length dataset. As $f$-divergences may be related to the classification error rate, this estimation method is applied to several binary classification setting to find Bayes error rates. 
+	\indent	In this paper, we perform a bootstrap estimation of a minimum spanning tree based $f$-divergence derived in [25] using a power law. From data of size $N$, we compute  Monte Carlo iterations at $i$ sample sizes $n\in \{n_1, n_2,... $ $,n_i\}<N$, and apply the unproven, but reasonable assumption that a power law fit can be used to relate the value of the estimator as a function of sample size. We exploit the unique ability to estimate this divergence measure directly from data, and bypass density estimation. Utilizing this curve we extrapolate as sample size $n\rightarrow\infty$, and find the asymptotic value of the divergence estimate directly from a finite length dataset.  As $f$-divergences may be related to the classification error rate, this estimation scheme is applied to binary classification to find Bayes error rates.
  	%MAybe add 1 sentance about confidence intervals for the estimator
  	\\ [0.5ex]
- 	\indent	The work is organized as follows:\ the remainder of Section 1 is devoted to background and previous work. Section 2 introduces the bootstrap sampling method, and the power law used in this estimation method. In Section 3 we will apply the method to several generated and real-world datasets to show that the power law method can successfully be used to calculate the divergence and classification error rate of several distributions. In 3.1 we consider generated datasets with known divergence values, to demonstrate the accuracy of the estimated divergences. In 3.2 we perform analysis on the Pima Indians dataset and the Banknote dataset and compare the calculated Bayes error rate to the classification error rates reported in the literature.
+ 	
+ 	\indent	The work is organized as follows:\ the remainder of Section 1 is devoted to background and previous work. Section 2 introduces the bootstrap sampling method, and the power law used in this estimation method. In Section 3 we apply the method to several generated and real-world datasets to show that the power law method can successfully be used to calculate the divergence and classification error rate of several distributions. In 3.1 we consider generated datasets with known divergence values, to demonstrate the accuracy of the divergence estimates. In 3.2 we perform analysis on the Pima Indians dataset and the Banknote dataset and compare the calculated Bayes error rate to the classification error rates reported in the literature.
  	%found in the University of California, Irvine machine learning repository [6].
  	%SO, it is difficult to estimate IDMs, so we will get a new method
 	%THEN,we will use our method on the Bin Class PRob (BCP), After introducing the BCP, here's why we need to use the method for the BCP
@@ -56,12 +59,12 @@
 	%dp div eequation
 	%		When $f_0(\textbf{x})$ and $f_1(\textbf{x})$ have a common region of support, the classification error rate is greater than zero.
 	%----------------------------------------------------------------------------
-	
+
 	\subsection{\ Divergences Measures}
 	\subsubsection{\small $f$-divergences}
 	%Choice of PHI
-	\indent From equation (1), $f$-divergences are a function of the distributions of the data from each class.\ In terms of the probability densities $p(x)$ and $g(x)$, the equation may be rewritten as follows:\begin{equation}
-		 D_f(p,g) = \int_{\Omega} f\bigg(\frac{p({x})}{g({x})}\bigg)g({x})dx
+	\indent From equation (1), $f$-divergences are a function of the distributions of the data from each class.\ In terms of the probability densities $f_0(x)$ and $f_1(x)$, the equation may be rewritten as follows:\begin{equation}
+		 D_f(f_0,f_1) = \int_{\Omega} f\bigg(\frac{f_0(\textbf{x})}{f_1(\textbf{x})}\bigg)f_1(\textbf{x})dx
 	\end{equation}The resultant divergence (such as K-L divergence) is dependent on the choice of $f(x)$.\ For example, the K-L divergence corresponds to $f(x) = -ln(x)$ [6].\  A table of commonly used divergences is given below.
 	\begin{table}[ht]
 	\caption{Commonly Used $f$-Divergences}
@@ -70,68 +73,88 @@
 		\hline
 		Divergence Measure & $D_f$ \\ 
 		\hline\hline
-		K-L Divergence 	& $\int g(x)ln(\frac{p(x)}{g(x)})dx$ \\
+		K-L Divergence 	& $\int f_1(x)ln(\frac{f_0(x)}{f_1(x)})dx$ \\
 		
-		$L^2$ Divergence & $ \int (p(x)-g(x))^2dx$ \\
+		$L^2$ Divergence & $ \int (f_0(x)-f_1(x))^2dx$ \\
 		
-		Total Variation Distance & $ \frac{1}{2}\int \vert p(x)-g(x)\vert dx$ \\
+		Total Variation Distance & $ \frac{1}{2}\int \vert f_0(x)-f_1(x)\vert dx$ \\
 		
-		Bhattacharya Distance & $\int\sqrt{p(x)g(x)}dx$\\ 
+		Bhattacharya Distance & $\int\sqrt{f_0(x)f_1(x)}dx$\\ 
 		\hline 		
 	\end{tabular}	
 	\end{table}
 	\\ [0.5ex]
-	\indent Note that for some cases the divergence may yield values that are not bounded depending on the choice of $f(x)$. An undefined or unbounded K-L divergence result can be problematic if we then apply the result to a task, and it may be desirable use a bounded divergence measure. 	
+	\indent Note that for some cases the divergence may yield values that are not bounded depending on the choice of $f(x)$. 
+	%An undefined or unbounded K-L divergence result can be problematic if we then apply the result to a task, and it may be desirable use a bounded divergence measure. 	
 	\\ [0.5ex]
-	\indent Since in most cases, direct evaluation of the expression containing these $f(x)$ is not possible, a number of estimation methods have been used to make the problem more tractable. Wang $et$ $al$. [27] derived a nonparametric divergence estimator based on first estimating the density ratio $\frac{dP}{dQ}$, and in [28] defined an  $k$-Nearest-Neighbors based divergence estimator that also requires estimates of a density ratio. But estimation of $\frac{dP}{dQ}$ instead of $dP$ and $dQ$ independently still poses the same drawback as estimating $dP$ and $dQ$: it is undesirable to estimate the divergence by performing the intermediate step of estimating the probability distribution.
+	
+	\indent Since in most cases, direct evaluation of the integrals is not possible due to unknown densities, a number of estimation methods have been used to make the problem more tractable. Wang $et$ $al$. [27] derived a nonparametric divergence estimator based on estimating the density ratio $\frac{dF_0}{dF_1}$, and in [28] defined an  $k$-Nearest-Neighbors based divergence estimator that also requires estimates of a density ratio. But, estimation of $\frac{dF_0}{dF_1}$ instead of $f_0(\textbf{x})$ and $f_1(\textbf{x})$ independently still poses the same drawback: it is undesirable to estimate the divergence by performing the intermediate step of estimating the probability distribution.
 	\\ [0.5ex]	
-	\indent A key advantage of the $f$-divergence we consider is that can be estimated from the training data samples themselves, without independent estimation steps. Towards this end, Hero $et$ $al.$ derive a divergence estimator assuming one of the densities was known. P{\'o}czos $et$ $al.$ [29] derive estimators for R{\'e}nyi and $L_2$ divergences based on $k$-Nearest Neighbors statistics, and apply the estimate to classifying astronomical data. The $f$-divergence described in [25] allows for nonparametric estimation directly from data via a minimum spanning tree(MST). 
+	
+	\indent A key advantage of the $f$-divergence we consider is that it can be estimated from the data samples themselves, without intermediate density estimation steps. Towards this end, Hero $et$ $al.$ derive a divergence estimator assuming one of the densities was known. P{\'o}czos $et$ $al.$ [29] derive estimators for R{\'e}nyi and $L_2$ divergences based on $k$-Nearest Neighbors statistics, and apply the estimate to classifying astronomical data. We consider the $f$-divergence described in [25], which allows for nonparametric estimation directly from sample data via a minimum spanning tree (MST). 
 	%It is apparent that when the probability density functions contain no common region of support, the K-L divergence is not bounded. For the total variation distance, $\phi(x) = 0.5 \vert t-1\vert$. Work has
 	%Estimation approaches of these measures
 	\subsubsection{\small The $D_p$ Divergence Measure}
-	The aforementioned distance given in [25] for probability $p\in (0,1)$, $q=1-p$, and probability densities $f$ and $g$ is:
+	The aforementioned divergence for probabilities $p\in (0,1)$, $q=1-p$, and probability densities $f_0$ and $f_1$ is:
 	\begin{equation}
-			D_p=\frac{1}{4pq}\bigg[ \int \frac{(pf(\textbf{x})-qg(\textbf{x}))^2}{pf(\textbf{x})+qg(\textbf{x}))}d\textbf{x}-(p-q)^2 \bigg]
+			D_p(f_0,f_1)=\frac{1}{4pq}\bigg[ \int \frac{(pf_0(\textbf{x})-qf_1(\textbf{x}))^2}{pf_0(\textbf{x})+qf_1(\textbf{x}))}d\textbf{x}-(p-q)^2 \bigg]
 	\end{equation}
 	\\[0.5ex]
-	\indent The estimator for this divergence relies on finding the Friedman-Rafsky(F-R) test statistic: $\mathcal{C}(\textbf{X}_f,\textbf{X}_g)$ from the $d$-dimensional class data $\textbf{X}_f$ and $\textbf{X}_g$. The F-R test statistic is calculated done by generating a dataset containing both $\textbf{X}_f$ and $\textbf{X}_g$, finding the Euclidean MST for the data, and counting the number of edges of the MST that connect a point from $\textbf{X}_f$ and $\textbf{X}_g$ [2]. In terms of the F-R test statistic, the estimator for $D_p$ is shown in [2]:
+	
+	\indent To classify $D_p$ as a statistical distance, it must satisfy the following properties. Firstly, $0 \leq D_p$, the divergence must be non-negative. Secondly, $D_p=0$ when $f_0(x)=f_1(x)$; the measure between identical distributions must vanish. Third, $D_p(f_0,f_1)=D_p(f_1,f_0)$, it must be symmetric. Fourth,  $D_p(f_0,f_2) \leq D_p(f_0,f_1)+D_p(f_1,f_2)$, the divergence must obey the triangle inequality. $D_p$ is shown in [25] to have the following properties: it is non-negative ($0 \leq D_p \leq 1$ ), satisfies the identity property, and is symmetric. However, the triangle inequality has not been proved for the measure, so therefore, we label $D_p$ as a pseudo-distance.
+	\\ [0.5 ex]
+	
+	\indent The estimator for this divergence relies on finding the Friedman-Rafsky (F-R) test statistic: $\mathcal{C}(\textbf{X}_f,\textbf{X}_g)$ from the $d$-dimensional class data $\textbf{X}_{f_0}$ and $\textbf{X}_{f_1}$. The F-R test statistic is calculated done by generating a dataset containing both $\textbf{X}_{f_0}$ and $\textbf{X}_{f_1}$, finding the Euclidean MST for the data, and counting the number of edges of the MST that connect a point from $\textbf{X}_{f_0}$ and $\textbf{X}_{f_1}$. The figure below graphically illustrates how the F-R test statistic is calculated: 
+	\\ [0.5ex]
+
+	\indent In terms of the F-R test statistic, the estimator for $D_p$ is:
 	\begin{equation}
-	1 - \mathcal{C}(\textbf{X}_f,\textbf{X}_g)\frac{N_f+N_g}{2N_f N_g} \rightarrow D_p
+	1 - \mathcal{C}(\textbf{X}_{f_0},\textbf{X}_{f_1})\frac{N_{f_0}+N_{f_1}}{2N_{f_0} N_{f_1}} \rightarrow D_p
 	\end{equation}
-	as $N_f \rightarrow \infty$ and $N_g \rightarrow \infty$. Given that $\frac{N_f}{N_f+N_g} \rightarrow p$ and $\frac{N_g}{N_f+N_g} \rightarrow q$. Using this method, $D_p$ is estimated from the data samples without any density estimation. As expected, $D_p$ has the following properties : $0 \leq D_p \leq 1$, $D_p=0$ when $f(x)=g(x)$, and $D_p(f,g)=D_p(g,f)$. 
-	\\[0.5ex]
-	\indent In [2] a modified version of this distance is proposed for implementation in binary classification tasks. As binary classification problems are considered in this work, the modified form of the distance, and its estimator are used:
+	as $N_{f0} \rightarrow \infty$ and $N_{f_1} \rightarrow \infty$. Given that $\frac{N_{f_0}}{N_{f_0}+N_{f_1}} \rightarrow p$ and $\frac{N_{f_1}}{N_{f_0}+N_{f_1}} \rightarrow q$. Note that $N_{f0}$ and $N_{f1}$ are the number of samples of data from each class. Using this method, $D_p$ is estimated from the data samples without any density estimation. 
+	\\	[0.5 ex]
+
+	\indent In [2] a modified version of this distance is proposed for implementation in binary classification tasks. As binary classification problems are considered in this work, the modified form of the distance, and its estimator are used. Notationally, $\widetilde{D}_p$ is used to refer to the modified divergence, and $D_p$ is used to refer to the distance itself. The same condition that $N_{f0} \rightarrow \infty$ and $N_{f_1} \rightarrow \infty$ is imposed:
 	\begin{equation}
-		\widetilde{D}_p=\int \frac{(pf(\textbf{x})-qg(\textbf{x}))^2}{pf(\textbf{x})+qg(\textbf{x}))}d\textbf{x}
+		\widetilde{D}_p(f_0,f_1)=\int \frac{(p{f_0}(\textbf{x})-q{f_1}(\textbf{x}))^2}{p{f_0}(\textbf{x})+q{f_1}(\textbf{x}))}d\textbf{x}
 	\end{equation}
 	\begin{equation}
-	1 - 2 \frac{\mathcal{C}(\textbf{X}_f,\textbf{X}_g)}{N_f + N_g} \rightarrow \widetilde{D}_p
+	1 - 2 \frac{\mathcal{C}(\textbf{X}_{f_0},\textbf{X}_{f_1})}{N_{f_0} + N_{f_1}} \rightarrow \widetilde{D}_p(f_0,f_1)
 	\end{equation}
 %	\\ [0.5ex]
-	Although this quantity is not a distance, as in the case of $p\neq q$ and $f(x)=g(x)$, (6) is estimated rather than (4) as it leads to less complex expressions for bounding the classification error rate [2]. Additionally, it is easily seen that $\widetilde{D}_p=D_p$ when the condition $p=q=0.5$ is met.
+	Note that this quantity is not a distance, as in the case of $f_0(\textbf{x})=f_1(\textbf{x})$, it does not satisfy the identity property. However, (5) is estimated rather than (3) as it leads to Bayes error rate bounds that are simpler. Additionally, it is easily seen that when $p=q=0.5$, the identity condition $is$ met for $\widetilde{D}_p$, and for that case $\widetilde{D}_p=D_p$.
+	
 	\subsection{\ Bayes Error Rate and Divergence Measures}
 	\indent A common problem in machine learning is binary classification, in which data $\textbf{X}_i\in \mathbf{R^{n \times d}}$ are assigned a class label $c_i \in \{0,1\}$.
-	Given $c_0$ and $c_1$ contain data with respective probability distributions $f(\textbf{x})$ and $g(\textbf{x})$, prior probabilities $p \in (0,1)$ and $q=1-p$, the Bayes optimal classifier assigns class labels to $x_i$ such that the posterior probability is maximized [4].\ The error rate of this optimal classifier, the Bayes error rate (BER), provides an absolute lower bound on the classification error rate.\ Accurate estimation of the BER makes it possible to quantify the performance of a classifier with respect to this optimal lower bound, or apply improved BER estimation methods in a feature selection algorithm [1]. 
+	Given $c_0$ and $c_1$ correspond to data with respective probability distributions $f_0(\textbf{x})$ and $f_1(\textbf{x})$, prior probabilities $p \in (0,1)$ and $q=1-p$, the Bayes optimal classifier assigns class labels to $x_i$ such that the posterior probability is maximized [4].\ The error rate of this optimal classifier, the Bayes error rate (BER), provides an absolute lower bound on the classification error rate.\ Accurate estimation of the BER makes it possible to quantify the performance of a classifier with respect to this optimal lower bound, or apply improved BER bounds to feature selection algorithms [1]. 
 	\\ [0.5ex]
-	\indent Given the two conditional density functions, $f_0(\textbf{x})$ and $f_1(\textbf{x})$, it is possible to write the Bayes error rate in terms of the prior probabilities $p$ and $q$ as given in [2]:
+	
+	\indent Given the two conditional density functions, $f_0(\textbf{x})$ and $f_1(\textbf{x})$, it is possible to write the Bayes error rate in terms of the prior probabilities $p$ and $q$:
 	%insert bayes error rate equation here
 	\begin{equation} E_{Bayes}=\int_{r_1} pf_0(\textbf{x}) \,d\textbf{x} + \int_{r_0} qf_1(\textbf{x}) \,d\textbf{x} \end{equation}
 	%ADD PROPER LIMITS TO INTEGRAL
 	\indent Here, $r_1$ and $r_0$ refer to the regions where the respective posterior probabilities are larger.\ Direct evaluation of this integral can be quite involved and impractical, and poses similar problems to that of estimation of $f$-divergences: it is challenging to create an exact model for the distributions $f_0(\textbf{x})$ and $f_1(\textbf{x})$.\ As an alternative to direct evaluation of the integral, it is possible to derive bounds for the Bayes error rate in terms of divergences measures [5]. 
 	\\ [0.5ex]	
-	\indent The Bayes error rate can be related total variation distance (shown in Table 1), which itself can given in terms of the K-L divergence [30]. The Pinkser inequality [31] and related bounds are one such method to arrive at the total variation distance from the K-L divergence. However, as noted previously, in certain cases the K-L divergence may not be bounded, and may result in a value that tends to $\infty$. Since this value is used to estimate the total variation distance and Bayes error rate, a bounded value is desired. Vajda [31] modified the relation between the K-L divergence and the total variation distance to account for this problem. Therefore, we note the properties of $D_p$ described in Section 1.1.2, namely that $0 \leq D_p \leq 1$. 
+	
+	\indent The Bayes error rate can be related to the total variation distance (shown in Table 1), which itself can given in terms of the K-L divergence [30], [31]. The Pinkser inequality [32] and related bounds are one such method to arrive at the total variation distance from the K-L divergence. However, as noted previously, in certain cases the K-L divergence may not be bounded, and can result in a value that tends to $\infty$. Vajda [33] modified the relation between the K-L divergence and the total variation distance to account for this problem. Bounds for the classification error rate have been given in terms of the Bhattacharya distance in [33]. In [2] the Bayes error rate is given in terms $\widetilde{D}_p$:\begin{equation}
+	\frac{1}{2}-\frac{1}{2}\sqrt{\widetilde{D}_p(f_0,f_1)}\leq E_{Bayes} \leq \frac{1}{2}-\frac{1}{2}\widetilde{D}_p(f_0,f_1)
+	\end{equation}
 	\\ [0.5ex]
 	\subsection{\ Bootstrap Sampling}
-	\indent	As we have just shown, the method for empirically calculating a specific $D_p$ value for a dataset of length $N$ is quite straight forward, but it leaves much to be desired. Specifically, it is necessary to characterize the quality of the $D_p$ estimate. A direct calculation of the divergence measure using all $N$ data points yields only a single value, and does not provide any insight into the error or spread of  the statistic. Indeed, in many cases knowledge of the spread of the estimate is as important as the estimate itself.
+	\indent	As we have just shown, the method for empirically calculating a specific $\widetilde{D}_p$ value for a dataset of length $N$, and obtaining an estimate for the BER is quite straight forward, but it leaves much to be desired. Specifically, it is necessary to characterize the quality of the $\widetilde{D}_p$ estimate. A direct calculation of the divergence measure using all $N$ data points yields only a single value, and does not provide any insight into the error or spread of  the statistic. Indeed, in many cases knowledge of the spread of the estimate is as important as the estimate itself.
 	\\[0.5ex]
-	\indent Bootstrap resampling, first introduced by Efron in [10], is a powerful method to find the spread of an estimator. From a data set $\textbf{X}_i$ of size $D$, bootstrap method functions by taking $i$ sets of repeated random samples of size $n<D$ with replacement, and computing estimates for all $i$ generated sets. This Monte Carlo approach gives a powerful way to analyze some measure estimator quality. However, the bootstrap with replacement fails when applied to the F-R test statistic based estimator.
+	
+	\indent Bootstrap resampling, first introduced by Efron in [10], is a powerful tool to find the spread of an estimator. From a data set $\textbf{X}_i$ of size $N$, the bootstrap method functions by repeatedly and randomly sampling, with replacement, $i$ subsets of size $n<N$ from the original dataset. Then estimates are computed for all $i$ generated subsets. This Monte Carlo approach gives a powerful way to analyze some measure of estimator quality from $i$ estimates. However, the bootstrap with replacement fails when applied to the F-R test statistic based estimator. Because the F-R test statistic requires the generation of unique distances between data points when computing the minimum spanning tree, it is not desirable to sample with replacement [2]. 
 	% we denote $S(\textbf{X}_i)$.
 	%bootstrapping is great, it gives us this spread knowledge, but
 	% we also want to apply this estimation method into 
 	\\ [0.5ex]
+	
 	%Explain why we want a CI for D_p
-	 Resampling techniques such as the jackknife [9], and the bootstrap [10] can be applied to find the statistical distribution of the estimated quantity in question. 
+	\indent To satisfy this requirement, we consider another bootstrap resampling technique, the $m$ out of $N$ bootstrap, that generates $i$ randomly sampled subsets of size $m<N$, $without$ $replacement$, in order to obtain a sense of the distribution of the estimator. Particularly, we consider the confidence interval of $\widetilde{D}_p$. Now, we have an estimate of $\widetilde{D}_p$ along with a confidence interval. But, this estimate is for finite data size, and the estimator for $\widetilde{D}_p$, equation (6), specifies an asymptotic condition of $N_{f0} \rightarrow \infty$ and $N_{f_1} \rightarrow \infty$. Obtaining this estimate of $\widetilde{D}_p$ for $N \rightarrow \infty$ 
 	\\ [0.5ex]
+	
+	\indent 
 	%resampling techniques
 	%the bootstrap
 
@@ -527,7 +550,13 @@
 	\noindent [31] I. Csisz et al., “Information-type measures of difference of probability	distributions and indirect 
 	\indent observations,” Studia Sci. Math. Hungar.,
 	vol. 2, pp. 299–318, 1967
+	\\ [0.5ex]
 	
 	\noindent [32] I. Vajda, “Note on discrimination information and variation (corresp.),”	Information Theory, IEEE 
 	\indent Transactions on, vol. 16, no. 6, pp. 771–773, 1970.
+	\\ [0.5ex]
+	
+	\noindent [33] A. Bhattacharyya, “On a measure of divergence between two multinomial populations,” Sankhya: 
+	\indent The Indian Journal of Statistics ¯ , pp. 401–
+	406, 1946.
 \end{document}
