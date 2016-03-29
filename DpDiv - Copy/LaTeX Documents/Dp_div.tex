@@ -4,7 +4,7 @@
 \usepackage[]{algorithm2e}
 \usepackage{program}
 \usepackage{eufrak}
-\usepackage{amsmath}
+%\usepackage{amsmath}
 \usepackage[a4paper, total={6in, 8in}]{geometry}
 \graphicspath{ {images/} }
 \begin{document}
@@ -37,7 +37,7 @@
 	\\ [0.5ex]
 	
 	%PAPER goal paragraph
-	\indent	In this paper, we perform a bootstrap estimation of a minimum spanning tree based $f$-divergence derived in [25] using a power law. From data of size $N$, we compute  Monte Carlo iterations at $i$ sample sizes $n\in \{n_1, n_2,... $ $,n_i\}<N$, and apply the unproven, but reasonable assumption that a power law fit can be used to relate the value of the divergence estimator as a function of sample size. We exploit the unique ability to estimate this divergence measure directly from data, and bypass computing the densities. Utilizing this curve we extrapolate as sample size $n\rightarrow\infty$, and find the asymptotic value of the divergence estimate directly from a finite length data set.  As $f$-divergences are be related to the classification error rate, this estimation scheme is applied to binary classification examples to find Bayes error rates for several datasets.
+	\indent	In this paper, we perform a bootstrap estimation of a minimum spanning tree based $f$-divergence derived in [25] using a power law. From data of size $N$, we compute  Monte Carlo iterations at $i$ sample sizes $n\in \{n_1, n_2,... $ $,n_i\}<N$, and apply the unproven, but reasonable assumption that a power law fit can be used to relate the value of the divergence estimator as a function of sample size. We exploit the unique ability to estimate this divergence measure directly from data, and bypass computing the densities. Utilizing this curve we extrapolate as sample size $n\rightarrow\infty$, and find the asymptotic value of the divergence estimate directly from a finite length data set.  As $f$-divergences are be related to the classification error rate [19], this estimation scheme is applied to binary classification examples to find Bayes error rates for several datasets.
  	%MAybe add 1 sentance about confidence intervals for the estimator
  	\\ [0.5ex]
  	
@@ -235,14 +235,15 @@
 	
 	$\indent$	The algorithm for finding the $\bar{D}_p^*$ value for a two class data set, follows from the overview of bootstrap sampling in 1.3. Then $m$, the number of Monte Carlo iterations, must be defined. Choose, $i$ and $\textbf{n}_i$, the number of bootstrap subsamples and the bootstrap subsample sizes. Begin with the outer loop, and iterate through the number bootstrap subsample sizes, $i$. Create a randomly sampled subset $\textbf{S}$ of length $n_i$ from the data $\textbf{X}_S$ containing an equal number of elements from each class, and compute the divergence estimate for the subset $\textbf{S}$. Repeat the subset creation and divergence estimation $m$ times (this is the inner loop). Upon returning to the outer loop, find the mean of the $m$ $D_{p_k}$ values. Once the mean value of $m$ estimates for all $i$ bootstrap subsample sizes has been found, apply the power law fit, $\mathcal{P}$, to the mean values and subsample sizes. The asymptotic value of the divergence estimator $\bar{D}_p^*$ is equal to $c$.
 	
-	$\indent$ We note several restrictions on input parameters. Define maximum value of subsample size as $n_{max}$. This value must be less than $N$. Also, $\binom{N}{n_{max}}>m$. This is a requirement for sensible Monte Carlo iterations: there must be at least $m$ unique subsets of size $n_{max}$. From the lower extreme of subsample size, $n_1$ must be greater than the number of dimensions of the data set.
+	$\indent$ We note several restrictions on input parameters. Define maximum value of subsample size as $n_{max}$. This value must be less than $N$. Also, $N$ choose $n_{max}$ must be greater than $m$. %$\binom{N}{n_{max}}>m$. 
+	This is a requirement for sensible Monte Carlo iterations: there must be at least $m$ unique subsets of size $n_{max}$. From the lower extreme of subsample size, $n_1$ must be greater than the number of dimensions of the data set.
 
 	
 	\section{Results}
-	\subsection{\small Uniform Dataset}
+	\subsection{Uniform Dataset}
 	$\indent$ To test the operation of the estimation algorithm, a data set with a known divergence is constructed in order to ensure that the computed value of $\bar{D}_p^*$ matches with the known divergence. For this purpose, the uniform distribution shown in Table 2 is defined. The data set contains 8 dimensions, all of which have variance $\sigma^2=\frac{1}{12}$, and are uniformly distributed along $[-0.5,0.5]$, with the exception of one dimension from $c_1$. That dimension has an offset mean of $\mu_1=\frac{1}{2}$ rather than  $\mu_1=0$. It is easy to see that a direct application of equation (3) or (5) results in a divergence value of $D_p=0.5$. Refer to the Appendix for this computation.
 	\begin{table}[ht]
-		\caption{Uniform Dataset for Bootstrap Analysis of $D_p$}
+		\caption{Uniform Dataset for Analysis of $D_p$}
 		\centering % used for centering table
 		\begin{tabular}{c c c c c c c c c c} % centered columns (4 columns)
 			%inserts double horizontal lines
@@ -277,28 +278,35 @@
 	\begin{equation}
 	\bar{D}_p=-0.39n^{-0.22}+0.4775
 	\end{equation}
-	The asymptotic estimate $\bar{D}_p^*=0.4775$ agrees with the analytically calculated value for the dataset, ${D}_p=0.5$. To understand the true capability of the power law based, asymptotic estimation method consider Table 3.
+	The asymptotic estimate $\bar{D}_p^*=0.4775$ is in approximate agreement with the analytically calculated value for the dataset, $\textbf{D}_p=0.5$. To understand the true capability of the power law based, asymptotic estimation method consider Table 3.
 	
 	\begin{table}[!h]		
-		\caption{Estimated $D_p$ for Uniform Data Set for $n_{max}=1000$ [4]}
+		\caption{Estimated $D_p$ for Uniform Data Set for $n_{max}=1000$}
 		\begin{center}
 			%	\begin{tabular}{||c c c c||} 
 			%		\hline
 			\begin{tabular}[!h]{ |p{5cm}||p{4cm}|  }
 				\hline
-				Value & Result\\ [0.5ex] 
+				Value & Result \newline ($95 \%$ Confidence Interval) \\ [0.5ex] 
 				\hline\hline
+				$\textbf{D}_p$ (true value) & 0.5 \\
 				$D_p$ (no Bootstrap) & $0.3370$ \\
-				$\bar{D}_p$ & 0.3870 (0.3646, 0.4064) 	\\
+				${D}_{p\_mean}$ & 0.3870 (0.3422, 0.4288) 	\\
 				$\bar{D}_p^*$ & $\textbf{0.4775}$  (0.4378, 0.5173)\\ 
-				$D_p$ (true value) & 0.5 \\
+				
 				\hline 		
 			\end{tabular}
 		\end{center}
 	\end{table}
-	When a direct computation of the divergence measure is performed for 1000 data points an estimate of $D_p=0.337$ is obtained. This is problematic for two reasons. As explained earlier, there is no information about the distribution of the estimate. Additionally, the calculated value $D_p=0.337$, is far from the true value of $D_p=0.5$. 
+	When a direct computation of the divergence measure is performed for 1000 data points an estimate of $D_p=0.337$ is obtained. This is problematic for two reasons. As explained earlier, there is no information about the distribution of the estimate. Additionally, the calculated value $D_p=0.337$, is far from the true value of $D_p=0.5$. The result is of little use for any application. 
+	\\[0.5ex]
 	
+	$\indent$ $\bar{D}_{p\_mean}$ is the average of $m=200$ Monte Carlo estimates for a subsample size of 1000. Because the distribution of the estimates are approximately Gaussian, a crude way to characterize the $95\%$ confidence interval of the estimator is to consider values within 2$\sigma$ of the mean. But, the resulting confidence interval and value ${D}_{p\_mean}=0.3870$ are only marginally better than the value found without bootstrapping iterations, and still have large errors.
+	\\[0.5ex]
+	
+	$\indent$ If we then consider the asymptotic power law estimate $\bar{D}_p^*=0.4775$ with confidence interval $(0.4378, 0.5173)$, we see that the value of $\bar{D}_p^*=0.4775$ is fairly close to the true value of $\textbf{D}_p=0.5$. This result is far more favorable than the previous results. Additionally, the confidence interval found via the power law fit process includes the true value. Through this example, we have confirmed our assumption that the power law can be applied to find the asymptotic divergence estimate. 
 	\subsubsection*{Proper Selection of $\textbf{n}_i$}
+	
 	$\indent$ While selecting the set of subsample sizes $\textbf{n}_i \in \{n_1, n_2,... ,n_i<N\}$, it is vital that a significant portion of the $i$ subsample sizes are concentrated within the rapidly rising portion of the power law curve. In Figure 1, notice that for a sample size of up to $n=200$, the estimates of divergence change rapidly for increasing sample size. But, for $n>200$, the convergence of the estimates slows - the divergence estimates change slowly for increasing sample size. In this case the $n_i$ are chosen so that $n_1$ to $n_{20}$ are spaced evenly on the interval $[8,100]$ ($n_1$ should not be smaller than the number of dimensions). Then, $n_{21}$ to $n_{40}$ are evenly spaced for $[100,500]$. Finally, $n_{41}$ to $n_{50}$ are evenly spaced between $[500,1000]$. 
 	\\[0.5ex]	
 	
@@ -319,79 +327,127 @@
 	
 	
 \newpage
-	\subsection{\small Gaussian Dataset}
-	
+	\subsection{ Gaussian Dataset}
 	
 	\begin{table}[!h]
-		\caption{Gaussian Dataset for Bootstrap Analysis of $D_p$}
+		\caption{Gaussian Dataset for Analysis of $D_p$}
 		\centering % used for centering table
 		\begin{tabular}{c c c c c c c c c c} % centered columns (4 columns)
 			%inserts double horizontal lines
-			$D_0$ &  &  &  \\ [0.5ex] % inserts table
+			$c_0$ &  &  &  \\ [0.5ex] % inserts table
 			%heading
 			\hline % inserts single horizontal line
 			$\mu_0$ & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\[0.5ex] % inserting body of the table
 			$\sigma_0$ & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\[0.5ex]
 			
-			$D_1$ & \\ [0.5ex]
+			$c_1$ & \\ [0.5ex]
 			
 			\hline
-			$\mu_1$ & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\[0.5ex] % inserting body of the table
-			$\sigma_1$ & 2.56 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\[0.5ex]
+			$\mu_1$ & 2.56 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\[0.5ex] % inserting body of the table
+			$\sigma_1$ & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\[0.5ex]
 			\hline %inserts single line
 		\end{tabular}
 		\label{table:nonlin} % is used to refer this table in the text
 	\end{table}
 	
+	$\indent$ We wish to show that this estimation method is valid for many types of distributions. Therefore, we now consider the 8-dimensional Gaussian dataset given in Table 4 [37]. All dimensions of the data are zero mean and unit variance except for the first dimension of class 1. The mean of one of the dimensions of $c_1$ is shifted to $\mu_1=2.56$.  It is not possible to analytically calculate $D_p$ for a Gaussian dataset. But, the Bayes error rate for this data set is known (BER=10\%). So, $\bar{D}_p^*$ can be validated by calculating the bounds on the BER from $\bar{D}_p^*$, and comparing to the known BER value. 
+	
+	$\indent$ The same conditions as Section 3.1 are applied. A 10000 instance dataset is created containing an equal number of points from both classes. The number of Monte Carlo iterations $m=200$, and bootstrap subsample sizes $\textbf{n}_i$ are selected in the same manner with $n_{max}=1000$. The only difference in this case is that a different dataset is evaluated, and an additional step of computing the BER is performed. The resulting power law curve for this dataset is:
+	\begin{equation}
+	\bar{D}_p=-0.79n^{-0.59}+0.6773
+	\end{equation}
+	with asymptotic divergence estimate and confidence interval: $\bar{D}_p^*=0.6773$ (0.6687, 0.686).
+	Applying equation (8), Table 5 contains resultant bounds on the BER. The true value of the Bayes error rate is within the upper and lower bounds found via the value $\bar{D}_p^*$. So, $\bar{D}_p^*$ has been successfully estimated for the Gaussian case. Refer to Figure 3 for a plot of equation (13).
+	
+	
+	\begin{table}[!h]		
+			\caption{Estimated Bayes Error Rate for Gaussian Data Set for $n_{max}=1000$ [4]}
+			\begin{center}
+				%	\begin{tabular}{||c c c c||} 
+				%		\hline
+				\begin{tabular}[!h]{ |p{5cm}||p{4cm}|  }
+					\hline
+					Quantity & Bayes Error \\ [0.5ex] 
+					\hline\hline
+					True Value  & 10 \%\\
+					Estimated Lower Bound & $8.85 \% \pm 0.26\%$ \\					
+					Estimated Upper Bound & $16.13 \% \pm 0.43\% $\\
+					\hline 		
+				\end{tabular}
+			\end{center}
+		\end{table}
+
 	\begin{figure}[h!]
-		\caption{Asymptotic Convergence of $D_p$ for Gaussian Data Set, N = 50 trials}
+		\caption{Asymptotic Convergence of $D_p$ for Gaussian Data Set, m = 200 trials}
 		\centering
 		%	\begin{center}
 		\includegraphics[scale=0.6]{dp_n50_gaussian}
 		%	\end{center}
 	\end{figure}	
 	
-
-	
 	\newpage
-
-
-	\subsection{\small Banknote Dataset}
-	\indent The empirical example we consider is the Banknote Authentication Data Set taken from the University of California, Irvine Machine Learning Repository [7]. The 4-dimensional dataset contains data extracted from images of banknotes. The dataset consists of a relatively small number of dimensions, and highly separated data, so the convergence is rapid, even for relatively small sample size. We note that for a sensitive task such as authenticating banknotes, it should not be surprising to see an asymptotic value for $D_p$ that is close to 1, indicating that the classes are well separated.  
+	\newpage
+	\subsection{ Banknote Dataset}
+	$\indent$ The first real world example considered is the Banknote Authentication Data Set, taken from the University of California, Irvine Machine Learning Repository [7]. The dataset is 4-dimensional, and has $N=1372$ instances. The features of the dataset are extracted from images of genuine and forged banknotes, and the classification task is to label a data vector as either forged or genuine. The dataset consists of a relatively small number of dimensions, and highly separated data, so the convergence is rapid, even for relatively small sample size. 
+	The following parameters for Algorithm 1 are set: $m=50$, $i=50$, $n_{max}=600$, and most subsamples sizes $n_i$ are less than $0.5n_{max}$. For a sensitive task such as authenticating banknotes, it should not be surprising to see an asymptotic value for $D_p$ that is almost equal to 1:
+	\begin{equation}
+		\bar{D}_p=-3.18n^{-0.98}+ 1.001
+	\end{equation}
+	This curve is plotted in Figure 4, along with the means of the $m=50$ Monte Carlo trials. The asymptotic value of the divergence estimate and its 95\% confidence interval  is $\bar{D}_p^*=1.000$(0.997, 1.005).
+	\begin{table}[!h]		
+		\caption{Estimated Bayes Error Rate For Banknote Data Set}
+		\begin{center}
+			%	\begin{tabular}{||c c c c||} 
+			%		\hline
+			\begin{tabular}[!h]{ |p{5cm}||p{4cm}|  }
+				\hline
+				Quantity & Bayes Error \\ [0.5ex] 
+				\hline\hline
+				Estimated Lower Bound & $-0.02 \% \pm 0.09\%$ \\					
+				Estimated Upper Bound & $-0.05 \% \pm 0.20\% $\\
+				\hline 		
+			\end{tabular}
+		\end{center}
+	\end{table}
+	
+	$\indent$  If equation (8) is applied, the lower and upper bound of the BER are both negative: (-0.02\%, -0.05 \%). Because a negative error rate is nonsensical, for this dataset the Bayes error rate is taken as 0\%. This means that an optimal classifier for this dataset could hope to make no errors at all in sorting banknotes as forged or genuine. This is certainly good news!
 	\begin{figure}[h!]
-			\caption{Convergence of $D_p$ for Banknote Authentication Data Set, N = 50 trials}
+			\caption{Convergence of $D_p$ for Banknote Authentication Data Set, m = 50 trials}
 			\centering
 			%	\begin{center}
 			\includegraphics[scale=0.6]{dp_n50_banknote}
 			%	\end{center}
 	\end{figure}
 
-	\subsection{\small Pima Indians Dataset}
+\newpage
+\newpage
+	\subsection{ Pima Indian Dataset}
+	$\indent$ The second real world dataset analyzed is the Pima Indian Dataset, also sourced from the UCI Machine learning repository [38]. The dataset has 8-dimensions containing clinical information such as age, blood pressure, BMI, and plasma glucose concentration about female patients of Pima Indian heritage who are age 21 or older. Due to the relatively low number of instances in the dataset, it is of particular interest to find an asymptotic value of the divergence estimator. 
 	
+	$\indent$ Of the $N=768$ instances, 500 belong to class 0, corresponding to diabetes, and 268 instances are from class 1, corresponding to diabetic patients. In the discussion of equations (5) and (6) it was noted that in order for the condition $\widetilde{D}_p=D_p$ to hold, $p=q=0.5$. Therefore, $n_{max}<2*268$ because calculation of the divergence estimate requires an equal number of data samples from each class to ensure $p=q=0.5$. For our purposes $n_{max}=500$ is chosen. 
+	
+	For the uniform dataset, it was shown that as the value $n_i$ increases, the variance in the
 	\begin{figure}[!h]
-		\caption{Asymptotic Convergence for Pima Indian Data Set, N = 50 trials}
+		\caption{Asymptotic Convergence for Pima Indian Data Set, m = 50 trials}
 		\centering
 		%	\begin{center}
 		\includegraphics[scale=0.6]{dp_n50_pima}
 		%	\end{center}
 	\end{figure}
-	
 	\begin{figure}[!h]
-		\caption{Asymptotic Convergence for Pima Indian Data Set, N = 200 trials}
+		\caption{Asymptotic Convergence for Pima Indian Data Set, m = 200 trials}
 		\centering
 		%	\begin{center}
 		\includegraphics[scale=0.6]{dp_n200_pima}
 		%	\end{center}
 	\end{figure}	
-	
 	\begin{figure}[!h]
-		\caption{Asymptotic Convergence for Pima Indian Data Set, N = 5000 trials}
+		\caption{Asymptotic Convergence for Pima Indian Data Set, m = 5000 trials}
 		\centering
 		%	\begin{center}
 		\includegraphics[scale=0.6]{dp_n5000_pima}
 		%	\end{center}
 	\end{figure}	
-	
 	%		\begin{figure}[!h]
 	%			\caption{Asymptotic Convergence for Pima Indian Data Set, N = 5000 trials}
 	%			\centering
@@ -399,8 +455,6 @@
 	%			\includegraphics[scale=0.75]{dp_n5000}
 	%			%	\end{center}
 	%		\end{figure}	
-	
-	\newpage
 	\begin{table}[!h]		
 		\caption{Bayes Error Rates in Literature for Pima Indians Data Set [4]}
 		\begin{center}
@@ -441,9 +495,6 @@
 			\end{tabular}
 		\end{center}
 	\end{table}
-	
-	
-		
 	\begin{table}[!h]		
 		\caption{Bootstrap Estimated Bayes Error Rates for Pima Indians Data Set [4]}
 		\begin{center}
@@ -461,8 +512,6 @@
 			\end{tabular}
 		\end{center}
 	\end{table}
-	
-	\newpage
 	\begin{table}[!h]		
 		\caption{$D_p$ and Bayes Error Rate for the Pima Indian Data Set for Increasing Sample Size, and Increasing Monte Carlo Iterations}
 		\begin{center}
@@ -512,7 +561,13 @@
 	%		\section{Conclusion}
 	
 %	\Needspace{5\baselineskip}
-	\newpage
+
+
+\newpage
+%$\newpage$
+%$\newpage$
+%$\newpage$
+%$\newpage$
 	\section*{References}
 	\noindent [1] Hawes, Chad M., and Carey E. Priebe. "A Bootstrap Interval Estimator for Bayes' Classification 
 	\indent Error." 2012 IEEE Statistical Signal Processing Workshop, 2012
@@ -551,33 +606,6 @@
 	\\ [0.5ex]
 	
 	\noindent [10] Efron, B. "Bootstrap Methods: Another Look at the Jackknife." Annals of Statistics 7.1 (1979)
-	\\ [0.5ex]
-	
-	\noindent [11] https://www.princeton.edu/~verdu/reprints/WanKulVerSep2005.pdf **Create Citation
-	\\ [0.5ex]
-	
-	\noindent [12] http://www.princeton.edu/~verdu/reprints/WanKulVer.May2009.pdf?q=tilde/verdu/
-	\indent reprints/WanKulVer.May2009.pdf **Create Citation
-	\\ [0.5ex]
-	
-	\noindent [13] http://www.eecs.berkeley.edu/~wainwrig/Papers/NguWaiJor10.pdf **Create Citation
-	\\ [0.5ex]
-	
-	\noindent [14] T. Kailath, “The divergence and Bhattacharyya distance measures in signal selection,” Communication 
-	\indent Technology, IEEE Transactions on, vol. 15, no. 1, pp. 52–60, 1967.
-	\\ [0.5ex]
-
-%	\noindent [15] http://www.tsc.uc3m.es/~fernando/bare_conf3.pdf **Create Citation
-%	\\ [0.5ex]
-	
-	\noindent [16] http://arxiv.org/pdf/1404.6230.pdf** Create Citation
-	\\ [0.5ex]
-	
-	\noindent [17] Bootstrap sampling Efron Citation
-	\\ [0.5ex]
-	
-	\noindent [18]
-	% http://ac.els-cdn.com/S0019995881902631/1-s2.0-S0019995881902631-main.pdf?_tid=93d74928-deb7-11e5-a4b5-00000aab0f01&acdnat=1456731754_14a794e35c706d6376e880a3eab5c757
 	\\ [0.5ex]
 	
 	\noindent [19] S. Ali and S. D. Silvey, “A general class of coefficients of divergence of one distribution from 
@@ -665,6 +693,14 @@
 	\noindent [36] Robert R. Snapp and Santosh S. Venkatesh, “Asymptotic
 	expansions of the k nearest neighbor \indent risk,” The
 	Annals of Statistics, vol. 26, no. 3, pp. 850–878, 1998
+	\\[0.5ex]
+	
+	\noindent [37]  K. Fukunaga, Introduction to statistical pattern recognition. Academic
+	press, 1990
+	\\[0.5ex]
+	
+	\noindent [38] A. Frank and A. Asuncion, “UCI machine learning
+	repository,” http://archive.ics.uci.edu/ml, 2010.
 	\\[0.5ex]
 	
 \end{document}

@@ -102,7 +102,7 @@ boxplot(fulldpdata(:,indexes), 'Labels',fullSampleSizes(indexes)')
 data1coef1=coeffvalues(dpdivFit1);
 % data1coef2=coeffvalues(dpdivFit2);
 
-dp_div_d1=data1coef1(3);
+dp_div_d1=data1coef1
 b1=data1coef1(2);
 a1=data1coef1(1);
 
