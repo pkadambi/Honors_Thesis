@@ -144,27 +144,35 @@
 	\indent	As we have just shown, the method for empirically calculating a specific $\widetilde{D}_p$ value for a dataset of length $N$, and obtaining an estimate for the BER is quite straight forward, but it leaves much to be desired. Specifically, it is necessary to characterize the quality of the $\widetilde{D}_p$ estimate. A direct calculation of the divergence measure using all $N$ data points yields only a single value, and does not provide any insight into the error or spread of  the statistic. Indeed, in many cases knowledge of the spread of the estimate is as important as the estimate itself.
 	\\[0.5ex]
 	
-	\indent Bootstrap resampling, first introduced by Efron in [10], is a powerful tool to find the spread of an estimator. From a data set $\textbf{X}_i$ of size $N$, the bootstrap method functions by repeatedly and randomly sampling, with replacement, $i$ subsets of size $n<N$ from the original dataset. Then estimates are computed for all $i$ generated subsets. This Monte Carlo approach gives a powerful way to analyze some measure of estimator quality from $i$ estimates. However, the bootstrap with replacement fails when applied to the F-R test statistic based estimator. Because the F-R test statistic requires the generation of unique distances between data points when computing the minimum spanning tree, it is not desirable to sample with replacement [2]. 
+	\indent Bootstrap resampling, first introduced by Efron in [10], is a powerful tool to find the spread of an estimator. From a data set $\textbf{X}_i$ of size $N$, the bootstrap method functions by repeatedly and randomly sampling, with replacement, $b$ subsets of size $n<N$ from the original dataset. Then estimates are computed for all $b$ generated subsets. This Monte Carlo approach gives a powerful way to analyze some measure of estimator quality from $b$ estimates. However, the bootstrap with replacement fails when applied to the F-R test statistic based estimator. Because the F-R test statistic requires the generation of unique distances between data points when computing the minimum spanning tree, it is not desirable to sample with replacement [2]. 
 	% we denote $S(\textbf{X}_i)$.
 	%bootstrapping is great, it gives us this spread knowledge, but
 	% we also want to apply this estimation method into 
 	\\ [0.5ex]
 	
 	%Explain why we want a CI for D_p
-	\indent To satisfy this requirement, we consider another bootstrap resampling technique, the $m$ out of $N$ bootstrap, that generates $i$ randomly sampled subsets of size $m<N$, $without$ $replacement$, in order to obtain a sense of the distribution of the estimator. Particularly, we consider the confidence interval of $\widetilde{D}_p$. Now, we have an estimate of $\widetilde{D}_p$ along with a confidence interval. But, this estimate is for finite data size, and the estimator for $\widetilde{D}_p$, equation (6), specifies an asymptotic condition of $N_{f0} \rightarrow \infty$ and $N_{f_1} \rightarrow \infty$. Obtaining this estimate of $\widetilde{D}_p$ for $N \rightarrow \infty$ is desirable in order to minimize the bias.
+	\indent To satisfy this requirement, we consider another bootstrap resampling technique, the $m$ out of $N$ bootstrap, that generates $b$ randomly sampled subsets of size $m<N$, $without$ $replacement$, in order to obtain a sense of the distribution of the estimator. Particularly, we consider the confidence interval of $\widetilde{D}_p$. Now, we have an estimate of $\widetilde{D}_p$ along with a confidence interval. But, this estimate is for finite data size, and the estimator for $\widetilde{D}_p$, equation (6), specifies an asymptotic condition of $N_{f0} \rightarrow \infty$ and $N_{f_1} \rightarrow \infty$. Obtaining this estimate of $\widetilde{D}_p$ for $N \rightarrow \infty$ is desirable in order to minimize the bias. 
 	\\ [0.5ex]
 	
-	\indent Hawes and Priebe [1] applied a $k$-Nearest Neighbors rule to find the upper and lower bound on the Bayes error rate as a function of sample size. They perform bootstrap estimates of the BER (which they denote as $\bar{L}_n(k)$) at sample sizes $n_1 \textless n_2 \textless ... \textless n_i \textless N$. Then they apply a parametric power law curve to calculate the Bayes error rate as a function of sample size, $n$:
+	\indent Hawes and Priebe [1] applied a $k$-Nearest Neighbors rule to find the upper and lower bound on the asymptotic Bayes error rate as a function of sample size. They perform bootstrap estimates of the BER (which they denote as $\bar{L}_n(k)$) at sample sizes $n_1 \textless n_2 \textless ... \textless n_i \textless N$. Then they apply a parametric power law curve to calculate the bootstrapped Bayes error rate estimates as a function of sample size, $n$:
 		\begin{equation}
 		\bar{L}_n(k)=an^b+c
 		\end{equation}
-	With power law fit constants $a$, $b$, $c$, and sample size $n$. Given that this model is valid, $b<0,$ and as $n \rightarrow \infty$, $\bar{L}_n(k)\rightarrow c$ with $c=\bar{L}_\infty(k)$. In [34] it is shown that $\vert \bar{L}_n(1)-\bar{L}_\infty (1) \vert \leq an^{-2}$; the absolute error of the BER estimate for a 1-dimensional data, with $k=1$ rule, converges in the form given by equation (9). This result was generalized in []
-	Please note that for the remainder of this paper, the Bayes error rate will be referred to as $E_{Bayes}$.
+	with power law fit constants $a$, $b$, $c$, and sample size $n$. Given that this model is valid, $b<0,$ and as $n \rightarrow \infty$, $\bar{L}_n(k)\rightarrow c$ with $c=\bar{L}_\infty(k)$. In [34] it is shown that $\vert \bar{L}_n(1)-\bar{L}_\infty (1) \vert \leq an^{-2}$; the absolute error of the BER estimate for a 1-dimensional data, with $k=1$ rule, converges in the form given by equation (9). 
+	\\[0.5ex]
 	
-	\indent As shown in Section 1.2, it is possible to relate the Bayes error rate in terms of the classification error rate. Therefore, it is a sensible assumption that the $\widetilde{D}_p$ divergence estimate for $n \rightarrow \infty$ may be generated using the same power law. In this work, a parametric power law curve of the form:
+	\indent This result was generalized in [35] for $d$-dimensional data. In [36] was generalized to any choice of $k$, and produced the following expression for the BER:
+	\begin{equation}
+	\bar{L}_n(k)~\bar{L}_\infty (k) + \sum_{j=2}^{\infty} c_j n^{-j/d}
+	\end{equation}
+	As $n$ increases, the term that dominates happens to be $cn^{-2/d}$. This is in agreement with the earlier described result for the $d=1$ case. (Please note that for the remainder of this paper, the Bayes error rate will be referred to as $E_{Bayes}$, not $\bar{L}_n(k)$).
+	
+	\indent While Hawes and Priebe focus on obtaining asymptotic bounds of the BER, this works focuses on asymptotic bounds for $\widetilde{D}_p$. As shown in equation (8) of Section 1.2, it is possible to simply and directly relate the Bayes error rate in terms of $\widetilde{D}_p$. Therefore, the motivation behind the estimation method for BER may also motivate an approach to find $\widetilde{D}_p$. Though it has not been proven, it is a sensible assumption that the divergence estimates follow a similar power law for increasing sample size, and that asymptotic estimates may be generated using this formulation. In this work, the following power law is used:
 	\begin{equation}
 		\bar{D}_p(f_0,f_1)=an^b+c
 	\end{equation}
+
+	\indent Notice that under the good assumption of $b<0$, $\bar{D}_{p\infty} \rightarrow c$ as $n \rightarrow \infty$, . So, we have shown that from a size $N$ finite length dataset, it is possible to obtain asymptotic estimates for the divergence. Reviewing notation, $D_p$ refers to the distance in equation (3), $\widetilde{D}_p$ is the modified version of the distance suited to binary classification given in equation (5), and $\bar{D}_p$ is the power law curve describing the estimator of $\widetilde{D}_p$ as a function of sample size from the equation above. The asymptotic value of the divergence is denoted as $\bar{D}_{p\infty}$.
 	
 	%While the $D_p$ value provides an insight into the separation of the data, as stated prevopu   
 %	Given a dataset of size $N$ and dimensionality $D$, we have established how to calculate the $D_p$ value. How
@@ -180,19 +188,32 @@
 	%\indent We arrive at an estimate of the Bayes error rate by using expressions that give bounds on the classification error in terms of information divergence measures. However, common methods of estimating the Bayes error rate via divergence measure still require information about the conditional distributions corresponding to both class labels.\ Therefore the nonparametric divergence measure given in [3] will be used in conjunction with the Bayes error estimates derived for this divergence measure in [2] to conduct the analysis.     
 	\section{Methods}
 	\begin{algorithm}[H]
+		\caption{Algorithm for finding asymptotic divergence value $\bar{D}_{p\infty}$}
 		\SetKwInOut{Input}{Input}
 		\SetKwInOut{Output}{Output}
-		\Input{Data $x_0,x_1\in$ $\mathbf{R^n}$  of length $N$, $B$ Monte-Carlo iterations, \newline $n_i$ Bootstrap subsample sizes}
-		\KwResult{Estimate of $D_p$ for }
-		\For{$j\in$ $n_1 ... n_i$}{
-			\eIf{}{
-				go to next section\;
-				current section becomes this one\;
-			}{
-			go back to the beginning of current section\;
-		}
+		\KwIn{Data $\textbf{X}_0,\textbf{X}_1 \in$ $\mathbf{R^{n\times d}}$  of length $N$, dimensionality $\textbf{d}$ \newline $m$: number of Monte-Carlo iterations \newline $i$: number of Bootstrap subsample sizes $\textbf{n}_i \in \{n_1, n_2, ... ,n_i \textless N$\} \newline $\textbf{X}_S=\textbf{X}_0 \bigcup \textbf{X}_1$}		
+		
+		\KwResult{Asymptotic estimate of $\widetilde{D}_p$ : $\bar{D}_{p_\infty}$ \newline Power law curve: $\bar{D}_p(f_0,f_1)=an^b+c$}
+		
+		$\newline$	
+		\textbf{Define: } 
+		$\bar{\textbf{D}}_{p_i}=\{\bar{D}_{p_1},\bar{D}_{p_2},...,\bar{D}_{p_i} \}$, Bootstrapped estimate for each sample size $n_i$
+		
+		$\newline$
+		\For{$i\in$ $n_1, n_2, ..., n_i$}{
+		$\newline$
+			Define empty array $\widetilde{\textbf{D}}_{p}=\{\widetilde{D}_{p_1},\widetilde{D}_{p_2},...,\widetilde{D}_{p_m} \}$, containing the $m$ Monte Carlo estimates
+			
+			$\newline$			
+			\For{$k \in 1 ... m$}{
+  				 Randomly sample a subset $\textbf{S}=\{x_1, ..., x_j\}$ from $\textbf{X}_S$  without replacement 
+				$\newline$ Ensure $N_{S,0}=N_{S,1}$  $\indent$ $\indent$ $\indent$ // number of data samples from each class must be equal
+				$\newline$ $\newline$ $\widetilde{D}_{p_k}=1 - 2 \frac{\mathcal{C}(\textbf{S}_{0}, \textbf{S}_{1})}{N_{S,0} + N_{S,1}} $ $\indent$  $\indent$  $\indent$// compute $k^{th}$ Monte Carlo estimate
+				}
+				
+			$\newline$ $\bar{D}_{p_i} = \frac{1}{m}\sum_{k=1}^{m}\widetilde{D}_{p_k}$  $\indent$ $\indent$ $\indent$// the Bootstrapped estimate $\bar{D}_{p_i}$ is the average of the $\widetilde{D}_{p_k}$
+	
 	}
-	\caption{How to write algorithms}
 	\end{algorithm}
 	
 	In this section we outline the method of estimating $D_p$.
@@ -578,6 +599,9 @@
 	Theory, vol. 40, no. 3, pp. \indent 820–837, 1994
 	\\[0.5ex]
 	
-	\noindent
+	\noindent [36] Robert R. Snapp and Santosh S. Venkatesh, “Asymptotic
+	expansions of the k nearest neighbor \indent risk,” The
+	Annals of Statistics, vol. 26, no. 3, pp. 850–878, 1998
+	\\[0.5ex]
 	
 \end{document}

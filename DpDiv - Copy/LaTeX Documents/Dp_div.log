@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.1.19)  28 MAR 2016 09:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.1.19)  28 MAR 2016 20:42
 entering extended mode
 **./Dp_div.tex
 (Dp_div.tex
@@ -419,90 +419,104 @@ LaTeX Warning: Command \textless invalid in math mode on input line 157.
 
 LaTeX Warning: Command \textless invalid in math mode on input line 157.
 
-[5] <dp_n200_uniform.jpg, id=35, 422.32782pt x 319.1925pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 160--163
+
+ []
+
+[5]
+
+LaTeX Warning: Command \textless invalid in math mode on input line 194.
+
+
+LaTeX Warning: Command \textless invalid in math mode on input line 194.
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 194.
+
+("F:\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 194.
+ [6]
+<dp_n200_uniform.jpg, id=39, 422.32782pt x 319.1925pt>
 File: dp_n200_uniform.jpg Graphic file (type jpg)
 
 <use dp_n200_uniform.jpg>
-Package pdftex.def Info: dp_n200_uniform.jpg used on input line 232.
+Package pdftex.def Info: dp_n200_uniform.jpg used on input line 258.
 (pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<dp_n200_uniform_bars.jpg, id=36, 483.30562pt x 329.73187pt>
+<dp_n200_uniform_bars.jpg, id=40, 483.30562pt x 329.73187pt>
 File: dp_n200_uniform_bars.jpg Graphic file (type jpg)
 
 <use dp_n200_uniform_bars.jpg>
-Package pdftex.def Info: dp_n200_uniform_bars.jpg used on input line 240.
+Package pdftex.def Info: dp_n200_uniform_bars.jpg used on input line 266.
 (pdftex.def)             Requested size: 289.98561pt x 197.84064pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[6]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<dp_n50_gaussian.jpg, id=40, 422.32782pt x 319.1925pt>
+[7 <./dp_n200_uniform.jpg>]
+<dp_n50_gaussian.jpg, id=45, 422.32782pt x 319.1925pt>
 File: dp_n50_gaussian.jpg Graphic file (type jpg)
 
 <use dp_n50_gaussian.jpg>
-Package pdftex.def Info: dp_n50_gaussian.jpg used on input line 272.
+Package pdftex.def Info: dp_n50_gaussian.jpg used on input line 298.
 (pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[7 <./dp_n200_uniform.jpg> <./dp_n200_uniform_bars.jpg>]
-<dp_n50_banknote.jpg, id=45, 422.32782pt x 319.1925pt>
+[8 <./dp_n200_uniform_bars.jpg>]
+<dp_n50_banknote.jpg, id=49, 422.32782pt x 319.1925pt>
 File: dp_n50_banknote.jpg Graphic file (type jpg)
 
 <use dp_n50_banknote.jpg>
-Package pdftex.def Info: dp_n50_banknote.jpg used on input line 283.
+Package pdftex.def Info: dp_n50_banknote.jpg used on input line 309.
 (pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
- [8 <./dp_n50_gaussian.jpg> <./dp_n50_banknote.jpg>]
-Overfull \hbox (3.88077pt too wide) in paragraph at lines 289--290
+ [9 <./dp_n50_gaussian.jpg> <./dp_n50_banknote.jpg>]
+Overfull \hbox (3.88077pt too wide) in paragraph at lines 315--316
 \OT1/cmr/m/n/10 The em-pir-i-cal ex-am-ple we con-sider is the Ban-knote Au-the
 n-ti-ca-tion Data Set taken from the Uni-ver-sity
  []
 
-[9] <dp_n50_pima.jpg, id=52, 422.32782pt x 319.1925pt>
+[10] <dp_n50_pima.jpg, id=56, 422.32782pt x 319.1925pt>
 File: dp_n50_pima.jpg Graphic file (type jpg)
  <use dp_n50_pima.jpg>
-Package pdftex.def Info: dp_n50_pima.jpg used on input line 298.
+Package pdftex.def Info: dp_n50_pima.jpg used on input line 324.
 (pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
 
-<dp_n200_pima.jpg, id=53, 422.32782pt x 319.1925pt>
+<dp_n200_pima.jpg, id=57, 422.32782pt x 319.1925pt>
 File: dp_n200_pima.jpg Graphic file (type jpg)
  <use dp_n200_pima.jpg>
-Package pdftex.def Info: dp_n200_pima.jpg used on input line 306.
+Package pdftex.def Info: dp_n200_pima.jpg used on input line 332.
 (pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
 
-<dp_n5000.jpg, id=54, 422.32782pt x 319.1925pt>
+<dp_n5000.jpg, id=58, 422.32782pt x 319.1925pt>
 File: dp_n5000.jpg Graphic file (type jpg)
  <use dp_n5000.jpg>
-Package pdftex.def Info: dp_n5000.jpg used on input line 314.
+Package pdftex.def Info: dp_n5000.jpg used on input line 340.
 (pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[10 <./dp_n50_pima.jpg> <./dp_n200_pima.jpg>]
+[11 <./dp_n50_pima.jpg> <./dp_n200_pima.jpg>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[11 <./dp_n5000.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 397--397
+[12 <./dp_n5000.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 423--423
 []$\OML/cmm/m/it/10 D[]$ \OT1/cmr/m/n/10 Asymp-totic Value (95%
  []
 
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 433--436
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 459--462
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 437--441
+Underfull \hbox (badness 10000) in paragraph at lines 463--467
 
  []
 
@@ -513,7 +527,7 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ù in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 442--446
+Underfull \hbox (badness 10000) in paragraph at lines 468--472
 
  []
 
@@ -521,23 +535,23 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
 
-Overfull \hbox (0.57524pt too wide) in paragraph at lines 447--450
+Overfull \hbox (0.57524pt too wide) in paragraph at lines 473--476
 \OT1/cmr/m/n/10 [4] K. Tumer, K. (1996) "Es-ti-mat-ing the Bayes er-ror rate th
 rough clas-si-fier com-bin-ing" in Pro-ceed-ings
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 447--450
+Underfull \hbox (badness 10000) in paragraph at lines 473--476
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 451--454
+Underfull \hbox (badness 10000) in paragraph at lines 477--480
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 455--458
+Underfull \hbox (badness 10000) in paragraph at lines 481--484
 
  []
 
@@ -548,56 +562,56 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ù in font cmr10!
 
-Overfull \hbox (189.30733pt too wide) in paragraph at lines 459--461
+Overfull \hbox (189.30733pt too wide) in paragraph at lines 485--487
 \OT1/cmr/m/n/10 [7] V. Lo-hweg, Ban-knote Au-then-ti-ca-tion Data Set, 2012. [O
 n-line]. Avail-able: https://archive.ics.uci.edu/ml/datasets/banknote+authentic
 ation. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 459--461
+Underfull \hbox (badness 10000) in paragraph at lines 485--487
 
  []
 
 
-Overfull \hbox (5.31606pt too wide) in paragraph at lines 462--464
+Overfull \hbox (5.31606pt too wide) in paragraph at lines 488--490
 \OT1/cmr/m/n/10 [8] K. Pranesh, and L. Hunter. "On an In-for-ma-tion Di-ver-gen
 ce Mea-sure and In-for-ma-tion In-equal-i-ties."
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 462--464
+Underfull \hbox (badness 10000) in paragraph at lines 488--490
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 465--468
+Underfull \hbox (badness 10000) in paragraph at lines 491--494
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 469--471
+Underfull \hbox (badness 10000) in paragraph at lines 495--497
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 472--474
+Underfull \hbox (badness 10000) in paragraph at lines 498--500
 
  []
 
 
-Overfull \hbox (123.90903pt too wide) in paragraph at lines 475--478
+Overfull \hbox (123.90903pt too wide) in paragraph at lines 501--504
 \OT1/cmr/m/n/10 [12] http://www.princeton.edu/ verdu/reprints/WanKulVer.May2009
 .pdf?q=tilde/verdu/ []reprints/WanKulVer.May2009.pdf
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 475--478
+Underfull \hbox (badness 10000) in paragraph at lines 501--504
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 479--481
+Underfull \hbox (badness 10000) in paragraph at lines 505--507
 
  []
 
@@ -611,78 +625,28 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
 
-Overfull \hbox (15.4364pt too wide) in paragraph at lines 482--485
+Overfull \hbox (15.4364pt too wide) in paragraph at lines 508--511
 \OT1/cmr/m/n/10 [14] T. Kailath, The di-ver-gence and Bhat-tacharyya dis-tance 
 mea-sures in sig-nal se-lec-tion, Com-mu-ni-ca-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 482--485
+Underfull \hbox (badness 10000) in paragraph at lines 508--511
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 489--491
+Underfull \hbox (badness 10000) in paragraph at lines 515--517
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 492--494
+Underfull \hbox (badness 10000) in paragraph at lines 518--520
 
  []
 
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 495--498
-
- []
-
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ú in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ù in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ì in font cmr10!
-
-Underfull \hbox (badness 10000) in paragraph at lines 499--504
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 505--509
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 510--514
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 515--519
-
- []
-
-
-Overfull \hbox (1.34383pt too wide) in paragraph at lines 520--523
-\OT1/cmr/m/n/10 [23] L. Song, M.D. Reid, A.J. Smola, and R.C. Williamson. Dis-c
-rim-i-na-tive es-ti-ma-tion of f -divergence.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 520--523
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 524--527
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 528--531
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 521--524
 
  []
 
@@ -696,7 +660,12 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 532--535
+Underfull \hbox (badness 10000) in paragraph at lines 525--530
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 531--535
 
  []
 
@@ -706,13 +675,58 @@ Underfull \hbox (badness 10000) in paragraph at lines 536--540
  []
 
 
-Overfull \hbox (7.34392pt too wide) in paragraph at lines 541--545
+Underfull \hbox (badness 10000) in paragraph at lines 541--545
+
+ []
+
+
+Overfull \hbox (1.34383pt too wide) in paragraph at lines 546--549
+\OT1/cmr/m/n/10 [23] L. Song, M.D. Reid, A.J. Smola, and R.C. Williamson. Dis-c
+rim-i-na-tive es-ti-ma-tion of f -divergence.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 546--549
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 550--553
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 554--557
+
+ []
+
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ù in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ì in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 558--561
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 562--566
+
+ []
+
+
+Overfull \hbox (7.34392pt too wide) in paragraph at lines 567--571
 \OT1/cmr/m/n/10 [28] Wang, Qing, San-jeev R. Kulka-rni, and Ser-gio Verdu. "Di-
 ver-gence Es-ti-ma-tion for Mul-ti-di-men-sional
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 541--545
+Underfull \hbox (badness 10000) in paragraph at lines 567--571
 
  []
 
@@ -721,7 +735,7 @@ Missing character: There is no ° in font cmr10!
 Missing character: There is no √ in font cmr10!
 Missing character: There is no ≥ in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 546--549
+Underfull \hbox (badness 10000) in paragraph at lines 572--575
 
  []
 
@@ -735,13 +749,13 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
 
-Overfull \hbox (15.4364pt too wide) in paragraph at lines 550--553
+Overfull \hbox (15.4364pt too wide) in paragraph at lines 576--579
 \OT1/cmr/m/n/10 [30] T. Kailath, The di-ver-gence and Bhat-tacharyya dis-tance 
 mea-sures in sig-nal se-lec-tion, Com-mu-ni-ca-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 550--553
+Underfull \hbox (badness 10000) in paragraph at lines 576--579
 
  []
 
@@ -755,11 +769,11 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 554--558
+Underfull \hbox (badness 10000) in paragraph at lines 580--584
 
  []
 
-[14]
+[15]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ú in font cmr10!
@@ -770,7 +784,7 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 559--562
+Underfull \hbox (badness 10000) in paragraph at lines 585--588
 
  []
 
@@ -786,7 +800,7 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 563--567
+Underfull \hbox (badness 10000) in paragraph at lines 589--593
 
  []
 
@@ -800,7 +814,7 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 568--574
+Underfull \hbox (badness 10000) in paragraph at lines 594--600
 
  []
 
@@ -813,7 +827,26 @@ Missing character: There is no ù in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
-[15] (Dp_div.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 601--606
+
+ []
+
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ù in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ì in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 607--611
+
+ []
+
+[16] (Dp_div.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -823,13 +856,13 @@ LaTeX Warning: There were multiply-defined labels.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 3055 strings out of 493634
- 41244 string characters out of 3149417
+ 3072 strings out of 493634
+ 41508 string characters out of 3149417
  125065 words of memory out of 3000000
- 6415 multiletter control sequences out of 15000+200000
+ 6429 multiletter control sequences out of 15000+200000
  12959 words of font info for 45 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 32i,12n,31p,1086b,2474s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 32i,16n,31p,1086b,2459s stack positions out of 5000i,500n,10000p,200000b,50000s
 <F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><F:/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><F:/MiKTeX 2.9/fonts/type1/p
 ublic/amsfonts/cm/cmbx7.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx9
@@ -842,10 +875,11 @@ pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><F:/MiKTeX 2.9/font
 s/type1/public/amsfonts/cm/cmr17.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmr5.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><F:/MiKTeX 
 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><F:/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmsy10.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on Dp_div.pdf (15 pages, 507816 bytes).
+msfonts/cm/cmsy10.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><
+F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on Dp_div.pdf (16 pages, 524073 bytes).
 PDF statistics:
- 130 PDF objects out of 1000 (max. 8388607)
+ 137 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
