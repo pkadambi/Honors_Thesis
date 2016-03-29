@@ -4,6 +4,7 @@
 \usepackage[]{algorithm2e}
 \usepackage{program}
 \usepackage{eufrak}
+\usepackage{amsmath}
 \usepackage[a4paper, total={6in, 8in}]{geometry}
 \graphicspath{ {images/} }
 \begin{document}
@@ -36,13 +37,13 @@
 	\\ [0.5ex]
 	
 	%PAPER goal paragraph
-	\indent	In this paper, we perform a bootstrap estimation of a minimum spanning tree based $f$-divergence derived in [25] using a power law. From data of size $N$, we compute  Monte Carlo iterations at $i$ sample sizes $n\in \{n_1, n_2,... $ $,n_i\}<N$, and apply the unproven, but reasonable assumption that a power law fit can be used to relate the value of the divergence estimator as a function of sample size. We exploit the unique ability to estimate this divergence measure directly from data, and bypass computing the densities. Utilizing this curve we extrapolate as sample size $n\rightarrow\infty$, and find the asymptotic value of the divergence estimate directly from a finite length dataset.  As $f$-divergences are be related to the classification error rate, this estimation scheme is applied to binary classification examples to find Bayes error rates for several datasets.
+	\indent	In this paper, we perform a bootstrap estimation of a minimum spanning tree based $f$-divergence derived in [25] using a power law. From data of size $N$, we compute  Monte Carlo iterations at $i$ sample sizes $n\in \{n_1, n_2,... $ $,n_i\}<N$, and apply the unproven, but reasonable assumption that a power law fit can be used to relate the value of the divergence estimator as a function of sample size. We exploit the unique ability to estimate this divergence measure directly from data, and bypass computing the densities. Utilizing this curve we extrapolate as sample size $n\rightarrow\infty$, and find the asymptotic value of the divergence estimate directly from a finite length data set.  As $f$-divergences are be related to the classification error rate, this estimation scheme is applied to binary classification examples to find Bayes error rates for several datasets.
  	%MAybe add 1 sentance about confidence intervals for the estimator
  	\\ [0.5ex]
  	
  	\indent	The work is organized as follows:\ the remainder of Section 1 is devoted to background and previous work. Section 1.1-1.2 discuss $f$-divergences, their connection to the Bayes optimal error rate, and introduce the specific divergence measure used. Section 1.3 discusses the motivation for the bootstrapped power law estimation method, which is formally introduced in Section 2. 
  	%In Section 3 we apply the method to several generated and real-world datasets to show that the power law method can successfully be used to calculate the divergence and classification error rate of several distributions. 
- 	In Section 3, examples of the estimation approach are given. In 3.1 we consider generated datasets with known divergence values to demonstrate the accuracy of the estimation algorithm. In 3.2 we perform analysis on the Pima Indians dataset and the Banknote dataset and compare the calculated Bayes error rate to the classification error rates reported in the literature.
+ 	In Section 3, examples of the estimation approach are given. In 3.1 we consider generated datasets with known divergence values to demonstrate the accuracy of the estimation algorithm. In 3.2 we perform analysis on the Pima Indians data set and the Banknote data set and compare the calculated Bayes error rate to the classification error rates reported in the literature.
  	%found in the University of California, Irvine machine learning repository [6].
  	%SO, it is difficult to estimate IDMs, so we will get a new method
 	%THEN,we will use our method on the Bin Class PRob (BCP), After introducing the BCP, here's why we need to use the method for the BCP
@@ -106,7 +107,7 @@
 	\indent To classify $D_p$ as a statistical distance, it must satisfy the following properties. Firstly, $0 \leq D_p$, the divergence must be non-negative. Secondly, $D_p=0$ when $f_0(x)=f_1(x)$; the measure between identical distributions must vanish. Third, $D_p(f_0,f_1)=D_p(f_1,f_0)$, it must be symmetric. Fourth,  $D_p(f_0,f_2) \leq D_p(f_0,f_1)+D_p(f_1,f_2)$, the divergence must obey the triangle inequality. $D_p$ is shown in [25] to have the following properties: it is non-negative ($0 \leq D_p \leq 1$ ), satisfies the identity property, and is symmetric. However, the triangle inequality has not been proved for the measure, so therefore, we label $D_p$ as a pseudo-distance.
 	\\ [0.5 ex]
 	
-	\indent The estimator for this divergence relies on finding the Friedman-Rafsky (F-R) test statistic: $\mathcal{C}(\textbf{X}_f,\textbf{X}_g)$ from the $d$-dimensional class data $\textbf{X}_{f_0}$ and $\textbf{X}_{f_1}$. The F-R test statistic is calculated by generating a dataset containing both $\textbf{X}_{f_0}$ and $\textbf{X}_{f_1}$, finding the Euclidean MST for the data, and counting the number of edges of the MST that connect a point from $\textbf{X}_{f_0}$ and $\textbf{X}_{f_1}$. The figure below graphically illustrates how the F-R test statistic is calculated: 
+	\indent The estimator for this divergence relies on finding the Friedman-Rafsky (F-R) test statistic: $\mathcal{C}(\textbf{X}_f,\textbf{X}_g)$ from the $d$-dimensional class data $\textbf{X}_{f_0}$ and $\textbf{X}_{f_1}$. The F-R test statistic is calculated by generating a data set containing both $\textbf{X}_{f_0}$ and $\textbf{X}_{f_1}$, finding the Euclidean MST for the data, and counting the number of edges of the MST that connect a point from $\textbf{X}_{f_0}$ and $\textbf{X}_{f_1}$. The figure below graphically illustrates how the F-R test statistic is calculated: 
 	\\ [0.5ex]
 
 	\indent In terms of the F-R test statistic, the estimator for $D_p$ is:
@@ -145,10 +146,10 @@
 	\end{equation}
 	As expected, when there is no overlap between the two distributions, $\widetilde{D}_p=1$, and the BER is lower bounded by zero. In other words, if the two classes are highly separated, it should be possible to design a classifier that has a very low probability of error. On the other hand, if there is full overlap between the two distributions, $\widetilde{D}_p=0$, and the BER is $0.5$. The optimal error rate is equivalent to the error in randomly assigning class.  
 	\subsection{\ Bootstrap Estimation Based on Power Law}
-	$\indent$ As we have just shown, the method for empirically calculating a specific ${D}_p$ value for a dataset of length $N$, and obtaining an estimate for the BER is quite straight forward, but it leaves much to be desired. Specifically, it is necessary to characterize the quality of the ${D}_p$ estimate. A direct calculation of the divergence measure using all $N$ data points yields only a single value, and does not provide any insight into the error or spread of  the statistic. Indeed, in many cases knowledge of the spread of the estimate is as important as the estimate itself.
+	$\indent$ As we have just shown, the method for empirically calculating a specific ${D}_p$ value for a data set of length $N$, and obtaining an estimate for the BER is quite straight forward, but it leaves much to be desired. Specifically, it is necessary to characterize the quality of the ${D}_p$ estimate. A direct calculation of the divergence measure using all $N$ data points yields only a single value, and does not provide any insight into the error or spread of  the statistic. Indeed, in many cases knowledge of the spread of the estimate is as important as the estimate itself.
 	\\[0.5ex]
 	
-	\indent Bootstrap resampling, first introduced by Efron in [10], is a powerful tool to find the spread of an estimator. From a data set $\textbf{X}_i$ of size $N$, the bootstrap method functions by repeatedly and randomly sampling, with replacement, $b$ subsets of size $n<N$ from the original dataset. Then estimates are computed for all $b$ generated subsets. This Monte Carlo approach gives a powerful way to analyze some measure of estimator quality from $b$ estimates. However, the bootstrap with replacement fails when applied to the F-R test statistic based estimator. Because the F-R test statistic requires the generation of unique distances between data points when computing the minimum spanning tree, it is not desirable to sample with replacement [2]. 
+	\indent Bootstrap resampling, first introduced by Efron in [10], is a powerful tool to find the spread of an estimator. From a data set $\textbf{X}_i$ of size $N$, the bootstrap method functions by repeatedly and randomly sampling, with replacement, $b$ subsets of size $n<N$ from the original data set. Then estimates are computed for all $b$ generated subsets. This Monte Carlo approach gives a powerful way to analyze some measure of estimator quality from $b$ estimates. However, the bootstrap with replacement fails when applied to the F-R test statistic based estimator. Because the F-R test statistic requires the generation of unique distances between data points when computing the minimum spanning tree, it is not desirable to sample with replacement [2]. 
 	% we denote $S(\textbf{X}_i)$.
 	%bootstrapping is great, it gives us this spread knowledge, but
 	% we also want to apply this estimation method into 
@@ -178,10 +179,10 @@
 		\bar{D}_p(f_0,f_1)=an^b+c
 	\end{equation}
 
-	\indent Notice that under the sound assumption of $b<0$, $\bar{D}_p^* \rightarrow c$ as $n \rightarrow \infty$. So, we have good reason to believe that from a size $N$ finite length dataset, it is possible to obtain asymptotic estimates for the divergence. To find a measure of spread for the divergence estimator, the 95\% confidence interval calculated from the curve fitting process. Reviewing notation, $D_p$ refers to the distance in equation (3), $\widetilde{D}_p$ is the modified version of the distance suited to binary classification given in equation (5), and is equivalent to $D_p$ for our cases. $\bar{D}_p$ is the power law curve describing the estimator of ${D}_p$ as a function of sample size from the equation above. The asymptotic value of the divergence is denoted as $\bar{D}_p^*$.
+	\indent Notice that under the sound assumption of $b<0$, $\bar{D}_p^* \rightarrow c$ as $n \rightarrow \infty$. So, we have good reason to believe that from a size $N$ finite length data set, it is possible to obtain asymptotic estimates for the divergence. To find a measure of spread for the divergence estimator, the 95\% confidence interval calculated from the curve fitting process. Reviewing notation, $D_p$ refers to the distance in equation (3), $\widetilde{D}_p$ is the modified version of the distance suited to binary classification given in equation (5), and is equivalent to $D_p$ for our cases. $\bar{D}_p$ is the power law curve describing the estimator of ${D}_p$ as a function of sample size from the equation above. The asymptotic value of the divergence is denoted as $\bar{D}_p^*$.
 	
 	%While the $D_p$ value provides an insight into the separation of the data, as stated prevopu   
-%	Given a dataset of size $N$ and dimensionality $D$, we have established how to calculate the $D_p$ value. How
+%	Given a data set of size $N$ and dimensionality $D$, we have established how to calculate the $D_p$ value. How
 	%limitation of sample size
 	% why we want the aasymptotic boostrap
 	% we can get the bias for the current value of D_p
@@ -224,7 +225,7 @@
 	
 	}
 	$\newline$
-	// Find the coefficients for the power law 
+	// Apply the power law 
 	
 	$ \{a,b,c\} = \mathcal{P}(\bar{\textbf{D}}_{p_i},\textbf{n}_i)$ 
 
@@ -232,14 +233,14 @@
 	\end{algorithm}
 	$\\[0.5ex]$
 	
-	$\indent$	The algorithm for finding the asymptotic value of the estimator, $\bar{D}_p^*$, follows from the overview of bootstrap sampling in 1.3. The general structure of the algorithm is, the outer for loop iterates through the bootstrap subsample sizes, and averages the results of the Monte Carlo trials. The inner for loop generates the randomly sampled subsets with size specified by the outer loop, computes the estimate for the generated subset, and repeats for the specified number of trials. Once the loops have completed the fitting process is performed on computed estimator means, and the value of $c$ is $\bar{D}_p^*$.
-	%have the algorithm here
-	%also have the 
+	$\indent$	The algorithm for finding the $\bar{D}_p^*$ value for a two class data set, follows from the overview of bootstrap sampling in 1.3. Then $m$, the number of Monte Carlo iterations, must be defined. Choose, $i$ and $\textbf{n}_i$, the number of bootstrap subsamples and the bootstrap subsample sizes. Begin with the outer loop, and iterate through the number bootstrap subsample sizes, $i$. Create a randomly sampled subset $\textbf{S}$ of length $n_i$ from the data $\textbf{X}_S$ containing an equal number of elements from each class, and compute the divergence estimate for the subset $\textbf{S}$. Repeat the subset creation and divergence estimation $m$ times (this is the inner loop). Upon returning to the outer loop, find the mean of the $m$ $D_{p_k}$ values. Once the mean value of $m$ estimates for all $i$ bootstrap subsample sizes has been found, apply the power law fit, $\mathcal{P}$, to the mean values and subsample sizes. The asymptotic value of the divergence estimator $\bar{D}_p^*$ is equal to $c$.
+	
+	$\indent$ We note several restrictions on input parameters. Define maximum value of subsample size as $n_{max}$. This value must be less than $N$. Also, $\binom{N}{n_{max}}>m$. This is a requirement for sensible Monte Carlo iterations: there must be at least $m$ unique subsets of size $n_{max}$. From the lower extreme of subsample size, $n_1$ must be greater than the number of dimensions of the data set.
+
 	
 	\section{Results}
 	\subsection{\small Uniform Dataset}
-	\noindent To test the operation of the estimation algorithm, a dataset with a known divergence is constructed in order to ensure that the computed value of $\bar{D}_p^*$ matches with the known divergence. For this purpose, the uniform distribution shown in Table 2 is defined. The dataset contains 8 dimensions, where each dimension of data has variance $\sigma^2=\frac{1}{12}$ and is uniformly distributed along $[-0.5,0.5]$, with the exception of one dimension from class 1. That dimension has mean offset to $\mu_0=\frac{1}{2}$, and it is easy to see that a direct application of equation (3) or (5) results in a divergence value of $D_p=0.5$. Refer to the Appendix for this computation. As both classes of data are equally probable, $p=q=0.5$, and $\widetilde{D}_p=D_p$.
-		
+	$\indent$ To test the operation of the estimation algorithm, a data set with a known divergence is constructed in order to ensure that the computed value of $\bar{D}_p^*$ matches with the known divergence. For this purpose, the uniform distribution shown in Table 2 is defined. The data set contains 8 dimensions, all of which have variance $\sigma^2=\frac{1}{12}$, and are uniformly distributed along $[-0.5,0.5]$, with the exception of one dimension from $c_1$. That dimension has an offset mean of $\mu_1=\frac{1}{2}$ rather than  $\mu_1=0$. It is easy to see that a direct application of equation (3) or (5) results in a divergence value of $D_p=0.5$. Refer to the Appendix for this computation.
 	\begin{table}[ht]
 		\caption{Uniform Dataset for Bootstrap Analysis of $D_p$}
 		\centering % used for centering table
@@ -260,29 +261,63 @@
 		\end{tabular}
 		\label{table:nonlin} % is used to refer this table in the text
 	\end{table}
-	
+	\begin{figure}[h!]
+			\caption{Asymptotic Convergence of $D_p$ for 8-Dimensional Uniform Data Set, m = 200 trials}
+			\centering
+			%	\begin{center}
+			\includegraphics[scale=0.6]{dp_n200_uniform}
+			%	\end{center}
+	\end{figure}	
 	$\newline$
-	To find $\bar{D}_p^*$, a 10,000 instance dataset containing equal parts of both classes $c_0$ and $c_1$ was created. With respect to Algorithm 1, the parameters of the simulation were: $N=10000$, $m=200$ Monte Carlo iterations, $i=50$ bootstrap subsample sizes, and $n_{50}=1000$ as the maximum bootstrap sample size. 
+	$\indent$ To find $\bar{D}_p^*$, a 10000 point dataset containing an equal number of instances from both classes $c_0$ and $c_1$ was created. With respect to Algorithm 1, the parameters of the simulation were: $N=10000$, $m=200$ Monte Carlo iterations, $i=50$ bootstrap subsample sizes, and $n_{50}=1000$ as the maximum bootstrap sample size. The results of the simulation are shown in Figure 1. The plot shows computed estimates of $D_p$ as a function of sample size and displays the resulting power law fit. Each blue point on the figure is a $D_p$ mean - the mean of 200 Monte Carlo trials at each bootstrap sample size $n_i$.
+	\\[0.5ex]
+
+	$\indent$ The power law found for $D_p$ for this uniform dataset is:
+	
+	\begin{equation}
+	\bar{D}_p=-0.39n^{-0.22}+0.4775
+	\end{equation}
+	The asymptotic estimate $\bar{D}_p^*=0.4775$ agrees with the analytically calculated value for the dataset, ${D}_p=0.5$. To understand the true capability of the power law based, asymptotic estimation method consider Table 3.
+	
+	\begin{table}[!h]		
+		\caption{Estimated $D_p$ for Uniform Data Set for $n_{max}=1000$ [4]}
+		\begin{center}
+			%	\begin{tabular}{||c c c c||} 
+			%		\hline
+			\begin{tabular}[!h]{ |p{5cm}||p{4cm}|  }
+				\hline
+				Value & Result\\ [0.5ex] 
+				\hline\hline
+				$D_p$ (no Bootstrap) & $0.3370$ \\
+				$\bar{D}_p$ & 0.3870 (0.3646, 0.4064) 	\\
+				$\bar{D}_p^*$ & $\textbf{0.4775}$  (0.4378, 0.5173)\\ 
+				$D_p$ (true value) & 0.5 \\
+				\hline 		
+			\end{tabular}
+		\end{center}
+	\end{table}
+	When a direct computation of the divergence measure is performed for 1000 data points an estimate of $D_p=0.337$ is obtained. This is problematic for two reasons. As explained earlier, there is no information about the distribution of the estimate. Additionally, the calculated value $D_p=0.337$, is far from the true value of $D_p=0.5$. 
+	
+	\subsubsection*{Proper Selection of $\textbf{n}_i$}
+	$\indent$ While selecting the set of subsample sizes $\textbf{n}_i \in \{n_1, n_2,... ,n_i<N\}$, it is vital that a significant portion of the $i$ subsample sizes are concentrated within the rapidly rising portion of the power law curve. In Figure 1, notice that for a sample size of up to $n=200$, the estimates of divergence change rapidly for increasing sample size. But, for $n>200$, the convergence of the estimates slows - the divergence estimates change slowly for increasing sample size. In this case the $n_i$ are chosen so that $n_1$ to $n_{20}$ are spaced evenly on the interval $[8,100]$ ($n_1$ should not be smaller than the number of dimensions). Then, $n_{21}$ to $n_{40}$ are evenly spaced for $[100,500]$. Finally, $n_{41}$ to $n_{50}$ are evenly spaced between $[500,1000]$. 
+	\\[0.5ex]	
+	
+	$\indent$ Although the exact choice of $\textbf{n}_i$ may differ between each use case, a useful heuristic to ensure a good power law fit is described. Take the maximum bootstrap subsample size to be $n_{max}<N$. In this case, $n_{max}=1000$. Choose approximately $\frac{1}{3}$ of the $n_i$ subsamples on the interval $(0,0.1n_{max})$, choose $\frac{1}{3}$ of the subsamples between $(0.1n_{max}, 0.5n_{max})$, and choose the final $\frac{1}{3}$ in the interval $(0.5n_{max}, n_{max})$. If there are fewer number of subsamples $n_i$ that are small relative to $n_{max}$, or if $n_i$ are evenly spaced along $(0,n_{max})$, the goodness of fit for the power law is likely to be compromised. If $n_i$ must be evenly spaced, we may increase the number of subsamples, $i$, and decrease the space between each subsample size to try and preserve a good curve fit.   
 	\\[0.5ex]
 	
-	$\indent$ The results of the simulation are shown in Figure 1. The plot shows computed estimates of $D_p$ as a function of sample size and displays the resulting power law fit. Each blue point on the graph is the $D_p$ mean - the mean of 200 Monte Carlo trials at each bootstrap sample size $n_i$.
-	
-	\begin{figure}[h!]
-		\caption{Asymptotic Convergence of $D_p$ for 8-Dimensional Uniform Data Set, m = 200 trials}
-		\centering
-		%	\begin{center}
-		\includegraphics[scale=0.6]{dp_n200_uniform}
-		%	\end{center}
-	\end{figure}	
-
-	$\indent$ While selecting the sample sizes $n_i$, it is vital that a significant portion of the $i$ sample sizes are concentrated within the rapidly rising portion of the power law curve. In Figure 1, notice that for a sample size of up to $n=200$ the estimate of the divergence changes rapidly for increasing sample size. But, for $n>200$, the convergence slows. 
 	\begin{figure}[h!]
 		\caption{Distribution of $D_p$ Values for 8-Dimensional Uniform Data Set, m = 200 trials}
 		\centering
 		%	\begin{center}
 		\includegraphics[scale=0.6]{dp_n200_uniform_bars}
 		%	\end{center}
-	\end{figure}	
+	\end{figure}
+	
+	$\indent$ An additional benefit of increasing the subsample size, is that the spread of estimator decreases. The same data used to create Figure 1 are shown in Figure 2 to emphasize the decrease in estimator's spread. Recognize that the x-axis is not linearly scaled, and that the y-axis does not have the same scale as Figure 1. For every $D_p$ point plotted in Figure 1 (every blue point), $m=200$ Monte Carlo estimates have been averaged.	In Figure 2, box plots of the Monte Carlo iterations are shown for select values of subsample size. Although every single average $D_p$ value plotted in Figure 1 has a corresponding box plot, only a select number of box plots are shown due to limited space, and to avoid cluttering the Figure. Here, the estimator's bias for small sample sizes is clearly visible in the $n=15$ case, as negative values are produced. But, as sample size increases, a dramatic reduction in the interquartile range of the $n$.
+	\newpage	
+	
+	
+	
 \newpage
 	\subsection{\small Gaussian Dataset}
 	
@@ -319,19 +354,18 @@
 
 	
 	\newpage
-	\begin{figure}[h!]
-		\caption{Convergence of $D_p$ for Banknote Authentication Data Set, N = 50 trials}
-		\centering
-		%	\begin{center}
-		\includegraphics[scale=0.6]{dp_n50_banknote}
-		%	\end{center}
-	\end{figure}
-	
-	\newpage
+
+
 	\subsection{\small Banknote Dataset}
-	\indent The empirical example we consider is the Banknote Authentication Data Set taken from the University of California, Irvine Machine Learning Repository [7]. The 4-dimensional dataset contains data extracted from images of banknotes. The data set consists of a relatively small number of dimensions, and highly separated data, so the convergence is rapid, even for relatively small sample size. We note that for a sensitive task such as authenticating banknotes, it should not be surprising to see an asymptotic value for $D_p$ that is close to 1, indicating that the classes are well separated.  
-	
-	\newpage
+	\indent The empirical example we consider is the Banknote Authentication Data Set taken from the University of California, Irvine Machine Learning Repository [7]. The 4-dimensional dataset contains data extracted from images of banknotes. The dataset consists of a relatively small number of dimensions, and highly separated data, so the convergence is rapid, even for relatively small sample size. We note that for a sensitive task such as authenticating banknotes, it should not be surprising to see an asymptotic value for $D_p$ that is close to 1, indicating that the classes are well separated.  
+	\begin{figure}[h!]
+			\caption{Convergence of $D_p$ for Banknote Authentication Data Set, N = 50 trials}
+			\centering
+			%	\begin{center}
+			\includegraphics[scale=0.6]{dp_n50_banknote}
+			%	\end{center}
+	\end{figure}
+
 	\subsection{\small Pima Indians Dataset}
 	
 	\begin{figure}[!h]

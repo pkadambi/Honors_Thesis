@@ -146,8 +146,8 @@ ylabel('D_p Divergence')
 axis([0 500 0 0.4])
 
 
-lowerBound=0.5-0.5*sqrt([dpdivMeansI' ])
-upperBound=0.5-0.5*([dpdivMeansI' ])
+lowerBound=0.5-0.5*sqrt([dpdivMeansI' ]);
+upperBound=0.5-0.5*([dpdivMeansI' ]);
 lb=0.5-0.5*sqrt(dp_div_d1)
 ub=0.5-0.5*dp_div_d1
 
