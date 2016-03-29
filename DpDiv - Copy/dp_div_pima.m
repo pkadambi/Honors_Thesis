@@ -30,7 +30,7 @@ dataSetSizeC=length(pimacomplete);
 dataSetSizeI=length(pimaincomplete);
 
 
-numTrials=50;
+numTrials=5000;
 maxSampleSizeC=1;
 maxSampleSizeI=1;
 
@@ -140,40 +140,41 @@ a1=data1coef1(1);
 % a2=data1coef2(1);
 
 % title('Convergence for Pima Indian Dataset, B=5000 Monte Carlo trials')
+grid on
 xlabel('SampleSize')
 ylabel('D_p Divergence')
-axis([0 600 0 0.4])
+axis([0 500 0 0.4])
 
 
-lowerBound=0.5-0.5*sqrt([dpdivMeansI' ]);
-upperBound=0.5-0.5*([dpdivMeansI' ]);
+lowerBound=0.5-0.5*sqrt([dpdivMeansI' ])
+upperBound=0.5-0.5*([dpdivMeansI' ])
 lb=0.5-0.5*sqrt(dp_div_d1)
 ub=0.5-0.5*dp_div_d1
 
-figure(2)
-hold on
-title('Ebayes bound')
-xlabel('Sample Size')
-ylabel('Ebayes')
-plot([(2*fullSampleSizesI) ],lowerBound)
-plot([(2*fullSampleSizesI) ],upperBound)
-axis([0 2*max(sampleSizesI) 0 1])
-grid on
-
-figure (3)
-hold on
-title('Ebayes bound')
-xlabel('Sample Size')
-ylabel('Ebayes')
-[uboundfit, points2]=fit((2*fullSampleSizesI)',upperBound','power2')
-[lboundfit, points2]=fit((2*fullSampleSizesI)',lowerBound','power2')
-plot(uboundfit,(2*fullSampleSizesI)',upperBound')
-plot(lboundfit,(2*fullSampleSizesI)',lowerBound')
-grid on
-
-
-
-[dpdivFitI, points1]=fit((2*fullSampleSizesI)',dpdivMeansI,'power2')
-lb=0.5-0.5*sqrt(dp_div_d1)
-ub=0.5-0.5*dp_div_d1
+% figure(2)
+% hold on
+% title('Ebayes bound')
+% xlabel('Sample Size')
+% ylabel('Ebayes')
+% plot([(2*fullSampleSizesI) ],lowerBound)
+% plot([(2*fullSampleSizesI) ],upperBound)
+% axis([0 2*max(sampleSizesI) 0 1])
+% grid on
+% 
+% figure (3)
+% hold on
+% title('Ebayes bound')
+% xlabel('Sample Size')
+% ylabel('Ebayes')
+% [uboundfit, points2]=fit((2*fullSampleSizesI)',upperBound','power2')
+% [lboundfit, points2]=fit((2*fullSampleSizesI)',lowerBound','power2')
+% plot(uboundfit,(2*fullSampleSizesI)',upperBound')
+% plot(lboundfit,(2*fullSampleSizesI)',lowerBound')
+% grid on
+% 
+% 
+% 
+% [dpdivFitI, points1]=fit((2*fullSampleSizesI)',dpdivMeansI,'power2')
+% lb=0.5-0.5*sqrt(dp_div_d1)
+% ub=0.5-0.5*dp_div_d1
 
