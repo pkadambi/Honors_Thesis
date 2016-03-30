@@ -25,19 +25,19 @@
 	
 	% IDMs are really useful, but they're hard to compute in many cases
 	\section{Introduction} 
-	$\indent$ $\indent$ Information divergence measures have a wide variety of applications in machine learning, pattern recognition, feature extraction, and big data analysis [8]. The two main classes of information divergence measures are parametric and nonparametric measures. Nonparametric divergence measures, notably including $f$-divergences such as the Kullback-Leibler (KL) divergence,  measure the difference between two distributions $F_0$ and $F_1$.\ Arguably the most well known $f$-divergence, the KL Divergence is a measure of relative entropy and has applications in coding theory, feature selection, and hypothesis testing [20].	Given these wide variety of applications, there is great interest in estimation of $f$-divergences.
+	$\indent$ $\indent$ Information divergence measures have a wide variety of applications in machine learning, pattern recognition, feature extraction, and big data analysis [1]. The two main classes of information divergence measures are parametric and nonparametric measures. Nonparametric divergence measures, notably including $f$-divergences such as the Kullback-Leibler (KL) divergence,  measure the difference between two distributions $F_0$ and $F_1$.\ Arguably the most well known $f$-divergence, the KL Divergence is a measure of relative entropy and has applications in coding theory, feature selection, and hypothesis testing [2].	Given these wide variety of applications, there is great interest in estimation of $f$-divergences.
 	\\ [0.5ex] %write something like this to end the second para
 	%Among other applications, it is possible to arrive at bounds for the classification error rate from $f$-divergences [19], so it is of interest to study estimation of $f$-divergences for classification problems.
 	
-	$\indent$ Normally, when estimating the divergence between two distributions, we have access to independent and identically distributed (i.i.d) training data from each distribution $X_i \in c_0$ and $Y_i \in c_1$ (where $c_0$, $c_1$ correspond to two classes of data). The challenge in estimating the divergence measure between two datasets is that the distributions of the data $F_0$ and $F_1$ are usually unknown. An $f$-divergence, $D_\phi$, is of the form: \begin{equation} D_\phi(F_0, F_1) = \int_{\Omega} \phi\bigg(\frac{dF_0}{dF_1}\bigg)dF_0 \end{equation} given a convex function $\phi(x)$, and feature space $\Omega$ [20].
+	$\indent$ Normally, when estimating the divergence between two distributions, we have access to independent and identically distributed (i.i.d) training data from each distribution $X_i \in c_0$ and $Y_i \in c_1$ (where $c_0$, $c_1$ correspond to two classes of data). The challenge in estimating the divergence measure between two datasets is that the distributions of the data $F_0$ and $F_1$ are usually unknown. An $f$-divergence, $D_\phi$, is of the form: \begin{equation} D_\phi(F_0, F_1) = \int_{\Omega} \phi\bigg(\frac{dF_0}{dF_1}\bigg)dF_0 \end{equation} given a convex function $\phi(x)$, and feature space $\Omega$ [2].
  	As we lack knowledge of the distribution functions $F_0$ and $F_1$, a direct computation of $D_\phi$ is not possible.
  	\\ [0.5ex]
  	
- 	$\indent$ A naive method to calculate the divergence between the data is to first find the densities for $X_i$ and $Y_i$, and then calculate the divergence from the computed density estimates. However, as noted in [5] density estimation adds an undesirable intermediate step before the computation of the divergence measure It also introduces additional error, and can be difficult for cases of high dimensionality. 
+ 	$\indent$ A naive method to calculate the divergence between the data is to first find the densities for $X_i$ and $Y_i$, and then calculate the divergence from the computed density estimates. However, as noted in [3] density estimation adds an undesirable intermediate step before the computation of the divergence measure It also introduces additional error, and can be difficult for cases of high dimensionality. 
 	\\ [0.5ex]
 	
 	%PAPER goal paragraph
-	$\indent$In this paper, we perform a bootstrap estimation of a minimum spanning tree based $f$-divergence derived in [25] using a power law. From data of size $N$, we compute  Monte Carlo iterations at $i$ sample sizes $n\in \{n_1, n_2,... $ $,n_i\}<N$, and apply the unproven, but reasonable assumption that a power law fit can be used to characterize the divergence estimator as a function of sample size. We exploit the unique ability to estimate this divergence measure directly from data, and bypass computing the densities. Utilizing this curve we extrapolate as sample size $n\rightarrow\infty$, and find the asymptotic value of the divergence estimate from a finite length data set.  As $f$-divergences are related to the classification error rate [19], this estimation scheme is applied to binary classification examples to find Bayes error rates for several datasets.
+	$\indent$In this paper, we perform a bootstrap estimation of a minimum spanning tree based $f$-divergence derived in [4] using a power law. From data of size $N$, we compute  Monte Carlo iterations at $i$ sample sizes $n\in \{n_1, n_2,... $ $,n_i\}<N$, and apply the unproven, but reasonable assumption that a power law fit can be used to characterize the divergence estimator as a function of sample size. We exploit the unique ability to estimate this divergence measure directly from data, and bypass computing the densities. Utilizing this curve we extrapolate as sample size $n\rightarrow\infty$, and find the asymptotic value of the divergence estimate from a finite length data set.  As $f$-divergences are related to the classification error rate [5], this estimation scheme is applied to binary classification examples to find Bayes error rates for several datasets.
  	%MAybe add 1 sentance about confidence intervals for the estimator
  	\\ [0.5ex]
  	
@@ -91,10 +91,10 @@
 	%An undefined or unbounded K-L divergence result can be problematic if we then apply the result to a task, and it may be desirable use a bounded divergence measure. 		
 \\ [0.5ex]
 	
-	$\indent$Since in most cases, direct evaluation of the integrals is not possible due to unknown densities, a number of estimation methods have been used to make the problem more tractable. Wang $et$ $al$. [27] derived a nonparametric divergence estimator based on estimating the density ratio $\frac{dF_0}{dF_1}$, and in [28] defined a  $k$-Nearest-Neighbors based divergence estimator that also requires a density ratio estimate. But, calculation of $\frac{dF_0}{dF_1}$ rather than $f_0(\textbf{x})$ and $f_1(\textbf{x})$ still poses the same drawback: it is undesirable to estimate the divergence by performing the intermediate step of estimating a quantity related to the probability distributions.
+	$\indent$Since in most cases, direct evaluation of the integrals is not possible due to unknown densities, a number of estimation methods have been used to make the problem more tractable. Wang $et$ $al$. [7] derived a nonparametric divergence estimator based on estimating the density ratio $\frac{dF_0}{dF_1}$, and in [8] defined a  $k$-Nearest-Neighbors based divergence estimator that also requires a density ratio estimate. But, calculation of $\frac{dF_0}{dF_1}$ rather than $f_0(\textbf{x})$ and $f_1(\textbf{x})$ still poses the same drawback: it is undesirable to estimate the divergence by performing the intermediate step of estimating a quantity related to the probability distributions.
 	\\ [0.5ex]	
 	
-	$\indent$ A key advantage of the $f$-divergence we consider is that it can be estimated from the data samples themselves, without intermediate density estimation steps. Towards this end, Hero $et$ $al.$ derive a divergence estimator assuming one of the distributions was known. P{\'o}czos $et$ $al.$ [29] derive estimators for R{\'e}nyi and $L_2$ divergences based on $k$-Nearest Neighbors statistics, and apply the estimate for classifying astronomical data. We consider the $f$-divergence described in [25], which enables nonparametric divergence estimation directly from sample data via generating a Euclidean minimum spanning tree (MST). 
+	$\indent$ A key advantage of the $f$-divergence we consider is that it can be estimated from the data samples themselves, without intermediate density estimation steps. Towards this end, Hero $et$ $al.$ derive a divergence estimator assuming one of the distributions was known. P{\'o}czos $et$ $al.$ [9] derive estimators for R{\'e}nyi and $L_2$ divergences based on $k$-Nearest Neighbors statistics, and apply the estimate for classifying astronomical data. We consider the $f$-divergence described in [4], which enables nonparametric divergence estimation directly from sample data via generating a Euclidean minimum spanning tree (MST). 
 	%It is apparent that when the probability density functions contain no common region of support, the K-L divergence is not bounded. For the total variation distance, $\phi(x) = 0.5 \vert t-1\vert$. Work has
 	%Estimation approaches of these measures
 	\subsubsection{\small The $D_p$ Divergence Measure}
@@ -104,7 +104,7 @@
 	\end{equation}
 	\\[0.5ex]
 	
-	$\indent$ To classify $D_p$ as a statistical distance, it must satisfy the following properties. First, $0 \leq D_p$, the divergence must be non-negative. Second, $D_p=0$ when $f_0(x)=f_1(x)$; the distance between identical distributions must vanish. Third, $D_p(f_0,f_1)=D_p(f_1,f_0)$, it must be symmetric. Fourth,  $D_p(f_0,f_2) \leq D_p(f_0,f_1)+D_p(f_1,f_2)$, the divergence must obey the triangle inequality. $D_p$ is shown in [25] to have the first three listed properties. However, the triangle inequality has not been proved for the measure, so therefore, we label $D_p$ as a pseudo-distance.
+	$\indent$ To classify $D_p$ as a statistical distance, it must satisfy the following properties. First, $0 \leq D_p$, the divergence must be non-negative. Second, $D_p=0$ when $f_0(x)=f_1(x)$; the distance between identical distributions must vanish. Third, $D_p(f_0,f_1)=D_p(f_1,f_0)$, it must be symmetric. Fourth,  $D_p(f_0,f_2) \leq D_p(f_0,f_1)+D_p(f_1,f_2)$, the divergence must obey the triangle inequality. $D_p$ is shown in [4] to have the first three listed properties. However, the triangle inequality has not been proved for the measure, so therefore, we label $D_p$ as a pseudo-distance.
 	\\ [0.5 ex]
 	
 	$\indent$ The estimator for this divergence relies on finding the Friedman-Rafsky (F-R) test statistic: $\mathcal{C}(\textbf{X}_f,\textbf{X}_g)$ from the $d$-dimensional class data $\textbf{X}_{f_0}$ and $\textbf{X}_{f_1}$. The F-R test statistic is calculated by generating a data set containing both $\textbf{X}_{f_0}$ and $\textbf{X}_{f_1}$, finding the Euclidean MST for the data, and counting the number of edges of the MST that connect a point from $\textbf{X}_{f_0}$ and $\textbf{X}_{f_1}$. In terms of the F-R test statistic, the estimator for $D_p$ is:
@@ -128,7 +128,7 @@
 	$\indent$ For Figure 1, $\mathcal{C}(\textbf{X}_{f_0},\textbf{X}_{f_1})=5$. From the plot of the MST notice that if $\textbf{X}_{f_0}$ and $\textbf{X}_{f_1}$ had a greater degree of separation, there would be a fewer number of edges linking the two classes, and $\mathcal{C}(\textbf{X}_{f_0},\textbf{X}_{f_1})$ would be smaller. Based on equation (4), a smaller F-R test statistic gives a larger value for the divergence estimate. However, if the two classes had more overlap, there would be a greater number of edges linking the two classes. A larger F-R test statistic would result in a smaller divergence estimate.
 	\\[0.5ex]
 	
-	$\indent$ In [2] a modified version of this distance is proposed for implementation in binary classification tasks. As binary classification problems are considered in this work, the modified form of the distance and a modified estimator are used. Notationally, $\widetilde{D}_p$ is used to refer to the modified divergence, and $D_p$ is used to refer to the distance itself. The same condition that $N_{f0} \rightarrow \infty$ and $N_{f_1} \rightarrow \infty$ is imposed on the estimator:
+	$\indent$ In [10] a modified version of this distance is proposed for implementation in binary classification tasks. As binary classification problems are considered in this work, the modified form of the distance and a modified estimator are used. Notationally, $\widetilde{D}_p$ is used to refer to the modified divergence, and $D_p$ is used to refer to the distance itself. The same condition that $N_{f0} \rightarrow \infty$ and $N_{f_1} \rightarrow \infty$ is imposed on the estimator:
 	\begin{equation}
 		\widetilde{D}_p(f_0,f_1)=\int \frac{(p{f_0}(\textbf{x})-q{f_1}(\textbf{x}))^2}{p{f_0}(\textbf{x})+q{f_1}(\textbf{x})}d\textbf{x}=1-4pq\int \frac{f_0(\textbf{x}){f_1}(\textbf{x})}{p{f_0}(\textbf{x})+q{f_1}(\textbf{x})}d\textbf{x}
 	\end{equation}
@@ -141,19 +141,19 @@
 	
 	\subsection{\ Bayes Error Rate and Divergence Measures}
 	$\indent$ A common problem in machine learning is binary classification, in which data $\textbf{X}_i\in \mathbf{R^{n \times d}}$ are assigned a class label $c_i \in \{0,1\}$.
-	Given $c_0$ and $c_1$ correspond to data with respective probability distributions $f_0(\textbf{x})$ and $f_1(\textbf{x})$, prior probabilities $p \in (0,1)$ and $q=1-p$, the Bayes optimal classifier assigns a class label to a test data $x_i$ such that the posterior probability is maximized [4].\ The error rate of this optimal classifier, the Bayes error rate (BER), provides an absolute lower bound on the classification error rate.\ Accurate estimation of the BER makes it possible to quantify the performance of a classifier with respect to this optimal lower bound, or apply improved BER bounds to feature selection algorithms [1]. 
+	Given $c_0$ and $c_1$ correspond to data with respective probability distributions $f_0(\textbf{x})$ and $f_1(\textbf{x})$, prior probabilities $p \in (0,1)$ and $q=1-p$, the Bayes optimal classifier assigns a class label to a test data $x_i$ such that the posterior probability is maximized [4].\ The error rate of this optimal classifier, the Bayes error rate (BER), provides an absolute lower bound on the classification error rate.\ Accurate estimation of the BER makes it possible to quantify the performance of a classifier with respect to this optimal lower bound, or apply improved BER bounds to feature selection algorithms [11]. 
 	\\ [0.5ex]
 	
 	$\indent$Given the two conditional density functions, $f_0(\textbf{x})$ and $f_1(\textbf{x})$, it is possible to write the Bayes error rate in terms of the prior probabilities $p$ and $q$:
 	%insert bayes error rate equation here
 	\begin{equation} E_{Bayes}=\int_{r_1} pf_0(\textbf{x}) \,d\textbf{x} + \int_{r_0} qf_1(\textbf{x}) \,d\textbf{x} \end{equation}
 	%ADD PROPER LIMITS TO INTEGRAL
-	\indent Here, $r_1$ and $r_0$ refer to the regions where the respective posterior probabilities are larger.\ Direct evaluation of this integral can be quite involved and impractical, and poses similar problems to that of estimation of $f$-divergences: it is challenging to create an exact model for the distributions $f_0(\textbf{x})$ and $f_1(\textbf{x})$.\ As an alternative to direct evaluation of the integral, it is possible to derive bounds for the Bayes error rate in terms of divergence measures [5]. 
+	\indent Here, $r_1$ and $r_0$ refer to the regions where the respective posterior probabilities are larger.\ Direct evaluation of this integral can be quite involved and impractical, and poses similar problems to that of estimation of $f$-divergences: it is challenging to create an exact model for the distributions $f_0(\textbf{x})$ and $f_1(\textbf{x})$.\ As an alternative to direct evaluation of the integral, it is possible to derive bounds for the Bayes error rate in terms of divergence measures [3]. 
 	\\ [0.5ex]	
 	
-	$\indent$ The Bayes error rate can be related to the total variation distance (shown in Table 1), which itself can be written in terms of the K-L divergence [30], [31]. The Pinkser inequality [32] and related bounds are one such method to arrive at the total variation distance starting from the K-L divergence. However, as noted previously, in certain cases the K-L divergence may not be bounded, and can result in a value that tends to $\infty$. Vajda [33] modified the relation between the K-L divergence and the total variation distance to account for this problem. 
+	$\indent$ The Bayes error rate can be related to the total variation distance (shown in Table 1), which itself can be written in terms of the K-L divergence [12], [13]. The Pinkser inequality [14] and related bounds are one such method to arrive at the total variation distance starting from the K-L divergence. However, as noted previously, in certain cases the K-L divergence may not be bounded, and can result in a value that tends to $\infty$. Vajda [15] modified the relation between the K-L divergence and the total variation distance to account for this problem. 
 	\\	[0.5 ex]
-	$\indent$Bounds for the classification error rate have been given in terms of the Bhattacharya distance in [33]. In [2] the Bayes error rate is given in terms $\widetilde{D}_p$:\begin{equation}
+	$\indent$Bounds for the classification error rate have been given in terms of the Bhattacharya distance in [15]. In [10] the Bayes error rate is given in terms $\widetilde{D}_p$:\begin{equation}
 	\frac{1}{2}-\frac{1}{2}\sqrt{\widetilde{D}_p(f_0,f_1)}\leq E_{Bayes} \leq \frac{1}{2}-\frac{1}{2}\widetilde{D}_p(f_0,f_1)
 	\end{equation}
 	As expected, when there is no overlap between the two distributions, $\widetilde{D}_p=1$, and the BER is lower bounded by zero. In other words, if the two classes are highly separated, the divergence is large, and it should be possible to design a classifier that has a very low probability of error. On the other hand, if there is full overlap between the two distributions, $\widetilde{D}_p=0$, and the BER is $0.5$. In the second case, the divergence is very small, and the optimal error rate is equivalent to the error in randomly assigning class.  
@@ -161,24 +161,24 @@
 	$\indent$ As we have just shown, the method for empirically calculating a specific ${D}_p$ value for a data set of length $N$, and obtaining an estimate for the BER is quite straight forward, but it leaves much to be desired. Specifically, it is necessary to characterize the quality of the ${D}_p$ estimate. A direct calculation of the divergence measure using all $N$ data points yields only a single value, and does not provide any insight into the error or spread of the estimator. Indeed, in many cases knowledge of the spread of the estimate is as important as the estimate itself.
 	\\[0.5ex]
 	
-	$\indent$Bootstrap resampling, first introduced by Efron in [10], is a powerful tool to find the sampling distribution of a statistic. From a data set $\textbf{X}_i$ of size $N$, the bootstrap method functions by repeatedly and randomly sampling, with replacement, $b$ subsets of size $n<N$ from the original data set. Then, estimates are computed for all $b$ generated subsets. This Monte Carlo approach gives a powerful way to analyze some measure of estimator quality (such as variance or confidence interval) from $b$ computed estimates. However, the bootstrap with replacement fails when applied to the F-R test statistic based estimator. Because the F-R test statistic requires the generation of unique distances between data points when computing the minimum spanning tree, it is not possible to sample with replacement [2]. 
+	$\indent$Bootstrap resampling, first introduced by Efron in [16], is a powerful tool to find the sampling distribution of a statistic. From a data set $\textbf{X}_i$ of size $N$, the bootstrap method functions by repeatedly and randomly sampling, with replacement, $b$ subsets of size $n<N$ from the original data set. Then, estimates are computed for all $b$ generated subsets. This Monte Carlo approach gives a powerful way to analyze some measure of estimator quality (such as variance or confidence interval) from $b$ computed estimates. However, the bootstrap with replacement fails when applied to the F-R test statistic based estimator. Because the F-R test statistic requires the generation of unique distances between data points when computing the minimum spanning tree, it is not possible to sample with replacement [10]. 
 	% we denote $S(\textbf{X}_i)$.
 	%bootstrapping is great, it gives us this spread knowledge, but
 	% we also want to apply this estimation method into 
 	\\ [0.5ex]
 	
 	%Explain why we want a CI for D_p
-	$\indent$To satisfy the requirement, we consider another bootstrap resampling technique, the $m$ out of $N$ bootstrap. This technique generates $i$ randomly sampled subsets of size $m<N$, where the subsets are generated $without$ $replacement$. Then the quantities of interest are calculated for the $i$ subsets. Particularly, we consider calculating the confidence interval of ${D}_p$ after finding $D_p$ for all $i$ sample sizes. Now, we have an estimate of ${D}_p$ along with a confidence interval. But, this estimate is for finite data size, and the estimator for ${D}_p$, equation (6), specifies an asymptotic condition of $N_{f0} \rightarrow \infty$ and $N_{f_1} \rightarrow \infty$. Obtaining this estimate of ${D}_p$ for $N \rightarrow \infty$ is desirable in order to minimize the bias. 
+	$\indent$To satisfy the requirement, we consider another bootstrap resampling technique, the $m$ out of $N$ bootstrap (also known as the jackknife [9]). This technique generates $i$ randomly sampled subsets of size $m<N$, where the subsets are generated $without$ $replacement$. Then the quantities of interest are calculated for the $i$ subsets. Particularly, we consider calculating the confidence interval of ${D}_p$ after finding $D_p$ for all $i$ sample sizes. Now, we have an estimate of ${D}_p$ along with a confidence interval. But, this estimate is for finite data size, and the estimator for ${D}_p$, equation (6), specifies an asymptotic condition of $N_{f0} \rightarrow \infty$ and $N_{f_1} \rightarrow \infty$. Obtaining this estimate of ${D}_p$ for $N \rightarrow \infty$ is desirable in order to minimize the bias. 
 	\\ [0.5ex]
 	
-	$\indent$Hawes and Priebe [1] apply a $k$-Nearest Neighbors rule to find the upper and lower bound on the Bayes error rate as a function of sample size. They perform individual bootstrap estimates of the BER (which they denote as $\bar{L}_n(k)$) at many sample sizes $n_1 \textless n_2 \textless ... \textless n_i \textless N$. Then, they apply a parametric power law curve to calculate the bootstrapped Bayes error rate estimates as a function of sample size, $n$. The model in question is:
+	$\indent$Hawes and Priebe [11] apply a $k$-Nearest Neighbors rule to find the upper and lower bound on the Bayes error rate as a function of sample size. They perform individual bootstrap estimates of the BER (which they denote as $\bar{L}_n(k)$) at many sample sizes $n_1 \textless n_2 \textless ... \textless n_i \textless N$. Then, they apply a parametric power law curve to calculate the bootstrapped Bayes error rate estimates as a function of sample size, $n$. The model in question is:
 		\begin{equation}
 		\bar{L}_n(k)=an^b+c
 		\end{equation}
-	with power law fit constants $a$, $b$, $c$, and independent variable of sample size, $n$. Given that this model is valid and $b<0$, as $n \rightarrow \infty$, $\bar{L}_n(k)\rightarrow c$ with $c=\bar{L}_\infty(k)$. In [34] it is shown that $\vert \bar{L}_n(1)-\bar{L}_\infty (1) \vert \leq an^{-2}$; the absolute error of the BER estimate for a 1-dimensional data, with $k=1$ rule, converges in the form given by equation (9). 
+	with power law fit constants $a$, $b$, $c$, and independent variable of sample size, $n$. Given that this model is valid and $b<0$, as $n \rightarrow \infty$, $\bar{L}_n(k)\rightarrow c$ with $c=\bar{L}_\infty(k)$. In [17] it is shown that $\vert \bar{L}_n(1)-\bar{L}_\infty (1) \vert \leq an^{-2}$; the absolute error of the BER estimate for a 1-dimensional data, with $k=1$ rule, converges in the form given by equation (9). 
 	\\[0.5ex]
 	
-	$\indent$ This result was generalized in [35] for $d$-dimensional data. In [36] it was generalized to any choice of $k$, and produced the following expression for the BER:
+	$\indent$ This result was generalized in [18] for $d$-dimensional data. In [19] it was generalized to any choice of $k$, and produced the following expression for the BER:
 	\begin{equation}
 	\bar{L}_n(k)~\bar{L}_\infty (k) + \sum_{j=2}^{\infty} c_j n^{-j/d}
 	\end{equation}
@@ -362,7 +362,7 @@
 		\label{table:nonlin} % is used to refer this table in the text
 	\end{table}
 	
-	$\indent$ We wish to show that this estimation method is valid for many types of distributions. Therefore, we now consider the 8-dimensional Gaussian dataset given in Table 4 [37]. All dimensions of the data are zero mean and unit variance except for the first dimension of class 1. The mean of one of the dimensions of $c_1$ is shifted to $\mu_1=2.56$.  It is not possible to analytically calculate $D_p$ for a Gaussian dataset. But, the Bayes error rate for this data set is known (BER=10\%). So, $\bar{D}_p^*$ can be validated by calculating the bounds on the BER from $\bar{D}_p^*$, and comparing to the known BER value. 
+	$\indent$ We wish to show that this estimation method is valid for many types of distributions. Therefore, we now consider the 8-dimensional Gaussian dataset given in Table 4 [20]. All dimensions of the data are zero mean and unit variance except for the first dimension of class 1. The mean of one of the dimensions of $c_1$ is shifted to $\mu_1=2.56$.  It is not possible to analytically calculate $D_p$ for a Gaussian dataset. But, the Bayes error rate for this data set is known (BER=10\%). So, $\bar{D}_p^*$ can be validated by calculating the bounds on the BER from $\bar{D}_p^*$, and comparing to the known BER value. 
 	
 	$\indent$ The same conditions as Section 3.1 are applied. A 10000 instance dataset is created containing an equal number of points from both classes. The number of Monte Carlo iterations $m=200$, and bootstrap subsample sizes $\textbf{n}_i$ are selected in the same manner with $n_{max}=1000$. The only difference in this case is that a Gaussian dataset is analyzed rather than a Uniform dataset, and an additional step of computing the BER is performed. The resulting power law curve for this dataset is:
 	\begin{equation}
@@ -373,7 +373,7 @@
 	
 	
 	\begin{table}[!h]		
-			\caption{Estimated Bayes Error Rate for Gaussian Data Set for $n_{max}=1000$ [4]}
+			\caption{Estimated Bayes Error Rate for Gaussian Data Set for $n_{max}=1000$}
 			\begin{center}
 				%	\begin{tabular}{||c c c c||} 
 				%		\hline
@@ -435,7 +435,7 @@
 
 	\newpage
 	\subsection{ Pima Indian Dataset}
-	$\indent$ The second real world dataset analyzed is the Pima Indian Dataset, also sourced from the UCI Machine learning repository [38]. The dataset has 8-dimensions containing clinical information such as age, blood pressure, BMI, and plasma glucose concentration about female patients of Pima Indian heritage who are age 21 or older. Class 1 corresponds to patients with diabetes, and class 0 contains patients without diabetes. Due to the relatively low number of instances in the dataset, it is of particular interest to find an asymptotic value of the divergence estimator. 
+	$\indent$ The second real world dataset analyzed is the Pima Indian Dataset, also sourced from the UCI Machine learning repository [21]. The dataset has 8-dimensions containing clinical information such as age, blood pressure, BMI, and plasma glucose concentration about female patients of Pima Indian heritage who are age 21 or older. Class 1 corresponds to patients with diabetes, and class 0 contains patients without diabetes. Due to the relatively low number of instances in the dataset, it is of particular interest to find an asymptotic value of the divergence estimator. 
 		\\[0.5ex]
 		
 	$\indent$Of the $N=768$ instances, 500 belong to class 0, and 268 instances are from class 1. In the discussion of equations (5) and (6) it was noted that in order for the condition $\widetilde{D}_p=D_p$ to hold, $p=q=0.5$. Therefore the maximum subsample size is limited to $n_{max}<2*268$ because calculation of the divergence estimate requires an equal number of data samples from each class to ensure $p=q=0.5$. For this dataset, an analysis of the effect of varying  $m$, and $n_{max}$ is performed. Though $n_{max}$ is varied, the largest value considered is $n_{max}=500$.  
@@ -522,7 +522,7 @@
 			\end{center}
 		\end{table}	
 	\begin{table}[!h]		
-		\caption{Bayes Error Rates in Literature for Pima Indians Data Set [4]}
+		\caption{Bayes Error Rates in Literature for Pima Indians Data Set [22]}
 		\begin{center}
 			%	\begin{tabular}{||c c c c||} 
 			%		\hline
@@ -616,161 +616,134 @@ $	\newline$
 \newpage
 	\section*{Appendix A}
 	\subsection*{Calculation of $D_p$ for Uniform Dataset}
+	
 	$D_p$ is equal to the following when $p=q=0.5$:
 	\begin{equation}
 	D_p(f_0,f_1)=1-4pq\int \frac{f_0(\textbf{x}){f_1}(\textbf{x})}{p{f_0}(\textbf{x})+q{f_1}(\textbf{x})}d\textbf{x}
 	\end{equation}
 	
-	Simplifying:
+	\noindent Simplifying:
 	\begin{equation}
-		D_p(f_0,f_1)=1-2\int \frac{f_0(\textbf{x}){f_1}(\textbf{x})}{{f_0}(\textbf{x})+{f_1}(\textbf{x})}d\textbf{x}
+		D_p(f_0,f_1)=1-\int \frac{f_0(\textbf{x}){f_1}(\textbf{x})}{{f_0}(\textbf{x})+{f_1}(\textbf{x})}d\textbf{x}
 	\end{equation}
 	
-	Expanding for the 8-dimensional dataset:
+	\noindent Expanding for the 8-dimensional dataset:
 	\begin{equation}
-	D_p(f_0,f_1)=1-2\int_{x_1} ... \int_{x_8} \frac{f_0(\textbf{x}){f_1}(\textbf{x})}{{f_0}(\textbf{x})+{f_1}(\textbf{x})}dx_1... dx_8
+		D_p(f_0,f_1)=1-\int_{x_8} ... \int_{x_1} \frac{f_0(\textbf{x}){f_1}(\textbf{x})}{{f_0}(\textbf{x})+{f_1}(\textbf{x})}dx_1... dx_8
 	\end{equation}
 	
-	For dimensions 2-8, there is full overlap between $f_0(\textbf{x})$ and $f_1(\textbf{x})$:
+	
+	\noindent For dimensions 2-8, there is full overlap between $f_0(\textbf{x})$ and $f_1(\textbf{x})$. 
+	
+	\noindent But for $x_1$, the mean of $f_1(x_1)$ is shifted so that $\mu_1=0.5$.
+	
+	\begin{equation}
+		D_p(f_0,f_1)=1-\int_{x_8=-0.5}^{x_8=0.5}...\int_{x_3=-0.5}^{x_3=0.5}\int_{x_2=-0.5}^{x_2=0.5}\int_{x_1=0.5}^{x_1=1} dx_1... dx_8	
+	\end{equation}
+	
+	
+	\noindent Integrating:
+	\begin{equation}
+		D_p(f_0,f_1)=1-\int_{x_1=0.5}^{x_1=1}dx_1=0.5	
+	\end{equation}
 	
 \newpage
 	\section*{References}
-	\noindent [1] Hawes, Chad M., and Carey E. Priebe. "A Bootstrap Interval Estimator for Bayes' Classification 
-	\indent Error." 2012 IEEE Statistical Signal Processing Workshop, 2012
+	
+	\noindent [1] K. Pranesh, and L. Hunter. ``On an Information Divergence Measure and Information Inequalities." $\indent$ (n.d.): n. pag. University of Northern British Columbia. 
 	\\ [0.5ex]
 	
-	\noindent[2] V. Berisha, A. Wisler, A.O. Hero, and A. Spanias, "Empirically Estimable Classification Bounds 
-	\indent Based on a Nonparametric Divergence Measure" IEEE Transactions on Signal Processing, vol. 
-	\indent 64, no. 3, pp.580-591, Feb. 2016.
+	\noindent [2] Sugiyama, Masashi, Song Liu, Marthinus Christoffel Du Plessis, Masao Yamanaka, Makoto $\indent$Yamada, Taiji Suzuki, and Takafumi Kanamori. Journal of Computing Science and Engineering 
+	$\indent$ 7.2 (2013)
+		\\ [0.5ex]
+
+	\noindent[3] Tumer, Kagan, and Joydeep Ghosh. ``Bayes Error Rate Estimation Using Classifier Ensembles." 
+	$\indent$International Journal of Smart Engineering System Design 5.2 (2003): \indent 95-109.
 	\\ [0.5ex]
 	
-	\noindent[3] A. O. Hero, B. Ma, O. Michel, and J. Gorman, “Alpha-divergence for classification, indexing 
-	\indent and retrieval,” Communication and Signal Processing Laboratory, Technical Report CSPL-328, 
-	\indent U. Mich, 2001
-	\\ [0.5ex]
-	
-	\noindent [4] K. Tumer, K. (1996) "Estimating the Bayes error rate through classifier combining" in Proceedings 
-	\indent of the 13th International Conference on Pattern Recognition, Volume 2, 695–699
-	\\ [0.5ex]
-	
-	\noindent[5] Tumer, Kagan, and Joydeep Ghosh. "Bayes Error Rate Estimation Using Classifier Ensembles." 
-	\indent International Journal of Smart Engineering System Design 5.2 (2003): \indent 95-109.
-	\\ [0.5ex]
-	
-	\noindent[6] Lichman, M. (2013). UCI Machine Learning Repository [http://archive.ics.uci.edu/ml]. Irvine, 
-	\indent CA: University of California, School of Information and Computer Science.
-	\\ [0.5ex]
-	
-	\noindent [7] V. Lohweg, “Banknote Authentication Data Set,” 2012. [Online]. Available: https://archive.ics.uci.edu/ml/datasets/banknote+authentication.
-	\\ [0.5ex]
-	
-	\noindent [8] K. Pranesh, and L. Hunter. "On an Information Divergence Measure and Information Inequalities." (n.d.): n. pag. University of Northern British Columbia. 
-	\\ [0.5ex]
-	
-	\noindent [9] Tukey, J.W. 1958. Bias and confidence in not-quite large samples. Annals of Mathematical 
-	\indent Statistics 29: 614
-	\\ [0.5ex]
-	
-	\noindent [10] Efron, B. "Bootstrap Methods: Another Look at the Jackknife." Annals of Statistics 7.1 (1979)
-	\\ [0.5ex]
-	
-	\noindent [19] S. Ali and S. D. Silvey, “A general class of coefficients of divergence of one distribution from 
-	\indent another,” Journal of the Royal Statistical Society.
+	\noindent [4] Berisha, Visar, and Alfred O. Hero. ``Empirical Non-Parametric Estimation of the Fisher 
+		$\indent$Information." IEEE Signal Processing Letters IEEE Signal Process. Lett. 22.7 (2015)
+		\\ [0.5ex]
+		
+
+	\noindent [5] S. Ali and S. D. Silvey, ``A general class of coefficients of divergence of one distribution from $\indent$another,” Journal of the Royal Statistical Society.
 	Series B (Methodological), pp. 131–142, 1966.
 	%Ali silvey
 	\\ [0.5ex]
-	
-	\noindent [20] Nguyen, Xuanlong, Martin J. Wainwright, and Michael I. Jordan. "Nonparametric Estimation 
-	\indent of the Likelihood Ratio and Divergence Functionals." 2007 IEEE International Symposium on 
-	\indent Information Theory (2007)
+
+	\noindent [6] S. Kullback and R. A. Leibler, ``On information and sufficiency,” The	Annals of Mathematical 
+	$\indent$Statistics, pp. 79–86, 1951.
 	\\ [0.5ex]
 
-	\noindent [21] Sugiyama, Masashi, Song Liu, Marthinus Christoffel Du Plessis, Masao Yamanaka, Makoto 
-	\indent Yamada, Taiji Suzuki, and Takafumi Kanamori. Journal of Computing Science and Engineering 
-	\indent 7.2 (2013)
-	\\ [0.5ex]
-	
-	\noindent [22] Nguyen, Xuanlong, Martin J. Wainwright, and Michael I. Jordan. "Estimating Divergence
-	\indent Functionals and the Likelihood Ratio by Convex Risk Minimization." IEEE Trans. Inform. 
-	\indent Theory IEEE Transactions on Information Theory 56.11 (2010)
+
+	\noindent [7] Wang, Q., S.r. Kulkarni, and S. Verdu. ``Divergence Estimation of Continuous Distributions 
+	$\indent$Based on Data-Dependent Partitions." IEEE Trans. Inform. Theory IEEE Transactions on 
+	$\indent$Information Theory 51.9 (2005)
 	\\ [0.5ex]
 
-	\noindent [23] L. Song, M.D. Reid, A.J. Smola, and R.C. Williamson. Discriminative estimation of f -divergence. 
-	\indent Submitted to AISTATS09, October 2008.
-	\\ [0.5ex]
-	
-	\noindent [24] Tumer, Kagan, and Joydeep Ghosh. "Bayes Error Rate Estimation Using Classifier Ensembles." 
-	\indent International Journal of Smart Engineering System Design 5.2 (2003)
-	\\ [0.5ex]
-	
-	\noindent [25] Berisha, Visar, and Alfred O. Hero. "Empirical Non-Parametric Estimation of the Fisher 
-	\indent Information." IEEE Signal Processing Letters IEEE Signal Process. Lett. 22.7 (2015)
-	\\ [0.5ex]
-	
-	\noindent [26] S. Kullback and R. A. Leibler, “On information and sufficiency,” The	Annals of Mathematical 
-	\indent Statistics, pp. 79–86, 1951.
-	\\ [0.5ex]
-	
-	\noindent [27] Wang, Q., S.r. Kulkarni, and S. Verdu. "Divergence Estimation of Continuous Distributions 
-	\indent Based on Data-Dependent Partitions." IEEE Trans. Inform. Theory IEEE Transactions on 
-	\indent Information Theory 51.9 (2005)
-	\\ [0.5ex]
-	
-	\noindent [28] Wang, Qing, Sanjeev R. Kulkarni, and Sergio Verdu. "Divergence Estimation for Multidimensional 
-	\indent Densities Via K-Nearest-Neighbor Distances." IEEE Trans. Inform. Theory IEEE Transactions 
-	\indent on Information Theory 55.5 (2009)
+\noindent [8] Wang, Qing, Sanjeev R. Kulkarni, and Sergio Verdu. ``Divergence Estimation for Multidimensional 
+$\indent$Densities Via K-Nearest-Neighbor Distances." IEEE Trans. Inform. Theory IEEE Transactions 
+$\indent$ on Information Theory 55.5 (2009)
+\\ [0.5ex]
+
+\noindent [9] Barnabás Póczos, Liang Xiong, Jeff G. Schneider, ``Nonparametric Divergence Estimation with 
+$\indent$Applications to Machine Learning on Distributions." UAI 2011: 599-608
+\\ [0.5ex]
+
+	\noindent[10] V. Berisha, A. Wisler, A.O. Hero, and A. Spanias, ``Empirically Estimable Classification Bounds $\indent$ Based on a Nonparametric Divergence Measure" IEEE Transactions on Signal Processing, vol.64, $\indent$ no. 3, pp.580-591, Feb. 2016.
 	\\ [0.5ex]
 
-	\noindent [29] Barnabás Póczos, Liang Xiong, Jeff G. Schneider, Nonparametric Divergence Estimation with 
-	\indent Applications to Machine Learning on Distributions. UAI 2011: 599-608
+\noindent [11] Hawes, Chad M., and Carey E. Priebe. ``A Bootstrap Interval Estimator for Bayes' Classification 
+	$\indent$ Error." 2012 IEEE Statistical Signal Processing Workshop, 2012
 	\\ [0.5ex]
 	
-	\noindent [30] T. Kailath, “The divergence and Bhattacharyya distance measures in signal selection,” Communication 
-	\indent Technology, IEEE Transactions on,	vol. 15, no. 1, pp. 52–60, 1967.
+	
+	\noindent [12] T. Kailath, ``The divergence and Bhattacharyya distance measures in signal selection,” Communication $\indent$Technology, IEEE Transactions on,	vol. 15, no. 1, pp. 52–60, 1967.
 	\\ [0.5ex]
 	
-	\noindent [31] I. Csisz et al., “Information-type measures of difference of probability	distributions and indirect 
-	\indent observations,” Studia Sci. Math. Hungar.,
+	\noindent [13] I. Csisz et al., ``Information-type measures of difference of probability	distributions and indirect 
+	$\indent$ observations,” Studia Sci. Math. Hungar.,
 	vol. 2, pp. 299–318, 1967
-	\\ [0.5ex]
+	\\ [0.5ex]	
 	
-	\noindent [32] I. Vajda, “Note on discrimination information and variation (corresp.),”	Information Theory, IEEE 
-	\indent Transactions on, vol. 16, no. 6, pp. 771–773, 1970.
-	\\ [0.5ex]
-	
-	\noindent [33] A. Bhattacharyya, “On a measure of divergence between two multinomial populations,” Sankhya: 
-	\indent The Indian Journal of Statistics ¯ , pp. 401–
-	406, 1946.
-	\\[0.5 ex]
-	
-	\noindent [34] Thomas M. Cover, “Rates of convergence of nearest
-	neighbor decision procedures,” in Proceedings \indent of 1st
+		\noindent [14] I. Vajda, ``Note on discrimination information and variation" (corresp.),	Information Theory, $\indent$ IEEE Transactions on, vol. 16, no. 6, pp. 771–773, 1970.
+		\\ [0.5ex]
+		
+		\noindent [15] A. Bhattacharyya, ``On a measure of divergence between two multinomial populations", Sankhya: 
+		$\indent$ The Indian Journal of Statistics ¯ , pp. 401–
+		406, 1946.
+		\\[0.5 ex]
+		
+		\noindent [16] Efron, B. ``Bootstrap Methods: Another Look at the Jackknife." Annals of Statistics 7.1 (1979)
+			\\ [0.5ex]
+			
+	\noindent [17] Thomas M. Cover, ``Rates of convergence of nearest
+	neighbor decision procedures,” in Proceedings $\indent$ of 1st
 	Annual Hawaii Conference on Systems Theory, 1968,
 	pp. 413–415
 	\indent
 	\\[0.5ex]
 	
-	\noindent [35] Demetri Psaltis, Robert R. Snapp, and Santosh S.
-	Venkatesh, “On the finite sample performance \indent of the
+	\noindent [18] Demetri Psaltis, Robert R. Snapp, and Santosh S.
+	Venkatesh, ``On the finite sample performance $\indent$ of the
 	nearest neighbor classifier,” IEEE Transactions on Information
-	Theory, vol. 40, no. 3, pp. \indent 820–837, 1994
+	Theory, vol. 40, no. 3, pp. $\indent$ 820–837, 1994
 	\\[0.5ex]
 	
-	\noindent [36] Robert R. Snapp and Santosh S. Venkatesh, “Asymptotic
-	expansions of the k nearest neighbor \indent risk,” The
+	\noindent [19] Robert R. Snapp and Santosh S. Venkatesh, ``Asymptotic
+	expansions of the k nearest neighbor $\indent$ risk,” The
 	Annals of Statistics, vol. 26, no. 3, pp. 850–878, 1998
-	\\[0.5ex]
+	\\[0.5ex]	
 	
-	\noindent [37]  K. Fukunaga, Introduction to statistical pattern recognition. Academic
-	press, 1990
-	\\[0.5ex]
+		\noindent [20]  K. Fukunaga, $Introduction$ $to$ $statistical$ $pattern$ $recognition.$ Academic
+		press, 1990
+		\\[0.5ex]
+		
+		\noindent [21] A. Frank and A. Asuncion, ``UCI machine learning
+		repository,” 2010.
+		\\[0.5ex]
 	
-	\noindent [38] A. Frank and A. Asuncion, “UCI machine learning
-	repository,” http://archive.ics.uci.edu/ml, 2010.
-	\\[0.5ex]
-	
-	
-	
+	\noindent [22] Michie, Donald, D. J. Spiegelhalter, and C. C. Taylor. $Machine$ $Learning$, $Neural$ $and$ $\indent$$Statistical$ $Classification.$ Englewood Cliffs, NJ: Prentice Hall, 1994. 
 	
 	
 	\newpage
