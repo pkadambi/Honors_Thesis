@@ -37,11 +37,11 @@
 	\\ [0.5ex]
 	
 	%PAPER goal paragraph
-	\indent	In this paper, we perform a bootstrap estimation of a minimum spanning tree based $f$-divergence derived in [25] using a power law. From data of size $N$, we compute  Monte Carlo iterations at $i$ sample sizes $n\in \{n_1, n_2,... $ $,n_i\}<N$, and apply the unproven, but reasonable assumption that a power law fit can be used to characterize the divergence estimator as a function of sample size. We exploit the unique ability to estimate this divergence measure directly from data, and bypass computing the densities. Utilizing this curve we extrapolate as sample size $n\rightarrow\infty$, and find the asymptotic value of the divergence estimate from a finite length data set.  As $f$-divergences are be related to the classification error rate [19], this estimation scheme is applied to binary classification examples to find Bayes error rates for several datasets.
+	\indent	In this paper, we perform a bootstrap estimation of a minimum spanning tree based $f$-divergence derived in [25] using a power law. From data of size $N$, we compute  Monte Carlo iterations at $i$ sample sizes $n\in \{n_1, n_2,... $ $,n_i\}<N$, and apply the unproven, but reasonable assumption that a power law fit can be used to characterize the divergence estimator as a function of sample size. We exploit the unique ability to estimate this divergence measure directly from data, and bypass computing the densities. Utilizing this curve we extrapolate as sample size $n\rightarrow\infty$, and find the asymptotic value of the divergence estimate from a finite length data set.  As $f$-divergences are related to the classification error rate [19], this estimation scheme is applied to binary classification examples to find Bayes error rates for several datasets.
  	%MAybe add 1 sentance about confidence intervals for the estimator
  	\\ [0.5ex]
  	
- 	\indent	The work is organized as follows:\ the remainder of Section 1 is devoted to background and previous work. Section 1.1-1.2 discuss $f$-divergences, their connection to the Bayes optimal error rate, and introduce the specific divergence measure used. Section 1.3 discusses the motivation for the bootstrap power law estimation method, which is formally described in Section 2. 
+ 	\indent	The work is organized as follows:\ the remainder of Section 1 is devoted to background and previous work. Section 1.1-1.2 discusses $f$-divergences, their connection to the Bayes optimal error rate, and introduce the specific divergence measure used. Section 1.3 discusses the motivation for the bootstrap power law estimation method, which is formally described in Section 2. 
  	%In Section 3 we apply the method to several generated and real-world datasets to show that the power law method can successfully be used to calculate the divergence and classification error rate of several distributions. 
  	In Section 3, examples of the estimation approach are given. In 3.1 we consider generated datasets with known divergence values to demonstrate the accuracy of the estimation algorithm. In 3.2 we perform analysis on the Pima Indians data set and the Banknote data set and compare the calculated Bayes error rates to the classification error rates reported in the literature.
  	%found in the University of California, Irvine machine learning repository [6].
@@ -107,17 +107,28 @@
 	\indent To classify $D_p$ as a statistical distance, it must satisfy the following properties. Firstly, $0 \leq D_p$, the divergence must be non-negative. Secondly, $D_p=0$ when $f_0(x)=f_1(x)$; the measure between identical distributions must vanish. Third, $D_p(f_0,f_1)=D_p(f_1,f_0)$, it must be symmetric. Fourth,  $D_p(f_0,f_2) \leq D_p(f_0,f_1)+D_p(f_1,f_2)$, the divergence must obey the triangle inequality. $D_p$ is shown in [25] to have the following properties: it is non-negative ($0 \leq D_p \leq 1$ ), satisfies the identity property, and is symmetric. However, the triangle inequality has not been proved for the measure, so therefore, we label $D_p$ as a pseudo-distance.
 	\\ [0.5 ex]
 	
-	\indent The estimator for this divergence relies on finding the Friedman-Rafsky (F-R) test statistic: $\mathcal{C}(\textbf{X}_f,\textbf{X}_g)$ from the $d$-dimensional class data $\textbf{X}_{f_0}$ and $\textbf{X}_{f_1}$. The F-R test statistic is calculated by generating a data set containing both $\textbf{X}_{f_0}$ and $\textbf{X}_{f_1}$, finding the Euclidean MST for the data, and counting the number of edges of the MST that connect a point from $\textbf{X}_{f_0}$ and $\textbf{X}_{f_1}$. The figure below graphically illustrates how the F-R test statistic is calculated: 
-	\\ [0.5ex]
-
-	\indent In terms of the F-R test statistic, the estimator for $D_p$ is:
+	\indent The estimator for this divergence relies on finding the Friedman-Rafsky (F-R) test statistic: $\mathcal{C}(\textbf{X}_f,\textbf{X}_g)$ from the $d$-dimensional class data $\textbf{X}_{f_0}$ and $\textbf{X}_{f_1}$. The F-R test statistic is calculated by generating a data set containing both $\textbf{X}_{f_0}$ and $\textbf{X}_{f_1}$, finding the Euclidean MST for the data, and counting the number of edges of the MST that connect a point from $\textbf{X}_{f_0}$ and $\textbf{X}_{f_1}$. In terms of the F-R test statistic, the estimator for $D_p$ is:
 	\begin{equation}
 	1 - \mathcal{C}(\textbf{X}_{f_0},\textbf{X}_{f_1})\frac{N_{f_0}+N_{f_1}}{2N_{f_0} N_{f_1}} \rightarrow D_p
 	\end{equation}
-	as $N_{f0} \rightarrow \infty$ and $N_{f_1} \rightarrow \infty$. Given that $\frac{N_{f_0}}{N_{f_0}+N_{f_1}} \rightarrow p$ and $\frac{N_{f_1}}{N_{f_0}+N_{f_1}} \rightarrow q$. Note that $N_{f0}$ and $N_{f1}$ are the number of samples of data from each class. Using this method, $D_p$ is estimated from the data samples without any density estimation. 
+	as $N_{f0} \rightarrow \infty$ and $N_{f_1} \rightarrow \infty$. Given that $\frac{N_{f_0}}{N_{f_0}+N_{f_1}} \rightarrow p$ and $\frac{N_{f_1}}{N_{f_0}+N_{f_1}} \rightarrow q$. Note that $N_{f0}$ and $N_{f1}$ are the number of samples of data from each class. Using this method, $D_p$ is estimated from the data samples without any density estimation. The figure below graphically illustrates how the F-R test statistic is calculated. 
 	\\	[0.5 ex]
-
-	\indent In [2] a modified version of this distance is proposed for implementation in binary classification tasks. As binary classification problems are considered in this work, the modified form of the distance, and its estimator are used. Notationally, $\widetilde{D}_p$ is used to refer to the modified divergence, and $D_p$ is used to refer to the distance itself. The same condition that $N_{f0} \rightarrow \infty$ and $N_{f_1} \rightarrow \infty$ is imposed on the estimator:
+	
+	\begin{figure}[h!]
+		\caption{Calculation of F-R Test Statistic}
+		\centering
+		%	\begin{center}
+		\includegraphics[scale=0.5]{MST_example}
+		%	\end{center}
+	\end{figure}	
+	\newpage
+	$\indent$ In Figure 1, 20 elements drawn from two uniformly distributed datasets are used to calculate $\mathcal{C}(\textbf{X}_{f_0},\textbf{X}_{f_1})$. The red points are 10 elements drawn from $f_0(x)=\mathcal{U}\big([0, 0]^T, [1, 1]^T\big)$. The blue points are the 10 elements drawn from $f_1(x)=\mathcal{U}\big([0.5, 0.5]^T, [1.5, 1.5]^T\big)$. A Euclidean minimum spanning tree is created for the dataset $\textbf{X}_{f_0} \bigcup \textbf{X}_{f_1}$. Then, the value of the F-R statistic is equal to the number of edges of the MST that connect a data point from $\textbf{X}_{f_0}$ to a data point from $\textbf{X}_{f_1}$. 
+	\\[0.5ex]
+	
+	$\indent$ For Figure 1, $\mathcal{C}(\textbf{X}_{f_0},\textbf{X}_{f_1})=5$. From the plot of the MST notice that if $\textbf{X}_{f_0}$ and $\textbf{X}_{f_1}$ had a greater degree of separation, there would be a fewer number of edges linking the two classes, and $\mathcal{C}(\textbf{X}_{f_0},\textbf{X}_{f_1})$ would be smaller. Based on equation (4), a smaller F-R test statistic gives a larger value for the divergence estimate. However, if the two classes had more overlap, there would be a greater number of edges linking the two classes. A larger F-R test statistic would result in a smaller divergence estimate.
+	\\[0.5ex]
+	
+	\indent In [2] a modified version of this distance is proposed for implementation in binary classification tasks. As binary classification problems are considered in this work, the modified form of the distance and a modified estimator are used. Notationally, $\widetilde{D}_p$ is used to refer to the modified divergence, and $D_p$ is used to refer to the distance itself. The same condition that $N_{f0} \rightarrow \infty$ and $N_{f_1} \rightarrow \infty$ is imposed on the estimator:
 	\begin{equation}
 		\widetilde{D}_p(f_0,f_1)=\int \frac{(p{f_0}(\textbf{x})-q{f_1}(\textbf{x}))^2}{p{f_0}(\textbf{x})+q{f_1}(\textbf{x})}d\textbf{x}
 	\end{equation}
@@ -125,21 +136,22 @@
 	1 - 2 \frac{\mathcal{C}(\textbf{X}_{f_0},\textbf{X}_{f_1})}{N_{f_0} + N_{f_1}} \rightarrow \widetilde{D}_p(f_0,f_1)
 	\end{equation}
 %	\\ [0.5ex]
-	$\widetilde{D}_p(f_0,f_1)$ is not a distance, as it violates the identity property. If $f_0(\textbf{x})=f_1(\textbf{x})$, $\widetilde{D}_p(f_0,f_1)$ is not zero in all cases. However, equation (5) is used rather than equation (3) as the Bayes error rate bounds are simpler expressed when in terms of $\widetilde{D}_p(f_0,f_1)$. Additionally, it is easy to see that in one special case, $\widetilde{D}_p=D_p$. When $p=q=0.5$, $\widetilde{D}_p$ $does$ satisfy the identity property. For all the cases we consider, $p=q=0.5$. Therefore, $\widetilde{D}_p$ and $D_p$ are equivalent in the context of this work.
+
+	$\indent$ $\widetilde{D}_p(f_0,f_1)$ is not a distance, as it violates the identity property. If $f_0(\textbf{x})=f_1(\textbf{x})$, $\widetilde{D}_p(f_0,f_1)$ is not zero in all cases. However, equation (5) is used rather than equation (3) as the Bayes error rate bounds are simpler expressed when in terms of $\widetilde{D}_p(f_0,f_1)$. Additionally, it is easy to see that in one special case, $\widetilde{D}_p=D_p$. When $p=q=0.5$, $\widetilde{D}_p$ $does$ satisfy the identity property. For all the cases we consider, $p=q=0.5$. Therefore, $\widetilde{D}_p$ and $D_p$ are equivalent in the context of this work.
 	
 	\subsection{\ Bayes Error Rate and Divergence Measures}
 	$\indent$ A common problem in machine learning is binary classification, in which data $\textbf{X}_i\in \mathbf{R^{n \times d}}$ are assigned a class label $c_i \in \{0,1\}$.
 	Given $c_0$ and $c_1$ correspond to data with respective probability distributions $f_0(\textbf{x})$ and $f_1(\textbf{x})$, prior probabilities $p \in (0,1)$ and $q=1-p$, the Bayes optimal classifier assigns a class label to a test data $x_i$ such that the posterior probability is maximized [4].\ The error rate of this optimal classifier, the Bayes error rate (BER), provides an absolute lower bound on the classification error rate.\ Accurate estimation of the BER makes it possible to quantify the performance of a classifier with respect to this optimal lower bound, or apply improved BER bounds to feature selection algorithms [1]. 
 	\\ [0.5ex]
 	
-	\indent Given the two conditional density functions, $f_0(\textbf{x})$ and $f_1(\textbf{x})$, it is possible to write the Bayes error rate in terms of the prior probabilities $p$ and $q$:
+	$\indent$Given the two conditional density functions, $f_0(\textbf{x})$ and $f_1(\textbf{x})$, it is possible to write the Bayes error rate in terms of the prior probabilities $p$ and $q$:
 	%insert bayes error rate equation here
 	\begin{equation} E_{Bayes}=\int_{r_1} pf_0(\textbf{x}) \,d\textbf{x} + \int_{r_0} qf_1(\textbf{x}) \,d\textbf{x} \end{equation}
 	%ADD PROPER LIMITS TO INTEGRAL
-	\indent Here, $r_1$ and $r_0$ refer to the regions where the respective posterior probabilities are larger.\ Direct evaluation of this integral can be quite involved and impractical, and poses similar problems to that of estimation of $f$-divergences: it is challenging to create an exact model for the distributions $f_0(\textbf{x})$ and $f_1(\textbf{x})$.\ As an alternative to direct evaluation of the integral, it is possible to derive bounds for the Bayes error rate in terms of divergences measures [5]. 
+	\indent Here, $r_1$ and $r_0$ refer to the regions where the respective posterior probabilities are larger.\ Direct evaluation of this integral can be quite involved and impractical, and poses similar problems to that of estimation of $f$-divergences: it is challenging to create an exact model for the distributions $f_0(\textbf{x})$ and $f_1(\textbf{x})$.\ As an alternative to direct evaluation of the integral, it is possible to derive bounds for the Bayes error rate in terms of divergence measures [5]. 
 	\\ [0.5ex]	
 	
-	\indent The Bayes error rate can be related to the total variation distance (shown in Table 1), which itself can written in terms of the K-L divergence [30], [31]. The Pinkser inequality [32] and related bounds are one such method to arrive at the total variation distance starting from the K-L divergence. However, as noted previously, in certain cases the K-L divergence may not be bounded, and can result in a value that tends to $\infty$. Vajda [33] modified the relation between the K-L divergence and the total variation distance to account for this problem. 
+	$\indent$ The Bayes error rate can be related to the total variation distance (shown in Table 1), which itself can be written in terms of the K-L divergence [30], [31]. The Pinkser inequality [32] and related bounds are one such method to arrive at the total variation distance starting from the K-L divergence. However, as noted previously, in certain cases the K-L divergence may not be bounded, and can result in a value that tends to $\infty$. Vajda [33] modified the relation between the K-L divergence and the total variation distance to account for this problem. 
 	\\	[0.5 ex]
 	$\indent$Bounds for the classification error rate have been given in terms of the Bhattacharya distance in [33]. In [2] the Bayes error rate is given in terms $\widetilde{D}_p$:\begin{equation}
 	\frac{1}{2}-\frac{1}{2}\sqrt{\widetilde{D}_p(f_0,f_1)}\leq E_{Bayes} \leq \frac{1}{2}-\frac{1}{2}\widetilde{D}_p(f_0,f_1)
@@ -149,24 +161,24 @@
 	$\indent$ As we have just shown, the method for empirically calculating a specific ${D}_p$ value for a data set of length $N$, and obtaining an estimate for the BER is quite straight forward, but it leaves much to be desired. Specifically, it is necessary to characterize the quality of the ${D}_p$ estimate. A direct calculation of the divergence measure using all $N$ data points yields only a single value, and does not provide any insight into the error or spread of the estimator. Indeed, in many cases knowledge of the spread of the estimate is as important as the estimate itself.
 	\\[0.5ex]
 	
-	\indent Bootstrap resampling, first introduced by Efron in [10], is a powerful tool to find the sampling distribution of a statistic. From a data set $\textbf{X}_i$ of size $N$, the bootstrap method functions by repeatedly and randomly sampling, with replacement, $b$ subsets of size $n<N$ from the original data set. Then, estimates are computed for all $b$ generated subsets. This Monte Carlo approach gives a powerful way to analyze some measure of estimator quality (such as variance or confidence interval) from $b$ computed estimates. However, the bootstrap with replacement fails when applied to the F-R test statistic based estimator. Because the F-R test statistic requires the generation of unique distances between data points when computing the minimum spanning tree, it is not possible to sample with replacement [2]. 
+	$\indent$Bootstrap resampling, first introduced by Efron in [10], is a powerful tool to find the sampling distribution of a statistic. From a data set $\textbf{X}_i$ of size $N$, the bootstrap method functions by repeatedly and randomly sampling, with replacement, $b$ subsets of size $n<N$ from the original data set. Then, estimates are computed for all $b$ generated subsets. This Monte Carlo approach gives a powerful way to analyze some measure of estimator quality (such as variance or confidence interval) from $b$ computed estimates. However, the bootstrap with replacement fails when applied to the F-R test statistic based estimator. Because the F-R test statistic requires the generation of unique distances between data points when computing the minimum spanning tree, it is not possible to sample with replacement [2]. 
 	% we denote $S(\textbf{X}_i)$.
 	%bootstrapping is great, it gives us this spread knowledge, but
 	% we also want to apply this estimation method into 
 	\\ [0.5ex]
 	
 	%Explain why we want a CI for D_p
-	\indent To satisfy the requirement, we consider another bootstrap resampling technique, the $m$ out of $N$ bootstrap. This technique generates $i$ randomly sampled subsets of size $m<N$, where the subsets are generated $without$ $replacement$. Then the quantities of interest are calculated for the $i$ subsets. Particularly, we consider calculating the confidence interval of ${D}_p$ after finding $D_p$ for all $i$ sample sizes. Now, we have an estimate of ${D}_p$ along with a confidence interval. But, this estimate is for finite data size, and the estimator for ${D}_p$, equation (6), specifies an asymptotic condition of $N_{f0} \rightarrow \infty$ and $N_{f_1} \rightarrow \infty$. Obtaining this estimate of ${D}_p$ for $N \rightarrow \infty$ is desirable in order to minimize the bias. 
+	$\indent$To satisfy the requirement, we consider another bootstrap resampling technique, the $m$ out of $N$ bootstrap. This technique generates $i$ randomly sampled subsets of size $m<N$, where the subsets are generated $without$ $replacement$. Then the quantities of interest are calculated for the $i$ subsets. Particularly, we consider calculating the confidence interval of ${D}_p$ after finding $D_p$ for all $i$ sample sizes. Now, we have an estimate of ${D}_p$ along with a confidence interval. But, this estimate is for finite data size, and the estimator for ${D}_p$, equation (6), specifies an asymptotic condition of $N_{f0} \rightarrow \infty$ and $N_{f_1} \rightarrow \infty$. Obtaining this estimate of ${D}_p$ for $N \rightarrow \infty$ is desirable in order to minimize the bias. 
 	\\ [0.5ex]
 	
-	\indent Hawes and Priebe [1] apply a $k$-Nearest Neighbors rule to find the upper and lower bound on the Bayes error rate as a function of sample size. They perform individual bootstrap estimates of the BER (which they denote as $\bar{L}_n(k)$) at many sample sizes $n_1 \textless n_2 \textless ... \textless n_i \textless N$. Then, they apply a parametric power law curve to calculate the bootstrapped Bayes error rate estimates as a function of sample size, $n$. The model in question is:
+	$\indent$Hawes and Priebe [1] apply a $k$-Nearest Neighbors rule to find the upper and lower bound on the Bayes error rate as a function of sample size. They perform individual bootstrap estimates of the BER (which they denote as $\bar{L}_n(k)$) at many sample sizes $n_1 \textless n_2 \textless ... \textless n_i \textless N$. Then, they apply a parametric power law curve to calculate the bootstrapped Bayes error rate estimates as a function of sample size, $n$. The model in question is:
 		\begin{equation}
 		\bar{L}_n(k)=an^b+c
 		\end{equation}
 	with power law fit constants $a$, $b$, $c$, and independent variable of sample size, $n$. Given that this model is valid and $b<0$, as $n \rightarrow \infty$, $\bar{L}_n(k)\rightarrow c$ with $c=\bar{L}_\infty(k)$. In [34] it is shown that $\vert \bar{L}_n(1)-\bar{L}_\infty (1) \vert \leq an^{-2}$; the absolute error of the BER estimate for a 1-dimensional data, with $k=1$ rule, converges in the form given by equation (9). 
 	\\[0.5ex]
 	
-	\indent This result was generalized in [35] for $d$-dimensional data. In [36] it was generalized to any choice of $k$, and produced the following expression for the BER:
+	$\indent$ This result was generalized in [35] for $d$-dimensional data. In [36] it was generalized to any choice of $k$, and produced the following expression for the BER:
 	\begin{equation}
 	\bar{L}_n(k)~\bar{L}_\infty (k) + \sum_{j=2}^{\infty} c_j n^{-j/d}
 	\end{equation}
@@ -174,12 +186,12 @@
 
 	\section{Methods}
 	
-	\indent While Hawes and Priebe focus on obtaining asymptotic bounds of the BER, this works focuses on finding the asymptotic value for the ${D}_p$ estimator. As shown in equation (8) of Section 1.2, it is possible to simply and directly relate the Bayes error rate to ${D}_p$. Therefore, the motivation behind the power law method for bounding the BER can also motivate an approach to find ${D}_p$. Though it has not been proven, it is a sensible assumption that the divergence estimates follow a similar power law for increasing sample size, and that an asymptotic estimate,  $\bar{D}_p^*$,  may be generated using this formulation. The following power law is defined:
+	$\indent$While Hawes and Priebe focus on obtaining asymptotic bounds of the BER, this works focuses on finding the asymptotic value for the ${D}_p$ estimator. As shown in equation (8) of Section 1.2, it is possible to simply and directly relate the Bayes error rate to ${D}_p$. Therefore, the motivation behind the power law method for bounding the BER can also motivate an approach to find ${D}_p$. Though it has not been proven, it is a sensible assumption that the divergence estimates follow a similar power law for increasing sample size, and that an asymptotic estimate,  $\bar{D}_p^*$,  may be generated using this formulation. The following power law is defined:
 	\begin{equation}
 		\bar{D}_p(f_0,f_1)=an^b+c
 	\end{equation}
 
-	\indent Notice that under the sound assumption of $b<0$, $\bar{D}_p \rightarrow c$ as $n \rightarrow \infty$. So, we have good reason to believe that from a size $N$, finite length data set, it is possible to obtain asymptotic estimates for the divergence. To find a measure of spread for the divergence estimator, the 95\% confidence interval calculated from the curve fitting process. Reviewing notation, $D_p$ refers to the distance in equation (3), $\widetilde{D}_p$ is the modified version of the distance suited to binary classification given in equation (5), and is equivalent to $D_p$ for our cases. $\bar{D}_p$ is the power law curve describing the estimator of ${D}_p$ as a function of sample size from the equation above. The asymptotic value of the divergence is denoted as $\bar{D}_p^*$.
+	$\indent$ Notice that under the sound assumption of $b<0$, $\bar{D}_p \rightarrow c$ as $n \rightarrow \infty$. So, we have good reason to believe that from a size $N$, finite length data set, it is possible to obtain asymptotic estimates for the divergence. To find a measure of spread for the divergence estimator, the 95\% confidence interval is calculated from the curve fitting process. Reviewing notation, $D_p$ refers to the distance in equation (3), $\widetilde{D}_p$ is the modified version of the distance suited to binary classification given in equation (5), and is equivalent to $D_p$ for our cases. $\bar{D}_p$ is the power law curve describing the estimator of ${D}_p$ as a function of sample size from the equation above. The asymptotic value of the divergence is denoted as $\bar{D}_p^*$.
 	
 	%While the $D_p$ value provides an insight into the separation of the data, as stated prevopu   
 %	Given a data set of size $N$ and dimensionality $D$, we have established how to calculate the $D_p$ value. How
@@ -388,8 +400,10 @@
 	\newpage
 	\newpage
 	\subsection{ Banknote Dataset}
-	$\indent$ The first real world example considered is the Banknote Authentication Data Set, taken from the University of California, Irvine Machine Learning Repository [7]. The dataset is 4-dimensional, and has $N=1372$ instances. The features of the dataset are extracted from images of genuine and forged banknotes, and the classification task is to label a data vector as either forged or genuine. The dataset consists of a relatively small number of dimensions, and highly separated data, so the convergence is rapid, even for relatively small sample size. 
-	The following parameters for Algorithm 1 are set: $m=50$, $i=50$, $n_{max}=600$, and most subsamples sizes $n_i$ are less than $0.5n_{max}$. For a sensitive task such as authenticating banknotes, it should not be surprising to see an asymptotic value for $D_p$ that is almost equal to 1:
+	$\indent$ The first real world example considered is the Banknote Authentication Data Set taken from the University of California, Irvine Machine Learning Repository [7]. The dataset is 4-dimensional, and has $N=1372$ instances. The features of the dataset are extracted from images of genuine and forged banknotes, and the classification task is to label a data vector as either forged or genuine. The dataset consists of a relatively small number of dimensions and highly separated data, so the convergence is rapid, even for relatively small sample size. 
+	\\[0.5ex]
+	
+	$\indent$The following parameters for Algorithm 1 are set: $m=50$, $i=50$, $n_{max}=600$, and most subsamples sizes $n_i$ are less than $0.5n_{max}$. For a sensitive task such as authenticating banknotes, it should not be surprising to see an asymptotic value for $D_p$ that is almost equal to 1:
 	\begin{equation}
 		\bar{D}_p=-3.18n^{-0.98}+ 1.001
 	\end{equation}
@@ -419,34 +433,36 @@
 			%	\end{center}
 	\end{figure}
 
-\newpage
-\newpage
+%\newpage$
+
 	\subsection{ Pima Indian Dataset}
 	$\indent$ The second real world dataset analyzed is the Pima Indian Dataset, also sourced from the UCI Machine learning repository [38]. The dataset has 8-dimensions containing clinical information such as age, blood pressure, BMI, and plasma glucose concentration about female patients of Pima Indian heritage who are age 21 or older. Class 1 corresponds to patients with diabetes, and class 0 contains patients without diabetes. Due to the relatively low number of instances in the dataset, it is of particular interest to find an asymptotic value of the divergence estimator. 
-	
-	$\indent$Of the $N=768$ instances, 500 belong to class 0, and 268 instances are from class 1. In the discussion of equations (5) and (6) it was noted that in order for the condition $\widetilde{D}_p=D_p$ to hold, $p=q=0.5$. Therefore, $n_{max}<2*268$ because calculation of the divergence estimate requires an equal number of data samples from each class to ensure $p=q=0.5$. For this dataset, an analysis of the effect of varying  $m$, and $n_{max}$ is performed. The number of bootstrap sample sizes $i$ is chosen to be large, and the increment between each subsample size $n_i$ is 2. 
-	
+		\\[0.5ex]
+		
+	$\indent$Of the $N=768$ instances, 500 belong to class 0, and 268 instances are from class 1. In the discussion of equations (5) and (6) it was noted that in order for the condition $\widetilde{D}_p=D_p$ to hold, $p=q=0.5$. Therefore the maximum subsample size is limited to $n_{max}<2*268$ because calculation of the divergence estimate requires an equal number of data samples from each class to ensure $p=q=0.5$. For this dataset, an analysis of the effect of varying  $m$, and $n_{max}$ is performed. The increment between each subsample size $n_i$ is 2, so the number of bootstrap sample sizes $i$, is large. 
+		\\[0.5ex]
+		
 	$\indent$ In Table 7, the results of varying $n_{max}$ and $m$ are shown. Each row of the table corresponds to applying Algorithm 1 with the specified $n_{max}$ and $m$. As expected, when the number of Monte Carlo iterations is increased for a fixed $n_{max}$, the 95\% confidence interval for the asymptotic estimate tightens. Remarkably, the performance of the algorithm for small values of maximum sample size is comparable to the results of larger sample sizes. 
-	
+		\\[0.5ex]
+		
 	$\indent$ When $n_{max}=100$ and $m=5000$, the lower bound on the BER is 22.13 $\pm$ 0.67 \%. All other cases of $m=5000$ produce results for the BER lower bound that are within this confidence interval. In fact, there are only a few cases in Table 7 where the lower bound of the BER is outside this confidence interval.  Even with the seemingly restrictive maximum sample size of $n_{max}=100$, estimates for the BER are accurate. This speaks to the strength of the power law  based estimation method.
-	
-	$\indent$ To understand the effect of changing $m$, refer to Figures 5-7 and the confidence intervals in Table 7. Figures 5-7 plot the power law curves for the results given in the last three rows of Table 7. In every case, a smaller value for $m$ results in a larger confidence interval. This can be seen visually in the spread of the means of the $m$ Monte-Carlo Iterations about the fitted curve. The $D_{p_{means}}$ have the greatest spread in Figure 5, where $m$ is the smallest. In Figure 6, the larger value of $m$ results in $D_{p_{means}}$ that are closer to the fitted curve. When a large value of 5000 is chosen for $m$, the result is plotted in Figure 7. There is an almost exact fit between the power law model and the Monte Carlo means.
+		\\[0.5ex]
+		
+	$\indent$ To understand the effect of changing $m$, refer to Figures 5-7 and the confidence intervals in Table 7. Figures 5-7 plot the power law curves for the results given in the last three rows of Table 7. In every case, a smaller value for $m$ results in a larger confidence interval. This can be seen visually in the spread of the means of the $m$ Monte Carlo Iterations about the fitted curve. The $D_{p_{means}}$ have the greatest spread in Figure 5, where $m$ is the smallest. In Figure 6, the larger value of $m$ results in $D_{p_{means}}$ that are closer to the fitted curve. When a large value of 5000 is chosen for $m$, the result is plotted in Figure 7. There is an almost exact fit between the power law model and the Monte Carlo means. So, as the number of Monte Carlo iterations are increased, the variability from the random sampling process is reduced, and the computed estimates lie almost exactly on the predicted curve.
 	
 	$\indent$
 		\begin{table}[!h]		
-			\caption{$D_p$ and Bayes Error Rate for the Pima Indian Data Set for Increasing Sample Size, and Increasing Monte Carlo Iterations}
+			\caption{$D_p$ and Bayes Error Rate for the Pima Indian Data Set for Increasing Sample Size and Monte Carlo Iterations}
 			\begin{center}
 				%	\begin{tabular}{||c c c c||} 
 				%		\hline
-				\begin{tabular}[!h]{ |p{1cm}||p{1.5cm}|p{4cm}|p{3.5cm}| |p{3.5cm}| }
+				\begin{tabular}[!h]{ |p{1cm}|p{1.5cm}||p{4cm}||p{3.5cm} |p{3.5cm}| }
 					
 					\hline
 					Sample Size \newline $n_{max}$ & Monte Carlo Iterations \newline $m$ & $\newline$ $\bar{D}_p^*$ (95\% CI)& Bayes Error Rate (\%),$\newline$ ($\pm$ 95\% CI) $\newline$ Lower Bound &   Bayes Error Rate (\%),$\newline$ ($\pm$ 95\% CI) $\newline$ Upper Bound \\[0.5ex] 
 					\hline\hline
 					100	& 50	& 0.2725   (0.245, 0.3)	& $23.90  \pm 1.32$		 &  $36.38  \pm 1.38$\\
-					
 					\hline
-					
 					100	& 200	& 0.2958  (0.265, 0.3267)	& $22.81  \pm 1.42$   &$35.21  \pm 1.54$\\
 					\hline
 					
@@ -478,38 +494,27 @@
 				\end{tabular}
 			\end{center}
 		\end{table}		
-	
-	
-	For the uniform dataset, it was shown that as the value $n_i$ increases, the variance in the
-	\begin{figure}[!h]
-		\caption{Asymptotic Convergence for Pima Indian Data Set, m = 50 trials}
-		\centering
-		%	\begin{center}
-		\includegraphics[scale=0.6]{dp_n50_pima}
-		%	\end{center}
-	\end{figure}
-	\begin{figure}[!h]
-		\caption{Asymptotic Convergence for Pima Indian Data Set, m = 200 trials}
-		\centering
-		%	\begin{center}
-		\includegraphics[scale=0.6]{dp_n200_pima}
-		%	\end{center}
-	\end{figure}	
-	\begin{figure}[!h]
-		\caption{Asymptotic Convergence for Pima Indian Data Set, m = 5000 trials}
-		\centering
-		%	\begin{center}
-		\includegraphics[scale=0.6]{dp_n5000_pima}
-		%	\end{center}
-	\end{figure}	
-	
-	%		\begin{figure}[!h]
-	%			\caption{Asymptotic Convergence for Pima Indian Data Set, N = 5000 trials}
-	%			\centering
-	%			%	\begin{center}
-	%			\includegraphics[scale=0.75]{dp_n5000}
-	%			%	\end{center}
-	%		\end{figure}	
+		
+	$\indent$ In Section 3.1 the results of various methods of estimating $D_p$ were compared with the asymptotic method. Rather than compare the results of various $D_p$ estimation methods for the Pima Indian dataset, the Bayes error rates resulting from these estimation methods are compared. In Table 8, the resulting Bayes error rate is calculated for three estimation methods. In the first method (no bootstrap), a single computation of $D_p$ is performed for 500 points drawn from the dataset. Though the computed BER from this method is comparable to the BER bounds calculated with the asymptotic estimate, there is know knowledge of the uncertainty in this result. 
+	\\[0.5ex]
+
+	$\indent$The Bayes error calculated from $D_{p_{means}}$, the mean of $m=5000$ Monte Carlo iterations, is very similar to the non-bootstrapped estimate of the BER. Recall that the confidence interval for $D_{p_{means}}$ is given by recognizing that the sampling distribution of the Monte Carlo estimates are approximately gaussian. Therefore, the 95 \% CI for $D_{p_{means}}$ is created by including values within $2\sigma$. 
+		\begin{table}[!h]		
+			\caption{Bootstrap Estimated Bayes Error Rates for Pima Indians Data Set, $n_{max}=500$, $m=5000$ [4]}
+			\begin{center}
+				%	\begin{tabular}{||c c c c||} 
+				%		\hline
+				\begin{tabular}[!h]{ |p{5cm}||p{4cm}| |p{4cm}| }
+					\hline
+					$\newline$ Estimator Used & Bayes Error Rate (\%),$\newline$ ($\pm$ 95\% CI) $\newline$ Lower Bound &   Bayes Error Rate (\%),$\newline$ ($\pm$ 95\% CI) $\newline$ Upper Bound \\[0.5ex]  
+					\hline\hline
+					$D_p$ (no Bootstrap) & $23.32$ (No CI) & $35.72$ (No CI)\\
+					$D_{p_{means}}$& $23.26 \pm 2.73$ 	& $35.69 \pm 3.08$\\
+					\textbf{$\bar{D}_p^*$ } & $\textbf{22.78} \pm \textbf{0.11}$& $35.19 \pm 0.12$\\ 
+					\hline 		
+				\end{tabular}
+			\end{center}
+		\end{table}	
 	\begin{table}[!h]		
 		\caption{Bayes Error Rates in Literature for Pima Indians Data Set [4]}
 		\begin{center}
@@ -544,29 +549,45 @@
 				RBF  & 24.30	\\
 				LVQ  & 27.20 	\\ 
 				
-		%		\textbf{$D_p$}  \\
-		%		\textbf{$D_p$ Asymptotic Power Law} & \textbf{22.83} \\ 
+				%		\textbf{$D_p$}  \\
+				%		\textbf{$D_p$ Asymptotic Power Law} & \textbf{22.83} \\ 
 				\hline 		
 			\end{tabular}
 		\end{center}
 	\end{table}
-	\begin{table}[!h]		
-		\caption{Bootstrap Estimated Bayes Error Rates for Pima Indians Data Set [4]}
-		\begin{center}
-			%	\begin{tabular}{||c c c c||} 
-			%		\hline
-			\begin{tabular}[!h]{ |p{5cm}||p{4cm}| |p{4cm}| }
-				\hline
-				Estimator Used & Bayes Error Rate (\%),$\newline$ ($\pm$ 95\% CI) $\newline$ Lower Bound &   Bayes Error Rate (\%),$\newline$ ($\pm$ 95\% CI) $\newline$ Upper Bound \\[0.5ex]  
-				\hline\hline
-						$D_p$ (no Bootstrap) & $23.32$ & $35.72$\\
-						$D_p$ (Effron Bootstrap)  & $12.47$ 	& $17.29$\\
-						$D_{p_{means}}$& $23.26 \pm 2.73$ 	& $35.69 \pm 3.08$\\
-				\textbf{$\bar{D}_p^*$ } & $\textbf{22.78} \pm \textbf{0.11}$& $35.19 \pm 0.12$\\ 
-				\hline 		
-			\end{tabular}
-		\end{center}
-	\end{table}	
+
+	
+$	\newline$
+	
+	\begin{figure}[!h]
+		\caption{Asymptotic Convergence for Pima Indian Data Set, m = 50 trials}
+		\centering
+		%	\begin{center}
+		\includegraphics[scale=0.6]{dp_n50_pima}
+		%	\end{center}
+	\end{figure}
+	\begin{figure}[!h]
+		\caption{Asymptotic Convergence for Pima Indian Data Set, m = 200 trials}
+		\centering
+		%	\begin{center}
+		\includegraphics[scale=0.6]{dp_n200_pima}
+		%	\end{center}
+	\end{figure}	
+	\begin{figure}[!h]
+		\caption{Asymptotic Convergence for Pima Indian Data Set, m = 5000 trials}
+		\centering
+		%	\begin{center}
+		\includegraphics[scale=0.6]{dp_n5000_pima}
+		%	\end{center}
+	\end{figure}	
+	
+	%		\begin{figure}[!h]
+	%			\caption{Asymptotic Convergence for Pima Indian Data Set, N = 5000 trials}
+	%			\centering
+	%			%	\begin{center}
+	%			\includegraphics[scale=0.75]{dp_n5000}
+	%			%	\end{center}
+	%		\end{figure}	
 	%	\newpage
 	%		\section{Conclusion}
 	
