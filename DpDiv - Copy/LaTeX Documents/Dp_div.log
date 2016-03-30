@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.1.19)  30 MAR 2016 01:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.1.19)  30 MAR 2016 05:21
 entering extended mode
 **./Dp_div.tex
 (Dp_div.tex
@@ -305,34 +305,40 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--31
  []
 
 
-Overfull \hbox (7.18622pt too wide) in paragraph at lines 32--32
-[]\OT1/cmr/m/n/10 Normally, when es-ti-mat-ing the di-ver-gence be-tween two di
-s-tri-bu-tions, we have ac-cess to in-de-pen-dent
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 32--35
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 36--38
 
  []
 
 [1
 
 {C:/Users/Prad/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 36--38
+
+ []
+
+
+Overfull \hbox (8.85301pt too wide) in paragraph at lines 40--43
+[]$[]$\OT1/cmr/m/n/10 In this pa-per, we per-form a boot-strap es-ti-ma-tion of
+ a min-i-mum span-ning tree based $\OML/cmm/m/it/10 f$\OT1/cmr/m/n/10 -divergen
+ce
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 40--43
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 94--96
+Underfull \hbox (badness 10000) in paragraph at lines 71--93
 
  []
 
 [2]
+Underfull \hbox (badness 10000) in paragraph at lines 94--96
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 104--106
 
  []
@@ -367,83 +373,83 @@ Underfull \hbox (badness 10000) in paragraph at lines 128--130
  []
 
 [4 <./MST_example.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 142--145
+Underfull \hbox (badness 10000) in paragraph at lines 143--146
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 148--152
+Underfull \hbox (badness 10000) in paragraph at lines 149--153
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--162
+Underfull \hbox (badness 10000) in paragraph at lines 161--163
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 163--168
+Underfull \hbox (badness 10000) in paragraph at lines 164--169
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 170--172
+Underfull \hbox (badness 10000) in paragraph at lines 171--173
 
  []
 
 
-LaTeX Warning: Command \textless invalid in math mode on input line 173.
+LaTeX Warning: Command \textless invalid in math mode on input line 174.
 
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 173.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 174.
 
 ("F:\MiKTeX 2.9\tex\latex\base\omlcmr.fd"
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 173.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 174.
 
 
-LaTeX Warning: Command \textless invalid in math mode on input line 173.
+LaTeX Warning: Command \textless invalid in math mode on input line 174.
 
 
-LaTeX Warning: Command \textless invalid in math mode on input line 173.
+LaTeX Warning: Command \textless invalid in math mode on input line 174.
 
 
-LaTeX Warning: Command \textless invalid in math mode on input line 173.
+LaTeX Warning: Command \textless invalid in math mode on input line 174.
 
 
-LaTeX Warning: Command \textless invalid in math mode on input line 173.
+LaTeX Warning: Command \textless invalid in math mode on input line 174.
 
 
-LaTeX Warning: Command \textless invalid in math mode on input line 173.
+LaTeX Warning: Command \textless invalid in math mode on input line 174.
 
 
-LaTeX Warning: Command \textless invalid in math mode on input line 173.
+LaTeX Warning: Command \textless invalid in math mode on input line 174.
 
 
-LaTeX Warning: Command \textless invalid in math mode on input line 173.
+LaTeX Warning: Command \textless invalid in math mode on input line 174.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 176--179
+Underfull \hbox (badness 10000) in paragraph at lines 177--180
 
  []
 
 [6]
 
-LaTeX Warning: Command \textless invalid in math mode on input line 213.
+LaTeX Warning: Command \textless invalid in math mode on input line 214.
 
 
-LaTeX Warning: Command \textless invalid in math mode on input line 213.
+LaTeX Warning: Command \textless invalid in math mode on input line 214.
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 213.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 214.
 
 ("F:\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 213.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 214.
  [7]
-Underfull \hbox (badness 10000) in paragraph at lines 245--246
+Underfull \hbox (badness 10000) in paragraph at lines 246--247
 
  []
 
@@ -451,30 +457,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 245--246
 File: dp_n200_uniform.jpg Graphic file (type jpg)
 
 <use dp_n200_uniform.jpg>
-Package pdftex.def Info: dp_n200_uniform.jpg used on input line 280.
+Package pdftex.def Info: dp_n200_uniform.jpg used on input line 281.
 (pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 255--286
+Underfull \hbox (badness 10000) in paragraph at lines 256--287
 
  []
 
 [8] [9 <./dp_n200_uniform.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 312--314
+Underfull \hbox (badness 10000) in paragraph at lines 313--315
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 315--317
+Underfull \hbox (badness 10000) in paragraph at lines 316--318
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 321--323
+Underfull \hbox (badness 10000) in paragraph at lines 322--324
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 324--326
+Underfull \hbox (badness 10000) in paragraph at lines 325--327
 
  []
 
@@ -482,21 +488,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 324--326
 File: dp_n200_uniform_bars.jpg Graphic file (type jpg)
 
 <use dp_n200_uniform_bars.jpg>
-Package pdftex.def Info: dp_n200_uniform_bars.jpg used on input line 331.
+Package pdftex.def Info: dp_n200_uniform_bars.jpg used on input line 332.
 (pdftex.def)             Requested size: 289.98561pt x 197.84064pt.
  [11 <./dp_n200_uniform_bars.jpg>]
 <dp_n50_gaussian.jpg, id=60, 422.32782pt x 319.1925pt>
 File: dp_n50_gaussian.jpg Graphic file (type jpg)
 
 <use dp_n50_gaussian.jpg>
-Package pdftex.def Info: dp_n50_gaussian.jpg used on input line 395.
+Package pdftex.def Info: dp_n50_gaussian.jpg used on input line 396.
 (pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 402--404
+Underfull \hbox (badness 10000) in paragraph at lines 403--405
 
  []
 
@@ -504,9 +510,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 402--404
 File: dp_n50_banknote.jpg Graphic file (type jpg)
 
 <use dp_n50_banknote.jpg>
-Package pdftex.def Info: dp_n50_banknote.jpg used on input line 431.
+Package pdftex.def Info: dp_n50_banknote.jpg used on input line 432.
 (pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
- [13 <./dp_n50_gaussian.jpg>]
+ [13 <./dp_n50_gaussian.jpg>] [14 <./dp_n50_banknote.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 438--440
 
  []
@@ -526,70 +532,81 @@ Underfull \hbox (badness 10000) in paragraph at lines 447--449
 
  []
 
-[14 <./dp_n50_banknote.jpg>]
-Overfull \hbox (3.214pt too wide) in paragraph at lines 461--461
+
+Overfull \hbox (3.214pt too wide) in paragraph at lines 462--462
 []\OT1/cmr/m/n/10 Sample
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 461--461
+Underfull \hbox (badness 10000) in paragraph at lines 462--462
 []\OT1/cmr/m/n/10 Monte
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 461--461
+Underfull \hbox (badness 10000) in paragraph at lines 462--462
 \OT1/cmr/m/n/10 Carlo
  []
 
 
-Overfull \hbox (14.49217pt too wide) in paragraph at lines 458--494
+Overfull \hbox (14.49217pt too wide) in paragraph at lines 459--495
  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 497--499
-
- []
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 559--560
+Underfull \hbox (badness 10000) in paragraph at lines 499--501
 
  []
 
-<dp_n50_pima.jpg, id=75, 422.32782pt x 319.1925pt>
+
+Overfull \hbox (5.15863pt too wide) in paragraph at lines 502--504
+\OT1/cmr/m/n/10 Carlo it-er-a-tions, are very sim-i-lar to bounds cal-cu-lated 
+from a non-bootstrapped es-ti-mate of di-ver-gence.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 502--504
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 505--507
+
+ []
+
+[16] [17] [18] <dp_n50_pima.jpg, id=84, 422.32782pt x 319.1925pt>
 File: dp_n50_pima.jpg Graphic file (type jpg)
- <use dp_n50_pima.jpg>
-Package pdftex.def Info: dp_n50_pima.jpg used on input line 565.
-(pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<dp_n200_pima.jpg, id=76, 422.32782pt x 319.1925pt>
+<use dp_n50_pima.jpg>
+Package pdftex.def Info: dp_n50_pima.jpg used on input line 570.
+(pdftex.def)             Requested size: 168.92813pt x 127.67473pt.
+ <dp_n200_pima.jpg, id=85, 422.32782pt x 319.1925pt>
 File: dp_n200_pima.jpg Graphic file (type jpg)
- <use dp_n200_pima.jpg>
-Package pdftex.def Info: dp_n200_pima.jpg used on input line 572.
-(pdftex.def)             Requested size: 253.39864pt x 191.51697pt.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<dp_n5000_pima.jpg, id=77, 425.33907pt x 319.1925pt>
+<use dp_n200_pima.jpg>
+Package pdftex.def Info: dp_n200_pima.jpg used on input line 577.
+(pdftex.def)             Requested size: 168.92813pt x 127.67473pt.
+ <dp_n5000_pima.jpg, id=86, 425.33907pt x 319.1925pt>
 File: dp_n5000_pima.jpg Graphic file (type jpg)
- <use dp_n5000_pima.jpg>
-Package pdftex.def Info: dp_n5000_pima.jpg used on input line 579.
-(pdftex.def)             Requested size: 255.2054pt x 191.51697pt.
 
+<use dp_n5000_pima.jpg>
+Package pdftex.def Info: dp_n5000_pima.jpg used on input line 584.
+(pdftex.def)             Requested size: 170.1326pt x 127.67473pt.
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Underfull \hbox (badness 10000) in paragraph at lines 588--599
 
-[16]
-Underfull \hbox (badness 10000) in paragraph at lines 602--605
+ []
+
+[19 <./dp_n50_pima.jpg> <./dp_n200_pima.jpg> <./dp_n5000_pima.jpg>] [20]
+[21] [22]
+Underfull \hbox (badness 10000) in paragraph at lines 638--641
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 606--610
+Underfull \hbox (badness 10000) in paragraph at lines 642--646
 
  []
 
@@ -600,32 +617,31 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ù in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 611--615
+Underfull \hbox (badness 10000) in paragraph at lines 647--651
 
  []
 
-[17 <./dp_n50_pima.jpg> <./dp_n200_pima.jpg>]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
 
-Overfull \hbox (0.57524pt too wide) in paragraph at lines 616--619
+Overfull \hbox (0.57524pt too wide) in paragraph at lines 652--655
 \OT1/cmr/m/n/10 [4] K. Tumer, K. (1996) "Es-ti-mat-ing the Bayes er-ror rate th
 rough clas-si-fier com-bin-ing" in Pro-ceed-ings
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 616--619
+Underfull \hbox (badness 10000) in paragraph at lines 652--655
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 620--623
+Underfull \hbox (badness 10000) in paragraph at lines 656--659
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 624--627
+Underfull \hbox (badness 10000) in paragraph at lines 660--663
 
  []
 
@@ -636,80 +652,25 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ù in font cmr10!
 
-Overfull \hbox (189.30733pt too wide) in paragraph at lines 628--630
+Overfull \hbox (189.30733pt too wide) in paragraph at lines 664--666
 \OT1/cmr/m/n/10 [7] V. Lo-hweg, Ban-knote Au-then-ti-ca-tion Data Set, 2012. [O
 n-line]. Avail-able: https://archive.ics.uci.edu/ml/datasets/banknote+authentic
 ation. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 628--630
+Underfull \hbox (badness 10000) in paragraph at lines 664--666
 
  []
 
 
-Overfull \hbox (5.31606pt too wide) in paragraph at lines 631--633
+Overfull \hbox (5.31606pt too wide) in paragraph at lines 667--669
 \OT1/cmr/m/n/10 [8] K. Pranesh, and L. Hunter. "On an In-for-ma-tion Di-ver-gen
 ce Mea-sure and In-for-ma-tion In-equal-i-ties."
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 631--633
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 634--637
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 638--640
-
- []
-
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ú in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ù in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ì in font cmr10!
-
-Underfull \hbox (badness 10000) in paragraph at lines 641--646
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 647--651
-
- []
-
-[18 <./dp_n5000_pima.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 652--656
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 657--661
-
- []
-
-
-Overfull \hbox (1.34383pt too wide) in paragraph at lines 662--665
-\OT1/cmr/m/n/10 [23] L. Song, M.D. Reid, A.J. Smola, and R.C. Williamson. Dis-c
-rim-i-na-tive es-ti-ma-tion of f -divergence.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 662--665
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 666--669
+Underfull \hbox (badness 10000) in paragraph at lines 667--669
 
  []
 
@@ -718,6 +679,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 670--673
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 674--676
+
+ []
+
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ú in font cmr10!
@@ -728,23 +694,73 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 674--677
+Underfull \hbox (badness 10000) in paragraph at lines 677--682
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 678--682
+Underfull \hbox (badness 10000) in paragraph at lines 683--687
 
  []
 
 
-Overfull \hbox (7.34392pt too wide) in paragraph at lines 683--687
+Underfull \hbox (badness 10000) in paragraph at lines 688--692
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 693--697
+
+ []
+
+[23]
+Overfull \hbox (1.34383pt too wide) in paragraph at lines 698--701
+\OT1/cmr/m/n/10 [23] L. Song, M.D. Reid, A.J. Smola, and R.C. Williamson. Dis-c
+rim-i-na-tive es-ti-ma-tion of f -divergence.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 698--701
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 702--705
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 706--709
+
+ []
+
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ù in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ì in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 710--713
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 714--718
+
+ []
+
+
+Overfull \hbox (7.34392pt too wide) in paragraph at lines 719--723
 \OT1/cmr/m/n/10 [28] Wang, Qing, San-jeev R. Kulka-rni, and Ser-gio Verdu. "Di-
 ver-gence Es-ti-ma-tion for Mul-ti-di-men-sional
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 683--687
+Underfull \hbox (badness 10000) in paragraph at lines 719--723
 
  []
 
@@ -753,7 +769,7 @@ Missing character: There is no ° in font cmr10!
 Missing character: There is no √ in font cmr10!
 Missing character: There is no ≥ in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 688--691
+Underfull \hbox (badness 10000) in paragraph at lines 724--727
 
  []
 
@@ -767,13 +783,13 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
 
-Overfull \hbox (15.4364pt too wide) in paragraph at lines 692--695
+Overfull \hbox (15.4364pt too wide) in paragraph at lines 728--731
 \OT1/cmr/m/n/10 [30] T. Kailath, The di-ver-gence and Bhat-tacharyya dis-tance 
 mea-sures in sig-nal se-lec-tion, Com-mu-ni-ca-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 692--695
+Underfull \hbox (badness 10000) in paragraph at lines 728--731
 
  []
 
@@ -787,7 +803,7 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 696--700
+Underfull \hbox (badness 10000) in paragraph at lines 732--736
 
  []
 
@@ -801,7 +817,7 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 701--704
+Underfull \hbox (badness 10000) in paragraph at lines 737--740
 
  []
 
@@ -817,7 +833,7 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 705--709
+Underfull \hbox (badness 10000) in paragraph at lines 741--745
 
  []
 
@@ -831,22 +847,7 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 710--716
-
- []
-
-[19]
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ú in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ù in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ì in font cmr10!
-
-Underfull \hbox (badness 10000) in paragraph at lines 717--722
+Underfull \hbox (badness 10000) in paragraph at lines 746--752
 
  []
 
@@ -860,12 +861,26 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 723--727
+Underfull \hbox (badness 10000) in paragraph at lines 753--758
 
  []
 
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ù in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ì in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 728--731
+Underfull \hbox (badness 10000) in paragraph at lines 759--763
+
+ []
+
+[24]
+Underfull \hbox (badness 10000) in paragraph at lines 764--767
 
  []
 
@@ -876,11 +891,11 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ù in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 732--735
+Underfull \hbox (badness 10000) in paragraph at lines 768--771
 
  []
 
-[20] (Dp_div.aux)
+[25] [26] (Dp_div.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -892,11 +907,11 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  3082 strings out of 493634
  41683 string characters out of 3149417
- 139066 words of memory out of 3000000
+ 132066 words of memory out of 3000000
  6436 multiletter control sequences out of 15000+200000
  13580 words of font info for 47 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 32i,16n,31p,1103b,2463s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 32i,16n,31p,1117b,2463s stack positions out of 5000i,500n,10000p,200000b,50000s
 <F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><F:/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><F:/MiKTeX 2.9/fonts/type1/p
 ublic/amsfonts/cm/cmbx7.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx9
@@ -913,9 +928,9 @@ c/amsfonts/cm/cmr7.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><
 F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><F:/MiKTeX 2.9/fonts/ty
 pe1/public/amsfonts/cm/cmsy7.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
 cmsy8.pfb>
-Output written on Dp_div.pdf (20 pages, 611360 bytes).
+Output written on Dp_div.pdf (26 pages, 621019 bytes).
 PDF statistics:
- 159 PDF objects out of 1000 (max. 8388607)
+ 178 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
