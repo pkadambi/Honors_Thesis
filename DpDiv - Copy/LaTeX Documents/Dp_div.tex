@@ -606,10 +606,13 @@ $	\newline$
 \newpage
 	\section{Conclusion}
 		$\indent$ This work has shown that a minimal spanning tree based $f$-divergence converges as a function of sample size according to a power law curve. The power law was applied to estimate the divergence of a uniformly distributed 8-dimensional dataset with a known divergence value of 0.5. We showed that direct calculations of the divergence for this dataset yield incorrect estimates with limited use due to the slow convergence of the estimator. However, when the power law method was used to find the asymptotic value of the divergence estimator, the result $\bar{D}_p^*=0.4775$ was found, and it agreed well with the true divergence value for the dataset.
+		\\[0.5ex]
 		
 		$\indent$ Having shown that the power law estimation method was valid, the it was applied to an 8-dimensional Gaussian dataset in order to show that the resultant $\bar{D}_p^*$ calculated from the power law could be used to bound the BER. The estimated bounds on BER contained the true BER for the dataset. A similar analysis was performed on the Banknote dataset to show that the algorithm also succeeds for real world datasets.
+		\\[0.5ex]
 		
 		$\indent$ The analysis of the Pima Indians dataset clearly showed the strengths of this estimation method. Even for small values of sample size, accurate asymptotic estimates of the divergence were produced, with respectably tight confidence intervals. When the number of Monte Carlo iterations performed was increased, we noticed that the divergence estimates at each sample size were in almost perfect agreement with the power law model. 
+		\\[0.5ex]
 		
 		$\indent$ Future work will aim to understand the order convergence for the  $D_p$-estimator analytically. Other lines of inquiry will focus on finding an expression for the variance of this estimator. The bias of the estimator also needs to be determined. These analytical expressions will provide more information about the estimator, and will guide our choices of variables such as number of Monte Carlo trials or sample size.
 
