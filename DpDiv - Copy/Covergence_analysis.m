@@ -1,3 +1,36 @@
+%------------------------------------
+% DONT USE THIS ONE USE direct_convergence_analysis.m
+% DONT USE THIS ONE USE direct_convergence_analysis.m
+% DONT USE THIS ONE USE direct_convergence_analysis.m
+% DONT USE THIS ONE USE direct_convergence_analysis.m
+% DONT USE THIS ONE USE direct_convergence_analysis.m
+% DONT USE THIS ONE USE direct_convergence_analysis.m
+% DONT USE THIS ONE USE direct_convergence_analysis.m
+% DONT USE THIS ONE USE direct_convergence_analysis.m
+% DONT USE THIS ONE USE direct_convergence_analysis.m
+% DONT USE THIS ONE USE direct_convergence_analysis.m
+% DONT USE THIS ONE USE direct_convergence_analysis.m
+% DONT USE THIS ONE USE direct_convergence_analysis.m
+% DONT USE THIS ONE USE direct_convergence_analysis.m
+% DONT USE THIS ONE USE direct_convergence_analysis.m
+% DONT USE THIS ONE USE direct_convergence_analysis.m
+% DONT USE THIS ONE USE direct_convergence_analysis.m
+% DONT USE THIS ONE USE direct_convergence_analysis.m
+% DONT USE THIS ONE USE direct_convergence_analysis.m
+% DONT USE THIS ONE USE direct_convergence_analysis.m
+% DONT USE THIS ONE USE direct_convergence_analysis.m
+% DONT USE THIS ONE USE direct_convergence_analysis.m
+% DONT USE THIS ONE USE direct_convergence_analysis.m
+% DONT USE THIS ONE USE direct_convergence_analysis.m
+% DONT USE THIS ONE USE direct_convergence_analysis.m
+% DONT USE THIS ONE USE direct_convergence_analysis.m
+% DONT USE THIS ONE USE direct_convergence_analysis.m
+% DONT USE THIS ONE USE direct_convergence_analysis.m
+% DONT USE THIS ONE USE direct_convergence_analysis.m
+% DONT USE THIS ONE USE direct_convergence_analysis.m
+%-------------------------------------
+
+
 clear all
 load('n200_uniform_size_1000.mat')
 bvals=zeros(1,length(fullDpmeans1)-3)
