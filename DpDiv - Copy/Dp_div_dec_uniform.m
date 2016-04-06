@@ -1,5 +1,5 @@
 %2-dimensional gaussian dataset--------------------------------------------
-
+clear all
 dimension=8;
 
 offset=[zeros(1,8) ; 0.5 (zeros(1,7))];
@@ -64,11 +64,12 @@ for n = 1:length(maxSampleSize)
         currSampSize=sampleSizes(ii);
         
         for jj = 1:numTrials
+            currSampSize=1000;
             %Monte Carlo sampling done here WITHOUT REPLACEMENT
             %datasample uses randperm.m (in built) to choose vales
             f0=datasample(data1(:,:,1),currSampSize,'Replace',false);
             f1=datasample(data1(:,:,2),currSampSize,'Replace',false);
-            
+            Dp_div(f0,f1)
             dp_data1(ii,jj)=Dp_div(f0,f1);
             
 %             f0=datasample(data2(:,:,1),currSampSize,'Replace',false);
@@ -96,7 +97,7 @@ grid on
 plot(dpdivFit1,fullSampleSizes,fullDpmeans1')
 axis([0 1000 0 1])
 indexes=fliplr([47:-3:2]);
-boxplot(fulldpdata(:,indexes), 'Labels',fullSampleSizes(indexes)')
+% boxplot(fulldpdata(:,indexes), 'Labels',fullSampleSizes(indexes)')
 
 
 data1coef1=coeffvalues(dpdivFit1);
@@ -105,7 +106,7 @@ data1coef1=coeffvalues(dpdivFit1);
 dp_div_d1=data1coef1
 b1=data1coef1(2);
 a1=data1coef1(1);
-
+dp_val=data1coef1(3);
 % dp_div_d2=data1coef2(3);
 % b2=data1coef2(2);
 % a2=data1coef2(1);
@@ -116,8 +117,8 @@ ylabel('D_p Divergence')
 axis([0 maxSampleSize(length(maxSampleSize)) 0.2 0.6])
 
 
-lowerBound1=0.5-0.5*sqrt(dp_div_d1)
-upperBound1=0.5-0.5*dp_div_d1
+lowerBound1=0.5-0.5*sqrt(dp_val)
+pperBound1=0.5-0.5*dp_val
 
 % end
 % lowerBound2=0.5-0.5*sqrt(dp_div_d2)

@@ -4,12 +4,12 @@
 \usepackage[]{algorithm2e}
 \usepackage{program}
 \usepackage{eufrak}
-\usepackage{amsmath}
+%\usepackage{amsmath}
 \usepackage[a4paper, total={6in, 8in}]{geometry}
 \graphicspath{ {images/} }
 \begin{document}
 	
-	\title{Bootstrap Estimation of a Non-Parametric Information Divergence Measure}
+	\title{Improved Finite Sample Estimate of a Nonparametric Divergence Measure}
 	\author { Pradyumna (Prad) Kadambi and Visar Berisha \\
 		\small Arizona State University \\
 		\small Department of Electrical, Computer and Energy Engineering}
@@ -19,7 +19,7 @@
 	%----------------------------------------------------------------------------
 	\begin{abstract}
 		
-		This work details the bootstrap estimation of a nonparametric information divergence measure, the $D_p$ divergence measure, using a power law model. To address the challenge posed by computing accurate divergence estimates given finite size data, the bootstrap approach is used in conjunction with a power law curve to calculate an asymptotic value of the divergence estimator. Monte Carlo estimates of $D_p$ are found for increasing values of sample size, and a power law fit is used to relate the divergence estimates as a function of sample size.\ The fit is also used to generate a confidence interval for the estimate to characterize the quality of the estimate. We compare the performance of this method with the other estimation methods.\  The calculated divergence is applied to the binary classification problem. Using the inherent relation between divergence measures and classification error rate, an analysis of the Bayes error rate of several data sets is conducted using the asymptotic divergence estimate.
+		This work details the bootstrap estimation of a minimum spanning tree based nonparametric divergence measure, the $D_p$ divergence. To compute accurate divergence estimates for finite size data, a power law decay curve is applied to find the divergence as a function of sample size, and the asymptotic value of the estimator is found. This power law convergence has been proven for minimal graphs, but has not been shown for minimal spanning trees. We compare the performance of this method with the other estimation methods. The calculated divergence is applied to the binary classification problem. Using the inherent relation between divergence measures and classification error rate, an analysis of the Bayes error rate of several data sets is conducted using the asymptotic divergence estimate.
 	\end{abstract}
 	%----------------------------------------------------------------------------
 	
@@ -37,7 +37,7 @@
 	\\ [0.5ex]
 	
 	%PAPER goal paragraph
-	$\indent$In this paper, we perform a bootstrap estimation of a minimum spanning tree based $f$-divergence derived in [4] using a power law. From data of size $N$, we compute the estimates for $m$ Monte Carlo iterations at $i$ sample sizes $n\in \{n_1, n_2,... $ $,n_i\}<N$. Then, we apply the unproven, but reasonable assumption that a power law fit can be used to characterize the divergence estimates as a function of sample size. We exploit the unique ability to estimate this divergence measure directly from data, and bypass computing the densities. Utilizing this curve we extrapolate as sample size $n\rightarrow\infty$, and find the asymptotic value of the divergence estimate from a finite length data set.  As $f$-divergences are related to the classification error rate [5], this estimation scheme is applied to binary classification examples to find Bayes error rates for several datasets.
+	$\indent$In this paper, we perform a bootstrap estimation of a minimum spanning tree based $f$-divergence derived in [4] using a power law. From data of size $N$, we compute the estimates for $m$ Monte Carlo iterations at $i$ sample sizes $n\in \{n_1, n_2,... $ $,n_i\}<N$. Then, we apply the unproven, but reasonable assumption that a power law fit can be used to characterize the divergence estimates as a function of sample size. This convergence has been shown for minimal graphs, but remains unproven for minimum spanning trees. We exploit the unique ability to estimate this divergence measure directly from data, and bypass computing the densities. Utilizing this curve we extrapolate as sample size $n\rightarrow\infty$, and find the asymptotic value of the divergence estimate from a finite length data set.  As $f$-divergences are related to the classification error rate [5], this estimation scheme is applied to binary classification examples to find Bayes error rates for several datasets.
  	%MAybe add 1 sentance about confidence intervals for the estimator
  	\\ [0.5ex]
  	
@@ -171,27 +171,43 @@
 	$\indent$To satisfy the requirement, we consider another bootstrap resampling technique, the $n$ out of $N$ bootstrap (also known as the jackknife [9]). This technique generates $i$ randomly sampled subsets of size $n<N$, where the subsets are generated $without$ $replacement$. Then the quantities of interest are calculated for the $i$ subsets. Particularly, we consider calculating the confidence interval of ${D}_p$ after finding $D_p$ for all $i$ subsets. Now, we have an estimate of ${D}_p$ along with a confidence interval. But, this estimate is for finite data size, and the estimator for ${D}_p$, equation (6), specifies an asymptotic condition of $N_{f0} \rightarrow \infty$ and $N_{f_1} \rightarrow \infty$. Obtaining this estimate of ${D}_p$ for $n \rightarrow \infty$ is desirable in order to minimize the bias. 
 	\\ [0.5ex]
 	
-	$\indent$Hawes and Priebe [11] apply a $k$-Nearest Neighbors rule to find the upper and lower bound on the Bayes error rate, and find BER as a function of sample size. They perform individual bootstrap estimates of the BER (which they denote as $\bar{L}_n(k)$) at many sample sizes $n_1 \textless n_2 \textless ... \textless n_i \textless N$. Then, they apply a parametric power law curve to calculate the bootstrapped Bayes error rate estimates as a function of sample size, $n$. The model in question is:
-		\begin{equation}
-		\bar{L}_n(k)=an^b+c
-		\end{equation}
-	with power law fit constants $a$, $b$, $c$, and independent variable of sample size, $n$. Given that this model is valid and $b<0$: as $n \rightarrow \infty$, $\bar{L}_n(k)\rightarrow c$ with $c=\bar{L}_\infty(k)$. In [17] it is shown that $\vert \bar{L}_n(1)-\bar{L}_\infty (1) \vert \leq an^{-2}$; the absolute error of the BER estimate for a 1-dimensional data, with $k=1$ rule, converges in the form given by equation (9). 
+	$\indent$ We motivate the power law approach to estimating $D_p$ by analyzing a similar result for minimal graphs. In [17] Cover shows the convergence of the Bayes error rate, ${E}^{(n)}_{Bayes}(k)$, as a function of sample size, $n$, using a $k$-Nearest Neighbors rule ($k$-NN). Cover proves that for a choice of $k=1$, the convergence of the BER is:
+	\begin{equation}
+		\vert {E}^{(n)}_{Bayes}(1)-{E}^{(\infty)}_{Bayes}(1)\vert \leq an^{-2}
+	\end{equation} The absolute error of the BER estimate for a 1-dimensional dataset, using a $k=1$ rule, converges in the form of a power law. This result was generalized in [18] for a $d$-dimensional dataset. In [19] it was generalized to any choice of $k$, and produced the following expression for the BER:
+	\begin{equation}
+	{E}^{(n)}_{Bayes}(k) \sim {E}^{(\infty)}_{Bayes}(k) + \sum_{j=2}^{\infty} c_j n^{-j/d}
+	\end{equation}
+	As $n$ increases, the term that dominates happens to be $cn^{-2/d}$. This is in agreement with the earlier described result for the $d=1$ case. 
 	\\[0.5ex]
 	
-	$\indent$ This result was generalized in [18] for $d$-dimensional data. In [19] it was generalized to any choice of $k$, and produced the following expression for the BER:
+	$\indent$Hawes and Priebe [11] apply a $k$-NN rule to find the upper and lower bound on the Bayes error rate, and find BER as a function of sample size. They perform individual bootstrap estimates of the BER, ${E}^{(n)}_{Bayes}(k)$, at many sample sizes $n_1 \textless n_2 \textless ... \textless n_i \textless N$. Then, they apply a parametric power law curve to calculate the bootstrapped Bayes error rate estimates as a function of sample size, $n$. The model in question is:
+		
+		\begin{equation}
+		{E}^{(n)}_{Bayes}(k)=an^b+c
+		\end{equation}
+		
+	with power law fit constants $a$, $b$, $c$, and independent variable of sample size, $n$. It is easy to see if $b<0$: 
 	\begin{equation}
-	\bar{L}_n(k) \sim \bar{L}_\infty (k) + \sum_{j=2}^{\infty} c_j n^{-j/d}
+		\lim_{n\to\infty} {E}^{(n)}_{Bayes}(k) = c
 	\end{equation}
-	As $n$ increases, the term that dominates happens to be $cn^{-2/d}$. This is in agreement with the earlier described result for the $d=1$ case. So there is strong evidence to believe that the convergence of the Bayes error rate can be given by equation (10). (Please note that for the remainder of this paper, the Bayes error rate will $not$ be referred to as $\bar{L}_n(k)$).
+	The BER estimate converges to the constant $c$.
+	
+	
+	
 
 	\section{Methods}
 	
-	$\indent$While Hawes and Priebe focus on obtaining asymptotic bounds of the BER, this works focuses on finding the asymptotic value for the ${D}_p$ estimator. As shown in equation (8) of Section 1.2, it is possible to simply and directly relate the Bayes error rate to ${D}_p$. Therefore, the motivation behind the power law method for bounding the BER can also motivate an approach to find ${D}_p$. Though it has not been proven, it is a sensible assumption that the divergence estimates follow a similar power law for increasing sample size, and that an asymptotic estimate,  $\bar{D}_p^*$,  may be generated using this formulation. The following power law is defined:
+	$\indent$
+	This result of power law convergence for minimal graphs is now extended to the minimum spanning tree based estimator. While Hawes and Priebe focus on obtaining asymptotic bounds of the BER, this works focuses on finding the asymptotic value for the divergence. As shown in equation (8) of Section 1.2, it is possible to simply and directly relate the Bayes error rate to ${D}_p$. Therefore, the motivation behind the power law method for bounding the BER for minimal graphs can also motivate an approach to find ${D}_p$. Though it has not been proven, it is a sensible assumption that the divergence estimates follow a similar power law for increasing sample size, and that an asymptotic estimate,  $\bar{D}_p^*$,  may be generated using this formulation. The following power law is defined:
 	\begin{equation}
-		\bar{D}_p(f_0,f_1)=an^b+c
+		\bar{D}^{(n)}_p(f_0,f_1)=an^b+c
 	\end{equation}
 
-	$\indent$ Notice that under the sound assumption of $b<0$: $\bar{D}_p \rightarrow c$ as $n \rightarrow \infty$. So, we have good reason to believe that from a size $N$, finite length data set, it is possible to obtain asymptotic estimates for the divergence. To find a measure of spread for the divergence estimator, the 95\% confidence interval is calculated from the curve fitting process. Reviewing notation, $D_p$ refers to the distance in equation (3), $\widetilde{D}_p$ is the modified version of the distance suited to binary classification given in equation (5), and is equivalent to $D_p$ for our cases. $\bar{D}_p$ is the power law curve describing the estimator of ${D}_p$ as a function of sample size from the equation above. The asymptotic value of the divergence is denoted as $\bar{D}_p^*$.
+	$\indent$ Notice that under the sound assumption of $b<0$: \begin{equation}
+		\lim_{n\to\infty} 	\bar{D}^{(n)}_p(f_0,f_1) = c
+	\end{equation}
+	The asymptotic estimate $\bar{D}_p^* = c$. So, from a size $N$, finite length data set, it is possible to obtain asymptotic estimates for the divergence. To find a measure of spread for the divergence estimator, the 95\% confidence interval is calculated from the curve fitting process. Reviewing notation, $D_p$ refers to the distance in equation (3), $\widetilde{D}_p$ is the modified version of the distance suited to binary classification given in equation (5), and is equivalent to $D_p$ for our cases. $\bar{D}_p$ is the power law curve describing the estimator of ${D}_p$ as a function of sample size from the equation above. The asymptotic value of the divergence is denoted as $\bar{D}_p^*$.
 	
 	%While the $D_p$ value provides an insight into the separation of the data, as stated prevopu   
 %	Given a data set of size $N$ and dimensionality $D$, we have established how to calculate the $D_p$ value. How
@@ -247,7 +263,7 @@
 	
 	$\indent$	The algorithm for finding the $\bar{D}_p^*$ value for a two class data set follows from the overview of bootstrap sampling in 1.3. After deciding the target two class dataset, the number of Monte Carlo iterations, $m$, must be defined. Then, choose $i$ and $\textbf{n}_i$, the number of bootstrap subsamples and the bootstrap subsample sizes. Begin with the outer loop, and iterate through the number bootstrap subsample sizes, $i$. Create a randomly sampled subset $\textbf{S}$ of length $n_i$ from the data $\textbf{X}_S$ containing an equal number of elements from each class, and compute the divergence estimate for the subset $\textbf{S}$. Repeat the subset creation and divergence estimation $m$ times (this is the inner loop). Upon returning to the outer loop, find the mean of the $m$ computed $D_{p_k}$ values. Once the mean value of $m$ estimates for all $i$ bootstrap subsample sizes has been found, apply the power law fit, $\mathcal{P}$, to the mean values and subsample sizes. The asymptotic value of the divergence estimator $\bar{D}_p^*$ is equal to $c$.
 	
-	$\indent$ We note several restrictions on input parameters. Define maximum value of subsample size as $n_{max}$. This value must be less than $N$. Also, $\binom{N}{n_{max}}>m$, $N$ choose $n_{max}$ must be greater than $m$. 
+	$\indent$ We note several restrictions on input parameters. Define maximum value of subsample size as $n_{max}$. This value must be less than $N$. Also, ${N}{n_{max}}>m$, $N$ choose $n_{max}$ must be greater than $m$. 
 	This is a requirement for sensible Monte Carlo iterations: there must be at least $m$ unique subsets of size $n_{max}$ for the size $N$ dataset. The lower extreme of subsample size, $n_1$ must be greater than the number of dimensions of the data set.
 
 	
@@ -282,13 +298,13 @@
 			%	\end{center}
 	\end{figure}	
 	$\newline$
-	$\indent$ To find $\bar{D}_p^*$, a 10000 point dataset containing an equal number of instances from both classes $c_0$ and $c_1$ was created. With respect to Algorithm 1, the parameters of the simulation were: $N=10000$, $m=200$ Monte Carlo iterations, $i=50$ bootstrap subsample sizes, and $n_{max}=n_{50}=1000$ as the maximum bootstrap sample size. The results of the simulation are shown in Figure 2. The plot shows computed estimates of $D_p$ as a function of sample size and displays the resulting power law fit. Each blue point on the figure is a $D_p$ mean - the mean of 200 Monte Carlo trials at each bootstrap sample size $n_i$.
+	$\indent$ To find $\bar{D}_p^*$, a 5000 point dataset containing an equal number of instances from both classes $c_0$ and $c_1$ was created. With respect to Algorithm 1, the parameters of the simulation were: $N=5000$, $m=200$ Monte Carlo iterations, $i=50$ bootstrap subsample sizes, and $n_{max}=n_{50}=1000$ as the maximum bootstrap sample size. The results of the simulation are shown in Figure 2. The plot shows computed estimates of $D_p$ as a function of sample size and displays the resulting power law fit. Each blue point on the figure is a $D_p$ mean - the mean of 200 Monte Carlo trials at each bootstrap sample size $n_i$.
 	\\[0.5ex]
 
 	$\indent$ The power law found for $D_p$ for this uniform dataset is:
 	
 	\begin{equation}
-	\bar{D}_p=-0.39n^{-0.22}+0.4775
+	\bar{D}^{(n)}_p(f_0,f_1)=-0.39n^{-0.22}+0.4775
 	\end{equation}
 	The asymptotic estimate $\bar{D}_p^*=0.4775$ is in approximate agreement with the analytically calculated value for the dataset, $\textbf{D}_p=0.5$. To understand the true capability of the power law based, asymptotic estimation method consider Table 3.
 	
@@ -302,7 +318,7 @@
 				Value & Result \newline ($95 \%$ Confidence Interval) \\ [0.5ex] 
 				\hline\hline
 				$\textbf{D}_p$ (true value) & 0.5 \\
-				$D_p$ (no Bootstrap) & $0.3370$ (No CI) \\
+				$D_p$ (no Bootstrap) & $0.3882$ (No CI) \\
 				${D}_{p\_mean}$ & 0.3870 (0.3422, 0.4288) 	\\
 				$\bar{D}_p^*$ & $\textbf{0.4775}$  (0.4378, 0.5173)\\ 
 				
@@ -310,10 +326,10 @@
 			\end{tabular}
 		\end{center}
 	\end{table}
-	When a direct computation of the divergence measure is performed for 1000 data points an estimate of $D_p=0.337$ is obtained. This is problematic for two reasons. As explained earlier, there is no information about the distribution of the estimate. Additionally, the calculated value $D_p=0.337$, is far from the true value of $D_p=0.5$. The result is of little use for any application. 
+	When a direct computation of the divergence measure is performed for 1000 data points an estimate of $D_p=0.3882$ is obtained. This is problematic for two reasons. As explained earlier, there is no information about the distribution of the estimate. Additionally, the calculated value $D_p=0.3882$, is far from the true value of $D_p=0.5$. The result is of little use for any application. 
 	\\[0.5ex]
 	
-	$\indent$ $\bar{D}_{p\_mean}$ is the average of $m=200$ Monte Carlo estimates for a subsample size of 1000. Because the distribution of the estimates are approximately Gaussian, a crude way to characterize the $95\%$ confidence interval of the estimator is to consider values within 2$\sigma$ of the mean. But, the resulting confidence interval and value ${D}_{p\_mean}=0.3870$ are only marginally better than the value found without bootstrapping iterations.
+	$\indent$ $\bar{D}_{p\_mean}$ is the average of $m=200$ Monte Carlo estimates for a subsample size of 1000. Because the distribution of the estimates are approximately Gaussian, a crude way to characterize the $95\%$ confidence interval of the estimator is to consider values within 2$\sigma$ of the mean. But, the resulting confidence interval and value is ${D}_{p\_mean}=0.3870 (0.3422, 0.4288)$. The value itself is almost the same as the value found without bootstrapping. However, the confidence interval gives marginally better knowledge about the true value of $D_p$.
 	\\[0.5ex]
 	
 	$\indent$ If we then consider the asymptotic power law estimate $\bar{D}_p^*=0.4775$ with confidence interval $(0.4378, 0.5173)$, we see that the value of $\bar{D}_p^*=0.4775$ is fairly close to the true value of $\textbf{D}_p=0.5$. This result is far more favorable than the previous results. Additionally, the confidence interval found via the power law fit process includes the true value. Through this example, we have confirmed our assumption that the power law can be applied to find the asymptotic divergence estimate. 
@@ -364,12 +380,12 @@
 	
 	$\indent$ We wish to show that this estimation method is valid for many types of distributions. Therefore, we now consider the 8-dimensional Gaussian dataset given in Table 4 [20]. All dimensions of the data are zero mean and unit variance except for the first dimension of class 1. The mean of one of the dimensions of $c_1$ is shifted to $\mu_1=2.56$.  It is not possible to analytically calculate $D_p$ for a Gaussian dataset. But, the Bayes error rate for this data set is known (BER=10\%). So, $\bar{D}_p^*$ can be validated by calculating the bounds on the BER from $\bar{D}_p^*$, and comparing to the true BER value. 
 	
-	$\indent$ The same conditions as Section 3.1 are applied. A 10000 instance dataset is created containing an equal number of points from both classes. The number of Monte Carlo iterations $m=200$, and bootstrap subsample sizes $\textbf{n}_i$ are selected in the same manner with $n_{max}=1000$. The only difference in this case is that a Gaussian dataset is analyzed rather than a Uniform dataset, and an additional step of computing the BER is performed. The resulting power law curve for this dataset is:
+	$\indent$ The same conditions as Section 3.1 are applied. A 5000 instance dataset is created containing an equal number of points from both classes. The number of Monte Carlo iterations $m=200$, and bootstrap subsample sizes $\textbf{n}_i$ are selected in the same manner with $n_{max}=1000$. The only difference in this case is that a Gaussian dataset is analyzed rather than a Uniform dataset, and an additional step of computing the BER is performed. The resulting power law curve for this dataset is:
 	\begin{equation}
-	\bar{D}_p=-0.79n^{-0.59}+0.6773
+	\bar{D}^{(n)}_p(f_0,f_1)=-0.79n^{-0.59}+0.6773
 	\end{equation}
 	with asymptotic divergence estimate and confidence interval: $\bar{D}_p^*=0.6773$ (0.6687, 0.686).
-	Applying equation (8), Table 5 contains resultant bounds on the BER. The true value of the Bayes error rate is within the upper and lower bounds found via the value $\bar{D}_p^*$. So, $\bar{D}_p^*$, and the Bayes error rate bounds have been successfully estimated for the Gaussian dataset. Refer to Figure 4 for a plot of equation (13).
+	Applying equation (8), Table 5 contains resultant bounds on the BER. The true value of the Bayes error rate is within the upper and lower bounds found via the value $\bar{D}_p^*$. So, $\bar{D}_p^*$, and the Bayes error rate bounds have been successfully estimated for the Gaussian dataset. Refer to Figure 4 for a plot of equation (15).
 	
 	
 	\begin{table}[!h]		
@@ -405,7 +421,7 @@
 	
 	$\indent$The following parameters for Algorithm 1 are set: $m=50$, $i=50$, $n_{max}=600$, and most subsamples sizes $n_i$ are less than $0.5n_{max}$. For a sensitive task such as authenticating banknotes, it should not be surprising to see an asymptotic value for $D_p$ that is almost equal to 1:
 	\begin{equation}
-		\bar{D}_p=-3.18n^{-0.98}+ 1.001
+		\bar{D}^{(n)}_p(f_0,f_1)=-3.18n^{-0.98}+ 1.001
 	\end{equation}
 	This curve is plotted in Figure 5, along with the means of the $m=50$ Monte Carlo trials. The asymptotic value of the divergence estimate and its 95\% confidence interval  is $\bar{D}_p^*=1.000$(0.997, 1.005).
 	\begin{table}[!h]		
@@ -606,7 +622,7 @@ $	\newline$
 %$\newpage$
 \newpage
 	\section{Conclusion}
-		$\indent$ This work has shown that a minimal spanning tree based $f$-divergence converges as a function of sample size according to a power law curve. The power law was applied to estimate the divergence of a uniformly distributed 8-dimensional dataset with a known divergence value of 0.5. We showed that direct calculations of the divergence for this dataset yield incorrect estimates with limited use due to the slow convergence of the estimator. However, when the power law method was used to find the asymptotic value of the divergence estimator, the result $\bar{D}_p^*=0.4775$ was found, and it agreed well with the true divergence value for the dataset.
+		$\indent$ This work has shown that a minimal spanning tree based $f$-divergence converges as a function of sample size according to a power law curve. Previously, this result has only been shown for minimal graphs. The power law was applied to estimate the divergence of a uniformly distributed 8-dimensional dataset with a known divergence value of 0.5. We showed that direct calculations of the divergence for this dataset yield incorrect estimates with limited use due to the slow convergence of the estimator. However, when the power law method was used to find the asymptotic value of the divergence estimator, the result $\bar{D}_p^*=0.4775$ was found, and it agreed well with the true divergence value for the dataset.
 		\\[0.5ex]
 		
 		$\indent$ Having shown that the power law estimation method was valid, the it was applied to an 8-dimensional Gaussian dataset in order to show that the resultant $\bar{D}_p^*$ calculated from the power law could be used to bound the BER. The estimated bounds on BER contained the true BER for the dataset. A similar analysis was performed on the Banknote dataset to show that the algorithm produces sensible results for real world datasets.
@@ -628,21 +644,58 @@ $	\newline$
 	
 	\noindent Simplifying:
 	\begin{equation}
-		D_p(f_0,f_1)=1-\int \frac{f_0(\textbf{x}){f_1}(\textbf{x})}{{f_0}(\textbf{x})+{f_1}(\textbf{x})}d\textbf{x}
+		D_p(f_0,f_1)=1-2\int \frac{f_0(\textbf{x}){f_1}(\textbf{x})}{{f_0}(\textbf{x})+{f_1}(\textbf{x})}d\textbf{x}
 	\end{equation}
-	
-	\noindent Expanding for the 8-dimensional dataset:
-	\begin{equation}
-		D_p(f_0,f_1)=1-\int_{x_8} ... \int_{x_1} \frac{f_0(\textbf{x}){f_1}(\textbf{x})}{{f_0}(\textbf{x})+{f_1}(\textbf{x})}dx_1... dx_8
-	\end{equation}
+
 	
 	
-	\noindent For dimensions 2-8, there is full overlap between $f_0(\textbf{x})$ and $f_1(\textbf{x})$. 
-	
-	\noindent But for $x_1$, the mean of $f_1(x_1)$ is shifted so that $\mu_1=0.5$.
 	
 	\begin{equation}
-		D_p(f_0,f_1)=1-\int_{x_8=-0.5}^{x_8=0.5}...\int_{x_3=-0.5}^{x_3=0.5}\int_{x_2=-0.5}^{x_2=0.5}\int_{x_1=0.5}^{x_1=1} dx_1... dx_8	
+		D_p(f_0,f_1)=1-2\int_{x_8} ... \int_{x_1} \frac{f_0(\textbf{x}){f_1}(\textbf{x})}{{f_0}(\textbf{x})+{f_1}(\textbf{x})}dx_1... dx_8
+	\end{equation}
+		
+	\noindent Dataset in Table 2 is:
+	\begin{equation}
+	f_0(\textbf{x}) =  f_0(x_1)...f_0(x_8)
+	\begin{cases} 
+	1 & -0.5\leq x_1,x_2,...,x_8 \space \leq 0 \\
+
+	0 & otherwise 
+	\end{cases}
+	\
+	\end{equation}
+	
+	\begin{equation}
+	f_1(\textbf{x}) =	f_1(x_1)
+	\begin{cases} 
+	1 & 0\leq x_1 \space  \leq 1 \\
+	
+	0 & otherwise 
+	\end{cases}
+	\
+	%	\end{equation}
+	%	\begin{equation}
+	; \indent f_1(x_2)...f_1(x_8)
+	\begin{cases} 
+	1 & -0.5\leq x_2,x_3,...,x_8 \space \leq 0 \\
+	
+	0 & otherwise 
+	\end{cases}
+	\
+	\end{equation}
+	\noindent 
+		
+	\noindent Resulting $D_p$ expression:
+	\begin{equation}
+		D_p(f_0,f_1)=1-2\int_{x_8=-0.5}^{x_8=0.5}...\int_{x_2=-0.5}^{x_2=0.5}\int_{x_1=0.5}^{x_1=1}\frac{1}{2} dx_1... dx_8	
+	\end{equation}
+	
+	
+	
+
+		
+	\begin{equation}
+		D_p(f_0,f_1)=1-2\int_{x_8=-0.5}^{x_8=0.5}...\int_{x_2=-0.5}^{x_2=0.5}\int_{x_1=0.5}^{x_1=1}\frac{1}{2} dx_1... dx_8	
 	\end{equation}
 	
 	
