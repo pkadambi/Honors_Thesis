@@ -442,6 +442,22 @@
 	
 	$\indent$  If equation (8) is applied, the lower and upper bound of the BER are both negative: (-0.02\%, -0.05\%). Because a negative error rate is nonsensical, for this dataset the Bayes error rate is taken as 0\%. This means that an optimal classifier for this dataset could hope to make no errors at all in sorting banknotes as forged or genuine. This is certainly good news!
 	\newpage
+	\begin{table}[!h]		
+		\caption{Classification Error Rates in Literature for Banknote  Data Set [22]}
+		\begin{center}
+			%	\begin{tabular}{||c c c c||} 
+			%		\hline
+			\begin{tabular}[!h]{ |p{5cm}||p{5cm}|  }
+				\hline
+				Algorithm & Classification Error Rate (\%) \\ [0.5ex] 
+				\hline\hline
+				Multilayer Perceptron  & 2.91	\\
+				VLR &  1.38	\\
+				PDL &  2.89	\\
+				\hline 		
+			\end{tabular}
+		\end{center}
+	\end{table}
 	\begin{figure}[h!]
 			\caption{Convergence of $D_p$ for Banknote Authentication Data Set, m = 50 trials}
 			\centering
@@ -461,7 +477,7 @@
 	$\indent$ In Table 7, the results of varying $n_{max}$ and $m$ are shown. In all cases, the increment between each subsample size $n_i$ is 2, so the number of bootstrap sample sizes $i$, is large. Each row of the table corresponds to applying Algorithm 1 with the specified $n_{max}$ and $m$. As expected, when the number of Monte Carlo iterations is increased for a fixed $n_{max}$, the 95\% confidence interval for the asymptotic estimate tightens. Remarkably, the performance of the algorithm for a relatively small value of maximum sample size, $n_{max}=100$, is comparable to the results of larger choices for $n_{max}$. 
 		\\[0.5ex]
 		
-	$\indent$ When $n_{max}=100$ and $m=5000$, the lower bound on the BER is 22.13 $\pm$ 0.67\%. All other cases of $m=5000$ produce results for the BER lower bound that are within this confidence interval. In fact, there are only a few cases in Table 7 where the lower bound of the BER is outside this confidence interval.  Even with the seemingly restrictive maximum sample size of $n_{max}=100$, estimates for the BER are accurate. This speaks to the strength of the power law  based estimation method. The analysis suggests that if the number of data samples available is a limiting constraint, increasing the number of Monte Carlo iterations may narrow the large confidence intervals that result from small sample size.
+	$\indent$ When $n_{max}=100$ samples and $m=5000$ Monte Carlo iterations, the lower bound on the BER is 22.13 $\pm$ 0.67\%. All other cases of $m=5000$ produce results for the BER lower bound that are within this confidence interval. In fact, there are only a few cases in Table 7 where the lower bound of the BER is outside this confidence interval.  Even with the seemingly restrictive maximum sample size of $n_{max}=100$, estimates for the BER are accurate. This speaks to the strength of the power law  based estimation method. The analysis suggests that if the number of data samples available is a limiting constraint, increasing the number of Monte Carlo iterations may narrow the large confidence intervals that result from small sample size.
 		\\[0.5ex]
 	
 
@@ -539,7 +555,7 @@
 			\end{center}
 		\end{table}	
 	\begin{table}[!h]		
-		\caption{Bayes Error Rates in Literature for Pima Indians Data Set [22]}
+		\caption{Classification Error Rates in Literature for Pima Indians Data Set [22]}
 		\begin{center}
 			%	\begin{tabular}{||c c c c||} 
 			%		\hline
